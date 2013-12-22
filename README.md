@@ -48,6 +48,58 @@ A filter chain needs to be established that can run independent analyses in para
 
 The app needs to support uploading to image sharing services like imgur.
 
+Model Schema
+----------------
+
+Items have many-to-many users, tags, and characteristics.
+
+Because different users can tag different items and different tags can relate to lots of different items, items, tags, and users also have many UserItemTags. Each UserItemTag relates one tag to one user for one item.
+
+Characteristics are universal (if one user applies it, it's valid for all because it's the result of a deterministic image analysis) so they don't have to go through the same process to get associated with a user. *This might bite me in the ass, if I ever decide to add support for any non-deterministic analyses, like having different users train different neural networks on different image sets.*
+
+### User ###
+
+#### Properties ####
+* User unique ID
+* Username
+* Password hash
+
+#### Relationships ####
+* Items (many)
+* UserItemTags(many)
+
+### Item ###
+
+#### Properties #####
+* Unique ID (this will also serve as the local link to the content binary)
+* Timestamp
+
+#### Relationships ####
+* Tags (many)
+* Characteristics (many)
+* Users (many)
+* UserItemTags (many)
+
+### Tag ###
+
+#### Properties #####
+* Name
+
+#### Relationships ####
+* Items (many)
+* UserItemTags (many)
+
+### Characteristic ###
+
+#### Properties #####
+* Name
+* Value
+
+#### Relationships ####
+* Items (many)
+
+This design is inherently pretty open. The idea is that everyone shares all their tags with the backend. This is vulnerable to DoS and general fuckery. 
+
 TODO
 ------
 
