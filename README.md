@@ -60,7 +60,6 @@ Characteristics are universal (if one user applies it, it's valid for all becaus
 ### User ###
 
 #### Properties ####
-* User unique ID
 * Username
 * Password hash
 
@@ -71,7 +70,7 @@ Characteristics are universal (if one user applies it, it's valid for all becaus
 ### Item ###
 
 #### Properties #####
-* Unique ID (this will also serve as the local link to the content binary)
+* Content ID (this will also serve as the local link to the content binary)
 * Timestamp
 
 #### Relationships ####
