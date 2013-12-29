@@ -1,19 +1,13 @@
 PODS:
-  - AFIncrementalStore (0.5.1):
-    - AFNetworking (~> 1.3.2)
-    - InflectorKit
-    - TransformerKit
-  - AFNetworking (1.3.3)
-  - InflectorKit (0.0.1)
-  - TransformerKit (0.3.0)
+  - AFNetworking (1.1.0)
+  - StackMob (2.2.0):
+    - AFNetworking (= 1.1.0)
 
 DEPENDENCIES:
-  - AFIncrementalStore
+  - StackMob
 
 SPEC CHECKSUMS:
-  AFIncrementalStore: 4b5033a6a5045be8c9985740e8a563b17db9eb68
-  AFNetworking: 61fdd49e2ffe6380378df37b3b6e70630bb9dd66
-  InflectorKit: 9dccab02f95541093995adac639342c9eb9e6c12
-  TransformerKit: b74bb50bf82a46dcbf7fdc1892ef0f8616520450
+  AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
+  StackMob: d824b7837fe14776cac7c0602cfa7bb1fe20984a
 
 COCOAPODS: 0.28.0
