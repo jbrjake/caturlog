@@ -2,7 +2,7 @@
 //  main.swift
 //  Caturlog
 //
-//  Created by Jonathon Rubin on 7/1/14.
+//  Created by Jonathon Rubin on 7/3/14.
 //  Copyright (c) 2014 Jonathon Rubin. All rights reserved.
 //
 

@@ -7,48 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		74D9081519639BBA008A7982 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D9081419639BBA008A7982 /* main.swift */; };
-		74D9081719639BBB008A7982 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D9081619639BBB008A7982 /* Document.swift */; };
-		74D9081A19639BBB008A7982 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D9081819639BBB008A7982 /* Document.xib */; };
-		74D9081D19639BBB008A7982 /* Document.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74D9081B19639BBB008A7982 /* Document.xcdatamodeld */; };
-		74D9081F19639BBB008A7982 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D9081E19639BBB008A7982 /* Images.xcassets */; };
-		74D9082219639BBB008A7982 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D9082019639BBB008A7982 /* MainMenu.xib */; };
-		74D9082E19639BBB008A7982 /* CaturlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D9082D19639BBB008A7982 /* CaturlogTests.swift */; };
+		74D0811819650CDD004ACF9F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0811719650CDD004ACF9F /* main.swift */; };
+		74D0811A19650CDD004ACF9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0811919650CDD004ACF9F /* AppDelegate.swift */; };
+		74D0811F19650CDD004ACF9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D0811E19650CDD004ACF9F /* Images.xcassets */; };
+		74D0812219650CDD004ACF9F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D0812019650CDD004ACF9F /* MainMenu.xib */; };
+		74D0812E19650CDD004ACF9F /* CaturlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0812D19650CDD004ACF9F /* CaturlogTests.swift */; };
+		74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		74D9082819639BBB008A7982 /* PBXContainerItemProxy */ = {
+		74D0812819650CDD004ACF9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 74D9080719639BBA008A7982 /* Project object */;
+			containerPortal = 74D0810A19650CDD004ACF9F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 74D9080E19639BBA008A7982;
+			remoteGlobalIDString = 74D0811119650CDD004ACF9F;
 			remoteInfo = Caturlog;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		74D9080F19639BBA008A7982 /* Caturlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caturlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		74D9081319639BBA008A7982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		74D9081419639BBA008A7982 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		74D9081619639BBB008A7982 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		74D9081919639BBB008A7982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
-		74D9081C19639BBB008A7982 /* Document.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Document.xcdatamodel; sourceTree = "<group>"; };
-		74D9081E19639BBB008A7982 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		74D9082119639BBB008A7982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		74D9082719639BBB008A7982 /* CaturlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaturlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		74D9082C19639BBB008A7982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		74D9082D19639BBB008A7982 /* CaturlogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaturlogTests.swift; sourceTree = "<group>"; };
+		74D0811219650CDD004ACF9F /* Caturlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caturlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D0811619650CDD004ACF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D0811719650CDD004ACF9F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		74D0811919650CDD004ACF9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		74D0811E19650CDD004ACF9F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		74D0812119650CDD004ACF9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		74D0812719650CDD004ACF9F /* CaturlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaturlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D0812C19650CDD004ACF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D0812D19650CDD004ACF9F /* CaturlogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaturlogTests.swift; sourceTree = "<group>"; };
+		74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Caturlog.xcdatamodel; path = ../Caturlog.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		74D9080C19639BBA008A7982 /* Frameworks */ = {
+		74D0810F19650CDD004ACF9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74D9082419639BBB008A7982 /* Frameworks */ = {
+		74D0812419650CDD004ACF9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -58,59 +56,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		74D9080619639BBA008A7982 = {
+		74D0810919650CDD004ACF9F = {
 			isa = PBXGroup;
 			children = (
-				74D9081119639BBA008A7982 /* Caturlog */,
-				74D9082A19639BBB008A7982 /* CaturlogTests */,
-				74D9081019639BBA008A7982 /* Products */,
+				74D0811419650CDD004ACF9F /* Caturlog */,
+				74D0812A19650CDD004ACF9F /* CaturlogTests */,
+				74D0811319650CDD004ACF9F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		74D9081019639BBA008A7982 /* Products */ = {
+		74D0811319650CDD004ACF9F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				74D9080F19639BBA008A7982 /* Caturlog.app */,
-				74D9082719639BBB008A7982 /* CaturlogTests.xctest */,
+				74D0811219650CDD004ACF9F /* Caturlog.app */,
+				74D0812719650CDD004ACF9F /* CaturlogTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		74D9081119639BBA008A7982 /* Caturlog */ = {
+		74D0811419650CDD004ACF9F /* Caturlog */ = {
 			isa = PBXGroup;
 			children = (
-				74D9081619639BBB008A7982 /* Document.swift */,
-				74D9081819639BBB008A7982 /* Document.xib */,
-				74D9081E19639BBB008A7982 /* Images.xcassets */,
-				74D9082019639BBB008A7982 /* MainMenu.xib */,
-				74D9081B19639BBB008A7982 /* Document.xcdatamodeld */,
-				74D9081219639BBA008A7982 /* Supporting Files */,
+				74D0811919650CDD004ACF9F /* AppDelegate.swift */,
+				74D0811E19650CDD004ACF9F /* Images.xcassets */,
+				74D0812019650CDD004ACF9F /* MainMenu.xib */,
+				74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */,
+				74D0811519650CDD004ACF9F /* Supporting Files */,
 			);
 			path = Caturlog;
 			sourceTree = "<group>";
 		};
-		74D9081219639BBA008A7982 /* Supporting Files */ = {
+		74D0811519650CDD004ACF9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				74D9081319639BBA008A7982 /* Info.plist */,
-				74D9081419639BBA008A7982 /* main.swift */,
+				74D0811619650CDD004ACF9F /* Info.plist */,
+				74D0811719650CDD004ACF9F /* main.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		74D9082A19639BBB008A7982 /* CaturlogTests */ = {
+		74D0812A19650CDD004ACF9F /* CaturlogTests */ = {
 			isa = PBXGroup;
 			children = (
-				74D9082D19639BBB008A7982 /* CaturlogTests.swift */,
-				74D9082B19639BBB008A7982 /* Supporting Files */,
+				74D0812D19650CDD004ACF9F /* CaturlogTests.swift */,
+				74D0812B19650CDD004ACF9F /* Supporting Files */,
 			);
 			path = CaturlogTests;
 			sourceTree = "<group>";
 		};
-		74D9082B19639BBB008A7982 /* Supporting Files */ = {
+		74D0812B19650CDD004ACF9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				74D9082C19639BBB008A7982 /* Info.plist */,
+				74D0812C19650CDD004ACF9F /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -118,13 +115,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		74D9080E19639BBA008A7982 /* Caturlog */ = {
+		74D0811119650CDD004ACF9F /* Caturlog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 74D9083119639BBB008A7982 /* Build configuration list for PBXNativeTarget "Caturlog" */;
+			buildConfigurationList = 74D0813119650CDD004ACF9F /* Build configuration list for PBXNativeTarget "Caturlog" */;
 			buildPhases = (
-				74D9080B19639BBA008A7982 /* Sources */,
-				74D9080C19639BBA008A7982 /* Frameworks */,
-				74D9080D19639BBA008A7982 /* Resources */,
+				74D0810E19650CDD004ACF9F /* Sources */,
+				74D0810F19650CDD004ACF9F /* Frameworks */,
+				74D0811019650CDD004ACF9F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -132,46 +129,46 @@
 			);
 			name = Caturlog;
 			productName = Caturlog;
-			productReference = 74D9080F19639BBA008A7982 /* Caturlog.app */;
+			productReference = 74D0811219650CDD004ACF9F /* Caturlog.app */;
 			productType = "com.apple.product-type.application";
 		};
-		74D9082619639BBB008A7982 /* CaturlogTests */ = {
+		74D0812619650CDD004ACF9F /* CaturlogTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 74D9083419639BBB008A7982 /* Build configuration list for PBXNativeTarget "CaturlogTests" */;
+			buildConfigurationList = 74D0813419650CDD004ACF9F /* Build configuration list for PBXNativeTarget "CaturlogTests" */;
 			buildPhases = (
-				74D9082319639BBB008A7982 /* Sources */,
-				74D9082419639BBB008A7982 /* Frameworks */,
-				74D9082519639BBB008A7982 /* Resources */,
+				74D0812319650CDD004ACF9F /* Sources */,
+				74D0812419650CDD004ACF9F /* Frameworks */,
+				74D0812519650CDD004ACF9F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				74D9082919639BBB008A7982 /* PBXTargetDependency */,
+				74D0812919650CDD004ACF9F /* PBXTargetDependency */,
 			);
 			name = CaturlogTests;
 			productName = CaturlogTests;
-			productReference = 74D9082719639BBB008A7982 /* CaturlogTests.xctest */;
+			productReference = 74D0812719650CDD004ACF9F /* CaturlogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		74D9080719639BBA008A7982 /* Project object */ = {
+		74D0810A19650CDD004ACF9F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Jonathon Rubin";
 				TargetAttributes = {
-					74D9080E19639BBA008A7982 = {
+					74D0811119650CDD004ACF9F = {
 						CreatedOnToolsVersion = 6.0;
 					};
-					74D9082619639BBB008A7982 = {
+					74D0812619650CDD004ACF9F = {
 						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 74D9080E19639BBA008A7982;
+						TestTargetID = 74D0811119650CDD004ACF9F;
 					};
 				};
 			};
-			buildConfigurationList = 74D9080A19639BBA008A7982 /* Build configuration list for PBXProject "Caturlog" */;
+			buildConfigurationList = 74D0810D19650CDD004ACF9F /* Build configuration list for PBXProject "Caturlog" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -179,29 +176,28 @@
 				en,
 				Base,
 			);
-			mainGroup = 74D9080619639BBA008A7982;
-			productRefGroup = 74D9081019639BBA008A7982 /* Products */;
+			mainGroup = 74D0810919650CDD004ACF9F;
+			productRefGroup = 74D0811319650CDD004ACF9F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				74D9080E19639BBA008A7982 /* Caturlog */,
-				74D9082619639BBB008A7982 /* CaturlogTests */,
+				74D0811119650CDD004ACF9F /* Caturlog */,
+				74D0812619650CDD004ACF9F /* CaturlogTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		74D9080D19639BBA008A7982 /* Resources */ = {
+		74D0811019650CDD004ACF9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74D9081A19639BBB008A7982 /* Document.xib in Resources */,
-				74D9081F19639BBB008A7982 /* Images.xcassets in Resources */,
-				74D9082219639BBB008A7982 /* MainMenu.xib in Resources */,
+				74D0811F19650CDD004ACF9F /* Images.xcassets in Resources */,
+				74D0812219650CDD004ACF9F /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74D9082519639BBB008A7982 /* Resources */ = {
+		74D0812519650CDD004ACF9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -211,47 +207,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		74D9080B19639BBA008A7982 /* Sources */ = {
+		74D0810E19650CDD004ACF9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74D9081D19639BBB008A7982 /* Document.xcdatamodeld in Sources */,
-				74D9081719639BBB008A7982 /* Document.swift in Sources */,
-				74D9081519639BBA008A7982 /* main.swift in Sources */,
+				74D0811A19650CDD004ACF9F /* AppDelegate.swift in Sources */,
+				74D0811819650CDD004ACF9F /* main.swift in Sources */,
+				74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74D9082319639BBB008A7982 /* Sources */ = {
+		74D0812319650CDD004ACF9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74D9082E19639BBB008A7982 /* CaturlogTests.swift in Sources */,
+				74D0812E19650CDD004ACF9F /* CaturlogTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		74D9082919639BBB008A7982 /* PBXTargetDependency */ = {
+		74D0812919650CDD004ACF9F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 74D9080E19639BBA008A7982 /* Caturlog */;
-			targetProxy = 74D9082819639BBB008A7982 /* PBXContainerItemProxy */;
+			target = 74D0811119650CDD004ACF9F /* Caturlog */;
+			targetProxy = 74D0812819650CDD004ACF9F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		74D9081819639BBB008A7982 /* Document.xib */ = {
+		74D0812019650CDD004ACF9F /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				74D9081919639BBB008A7982 /* Base */,
-			);
-			name = Document.xib;
-			sourceTree = "<group>";
-		};
-		74D9082019639BBB008A7982 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				74D9082119639BBB008A7982 /* Base */,
+				74D0812119650CDD004ACF9F /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -259,7 +247,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		74D9082F19639BBB008A7982 /* Debug */ = {
+		74D0812F19650CDD004ACF9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -301,7 +289,7 @@
 			};
 			name = Debug;
 		};
-		74D9083019639BBB008A7982 /* Release */ = {
+		74D0813019650CDD004ACF9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -336,7 +324,7 @@
 			};
 			name = Release;
 		};
-		74D9083219639BBB008A7982 /* Debug */ = {
+		74D0813219650CDD004ACF9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -347,7 +335,7 @@
 			};
 			name = Debug;
 		};
-		74D9083319639BBB008A7982 /* Release */ = {
+		74D0813319650CDD004ACF9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -358,7 +346,7 @@
 			};
 			name = Release;
 		};
-		74D9083519639BBB008A7982 /* Debug */ = {
+		74D0813519650CDD004ACF9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Caturlog.app/Contents/MacOS/Caturlog";
@@ -379,7 +367,7 @@
 			};
 			name = Debug;
 		};
-		74D9083619639BBB008A7982 /* Release */ = {
+		74D0813619650CDD004ACF9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Caturlog.app/Contents/MacOS/Caturlog";
@@ -399,45 +387,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		74D9080A19639BBA008A7982 /* Build configuration list for PBXProject "Caturlog" */ = {
+		74D0810D19650CDD004ACF9F /* Build configuration list for PBXProject "Caturlog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				74D9082F19639BBB008A7982 /* Debug */,
-				74D9083019639BBB008A7982 /* Release */,
+				74D0812F19650CDD004ACF9F /* Debug */,
+				74D0813019650CDD004ACF9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		74D9083119639BBB008A7982 /* Build configuration list for PBXNativeTarget "Caturlog" */ = {
+		74D0813119650CDD004ACF9F /* Build configuration list for PBXNativeTarget "Caturlog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				74D9083219639BBB008A7982 /* Debug */,
-				74D9083319639BBB008A7982 /* Release */,
+				74D0813219650CDD004ACF9F /* Debug */,
+				74D0813319650CDD004ACF9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		74D9083419639BBB008A7982 /* Build configuration list for PBXNativeTarget "CaturlogTests" */ = {
+		74D0813419650CDD004ACF9F /* Build configuration list for PBXNativeTarget "CaturlogTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				74D9083519639BBB008A7982 /* Debug */,
-				74D9083619639BBB008A7982 /* Release */,
+				74D0813519650CDD004ACF9F /* Debug */,
+				74D0813619650CDD004ACF9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		74D9081B19639BBB008A7982 /* Document.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				74D9081C19639BBB008A7982 /* Document.xcdatamodel */,
-			);
-			currentVersion = 74D9081C19639BBB008A7982 /* Document.xcdatamodel */;
-			path = Document.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
-	rootObject = 74D9080719639BBA008A7982 /* Project object */;
+	rootObject = 74D0810A19650CDD004ACF9F /* Project object */;
 }

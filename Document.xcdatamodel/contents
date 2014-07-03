@@ -30,10 +30,10 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userItemTags" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Characteristic" positionX="-443" positionY="-378" width="128" height="88"/>
         <element name="Item" positionX="-281" positionY="-232" width="128" height="118"/>
         <element name="Tag" positionX="-488" positionY="-270" width="128" height="88"/>
         <element name="User" positionX="-486" positionY="-85" width="128" height="103"/>
-        <element name="Characteristic" positionX="-443" positionY="-378" width="128" height="88"/>
         <element name="UserItemTag" positionX="-666" positionY="-205" width="128" height="103"/>
     </elements>
 </model>
