@@ -14,14 +14,14 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
     func getResource(url: NSURL, completion: (data: NSData?) -> ()) {
         let request = NSMutableURLRequest(URL: url)
         
-        println("Sending async request for \(url)")
         NSURLConnection.sendAsynchronousRequest(request, queue: backgroundQueue, completionHandler:{
             response, data, error in
-            println("got response for request: \(response), \(data), \(error)")
             if error == nil {
-                println("calling completion")
                 completion(data: data)
-                println("completion called")
+            }
+            else {
+                println("Failure loading image: \(error)")
+                completion(data:nil)
             }
             return
         })
