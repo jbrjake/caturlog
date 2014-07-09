@@ -190,3 +190,16 @@ DetailView -> DetailViewController -> DetailViewModel -> ItemImage
 
 TagView -> TagViewController -> TagViewModel -> ItemTags
 
+Image Downloading
+-----------------
+
+Image downloading will be handled by a member of CaturlogServices, ResourceLoader, which will implement a ResourceLoadingServiceProtocol.
+
+CaturlogServices:
+* Has a property that's an object adhering to the ResourceLoadingServiceProtocol.
+
+ResourceLoadingServiceProtocol has one method:
+func getResource(url: NSURL, completion: (data: NSData?) -> () ) 
+
+
+
