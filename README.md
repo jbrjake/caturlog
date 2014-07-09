@@ -112,3 +112,81 @@ TODO
 	* Filter chain design
 		* Run filters in serial and parallel
 	* Filter results reporters to synchronize writing to the database
+	
+Design
+------
+
+UI should be like 10.10 Spotlight:
+* Search bar at the upper left, to enter tags or gif urls
+* Tableview to show results on a left sidebar
+* Main view should show gif, with tags below it
+
+
+So UI wise we're really talking:
+
+* OmnibarView 
+	* OmnibarViewController
+	* OmnibarViewDelegate
+* ResultsTableView
+	* ResultsTableViewController
+	* ResultsTableViewDelegate
+	* Results TableViewDataSource
+* DetailView
+	* ImageView
+		* ImageViewDataSource
+	* TagView
+		* TagViewDelegate
+		* TagViewDatasource
+
+### OmnibarView
+
+An NSTokenField instance. The tokenfield delegate will be the target handling the textDidChange: IBAction. It will use the tokenField's tokens to query the CD store for items matching the comma-separated list of tags.
+
+The view model has the following properties:
+* searchTags (an array of objects (strings), empty by default, updated whenever the textfield textdidChange is fired)
+* placeholder (a placeholder text string, "Search")
+
+### ResultsTableView
+
+An NSTableView instance. Its datasource will be the result of the omnibarview's search. When an item is selected, the delegate will pass it to the imageview datasource for display.
+
+The view model has the following properties:
+* results
+
+### DetailView
+
+The imageview datasource will update the imageview with the URL of a new image to display. 
+
+The view model has the following properties:
+* resultImage
+
+### TagView
+
+This one will be the most complicated. It needs to display a list of tags as blue labels, but also show suggested tags as grayed-out/dotted round labels that can be clicked to assign them and make them blue/solid. And accept text input, separating tags by comma value.
+
+A lot of this is really going to need to go in a category so it can be reused to display tags entered in the search bar as well.
+
+One way to handle it may be to have it in three separate views, at least at first: text field for entering new tags, list of existing tags, list of suggested tags.
+
+This view will need to use NSTokenField.
+
+The view model has the following properties:
+* resultTags
+
+Data Flow
+---------
+
+*Pulling from http://www.raywenderlich.com/74106/mvvm-tutorial-with-reactivecocoa-part-1 ...*
+
+View -> ViewController -> ViewModel -> ModelServices -> Service Protocols -> Service Implementations -> Model Collection -> Model
+
+So for example...
+
+Omnibar -> OmbibarViewController -> OmnibarViewModel -> CaturlogServices -> TagSearchServiceProtocol -> TagSearchService -> TagSearchResults -> Item
+ 
+ResultsTableView -> ResultsTableViewController -> ResultsTableViewDataSource -> TagSearchResults -> Item
+
+DetailView -> DetailViewController -> DetailViewModel -> ItemImage
+
+TagView -> TagViewController -> TagViewModel -> ItemTags
+
