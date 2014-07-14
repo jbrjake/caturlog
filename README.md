@@ -48,6 +48,49 @@ A filter chain needs to be established that can run independent analyses in para
 
 The app needs to support uploading to image sharing services like imgur.
 
+Version 1.0 Milestones: Minimum Viable Product
+----------------------
+
+### Version 0.1: Image storage and presentation ###
+* I want to be able to enter URLs of images so that I can store copies of them locally
+* I want to be able to see a list of stored images so that I can view them
+
+### Version 0.5: Tagging ###
+* I want to be able to tag images so that I can find them later
+* I want to be able to search the images via tags so that I can find appropriate images for a given situation
+
+### Version 0.9: Sharing ###
+* I want to be able to share existing links to the images
+
+Version 1.1 Milestones: Strong search and imgur
+----------------------
+
+* I want to be able to generate complex search predicates based on tags so that I can do searches other than tagA AND tagB. For example, (tagA AND tagB) NOT (tagC OR tagD).
+* I want to be able to upload images to imgur for sharing so that I don't have to depend on the original image URL still being around.
+
+Version 1.2 Milestones: Twitter and Pocket integration
+---------------------- 
+
+* I want to be able to automatically import images from my Twitter feed so that I don't have to manually add them
+* I want to be able to automatically import images from my Pocket library so that I don't have to manually add them
+* I want to be able to post images to Twitter
+* I want to be able to save images to Pocket
+
+Version 1.5 Milestones: Crowd-tagging
+-------------------------
+
+* I want to be able to send tags to a server so that every unique piece of content has a centralized record of every tag applied to it by every user
+* I want to be able to receive tags from the server so that I can see what other tags other users have applied to an image
+* I want to be able to search my library by tags other users have applied to images in my library
+* I want to be able to see other tags users have applied to a particular image in my library and apply those tags myself
+
+Version 2.0 Milestones: Analysis
+--------------------------------
+
+* I want to be able to add plugins that analyze images in my library and associate them with characteristics, so that I can build up metadata about my images, like OCR'd text
+* I want to be able to see what characteristics other users have found for my images
+* I want to be able to search based off these characteristics
+
 Model Schema
 ----------------
 
