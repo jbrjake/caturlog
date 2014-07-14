@@ -190,3 +190,19 @@ DetailView -> DetailViewController -> DetailViewModel -> ItemImage
 
 TagView -> TagViewController -> TagViewModel -> ItemTags
 
+Image Downloading
+-----------------
+
+Image downloading will be handled by a member of CaturlogServices, ResourceLoader, which will implement a ResourceLoadingServiceProtocol.
+
+CaturlogServices:
+* Has a property that's an object adhering to the ResourceLoadingServiceProtocol.
+
+ResourceLoadingServiceProtocol has one method:
+func getResource(url: NSURL, completion: (data: NSData?) -> () ) 
+
+The ResourceLoader implementation will first look to see if it has a copy of the file on disk. It will look based off info from Core Data and the model. It will expect images to be in the Application Support/items/ directory, with the  name being a hash of the image.
+
+It will also store an NSCache of images, in hopes of not duplicating space in memory.
+
+

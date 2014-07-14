@@ -13,6 +13,12 @@
 		74D0812219650CDD004ACF9F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D0812019650CDD004ACF9F /* MainMenu.xib */; };
 		74D0812E19650CDD004ACF9F /* CaturlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0812D19650CDD004ACF9F /* CaturlogTests.swift */; };
 		74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */; };
+		74F6BE87196CF44E008AF8E5 /* CaturlogServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */; };
+		74F6BE88196CF44E008AF8E5 /* CaturlogServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */; };
+		74F6BE8A196CF580008AF8E5 /* ResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */; };
+		74F6BE8B196CF580008AF8E5 /* ResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */; };
+		74F6BE8D19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */; };
+		74F6BE8E19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,10 @@
 		74D0812C19650CDD004ACF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74D0812D19650CDD004ACF9F /* CaturlogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaturlogTests.swift; sourceTree = "<group>"; };
 		74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Caturlog.xcdatamodel; path = ../Caturlog.xcdatamodel; sourceTree = "<group>"; };
+		74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogServices.swift; sourceTree = "<group>"; };
+		74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceLoader.swift; sourceTree = "<group>"; };
+		74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+CommonDigest.swift"; sourceTree = "<group>"; };
+		74F6BE8F19737EE7008AF8E5 /* CaturlogBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaturlogBridgingHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				74D0811919650CDD004ACF9F /* AppDelegate.swift */,
+				74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */,
+				74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */,
+				74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */,
+				74F6BE8F19737EE7008AF8E5 /* CaturlogBridgingHeader.h */,
 				74D0811E19650CDD004ACF9F /* Images.xcassets */,
 				74D0812019650CDD004ACF9F /* MainMenu.xib */,
 				74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */,
@@ -213,7 +227,10 @@
 			files = (
 				74D0811A19650CDD004ACF9F /* AppDelegate.swift in Sources */,
 				74D0811819650CDD004ACF9F /* main.swift in Sources */,
+				74F6BE8A196CF580008AF8E5 /* ResourceLoader.swift in Sources */,
+				74F6BE87196CF44E008AF8E5 /* CaturlogServices.swift in Sources */,
 				74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */,
+				74F6BE8D19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +238,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74F6BE88196CF44E008AF8E5 /* CaturlogServices.swift in Sources */,
 				74D0812E19650CDD004ACF9F /* CaturlogTests.swift in Sources */,
+				74F6BE8B196CF580008AF8E5 /* ResourceLoader.swift in Sources */,
+				74F6BE8E19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +352,7 @@
 				INFOPLIST_FILE = Caturlog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Caturlog/CaturlogBridgingHeader.h;
 			};
 			name = Debug;
 		};
@@ -343,6 +364,7 @@
 				INFOPLIST_FILE = Caturlog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Caturlog/CaturlogBridgingHeader.h;
 			};
 			name = Release;
 		};
@@ -403,6 +425,7 @@
 				74D0813319650CDD004ACF9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74D0813419650CDD004ACF9F /* Build configuration list for PBXNativeTarget "CaturlogTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +434,7 @@
 				74D0813619650CDD004ACF9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
