@@ -11,6 +11,11 @@ import Foundation
 class ResourceLoader: ResourceLoadingServiceProtocol {
     
     let backgroundQueue = NSOperationQueue()
+    let cache = NSCache()
+    
+    init() {
+        cache.totalCostLimit = 1024 * 120
+    }
     
     func getResource(url: NSURL, completion: (data: NSData?) -> ()) {
         if( urlIsOnDisk(url)) {
@@ -104,6 +109,10 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
                 // Write the file to disk
                 println("writing file to \(self.localURLForItem(data).absoluteString)")
                 self.writeFile(self.localURLForItem(data), data: data)
+                
+                // Cache in memory
+                self.cache.setObject(data, forKey: url, cost: data.length)
+                
                 // Then return it
                 completion(data: data)
             }
@@ -117,9 +126,11 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
     
     func makeLocalRequest(url: NSURL, completion:(data: NSData?) -> () ) {
         println("returning local resource: \(self.localURLForRemoteURL(url).absoluteString)")
+        let data = NSData.dataWithContentsOfMappedFile(
+            self.localURLForRemoteURL(url).absoluteString.stringByRemovingPercentEncoding.stringByReplacingOccurrencesOfString("file://", withString: "", options: nil, range: nil)) as? NSData
+        cache.setObject(data, forKey: url, cost: data!.length)
         completion(
-            data: NSData.dataWithContentsOfMappedFile(
-                self.localURLForRemoteURL(url).absoluteString.stringByRemovingPercentEncoding.stringByReplacingOccurrencesOfString("file://", withString: "", options: nil, range: nil)) as? NSData
+            data: data
         )
     }
 }
