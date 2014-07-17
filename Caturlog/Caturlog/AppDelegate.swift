@@ -20,7 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.caturlogServices.resourceLoader.getResource(NSURL.URLWithString("http://i.imgur.com/kFLQf.gif"), completion: {
             data in
             println("Data returned")
-            
+            if data != nil {
+                self.caturlogServices.resourceStorer.storeResource(data!.sha256(), fromURL:NSURL.URLWithString("http://i.imgur.com/kFLQf.gif" ))
+            }
         })
         println("Awaiting data return")
     }

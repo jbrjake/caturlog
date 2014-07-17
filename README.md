@@ -248,4 +248,13 @@ The ResourceLoader implementation will first look to see if it has a copy of the
 
 It will also store an NSCache of images, in hopes of not duplicating space in memory.
 
+Resource Storage
+-----------------
+
+Resource storage will be handled by another member of CaturlogServices, ResourceStorer, which will implement a ResourceStoringServiceProtocol.
+
+Methods:
+func storeResource(contentID: String fromURL: NSURL) -> (Bool, NSError?)
+
+storeResource() will take a contentID and its source URL and store an entity for it, tying it to a characteristic with key URL and value fromURL.
 
