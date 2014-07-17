@@ -57,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return mom
         }
     	
-        let modelURL = NSBundle.mainBundle().URLForResource("Caturlog", withExtension: "momd")
+        let modelURL = NSBundle.mainBundle().URLForResource("Caturlog", withExtension: "mom")
         _managedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL)
         return _managedObjectModel!
     }
@@ -101,7 +101,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let url = applicationFilesDirectory.URLByAppendingPathComponent("Caturlog.storedata")
         var coordinator = NSPersistentStoreCoordinator(managedObjectModel: mom)
-        if coordinator.addPersistentStoreWithType(NSXMLStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
+            if coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: [NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption: true], error: &error) == nil {
             NSApplication.sharedApplication().presentError(error)
             return nil
         }
