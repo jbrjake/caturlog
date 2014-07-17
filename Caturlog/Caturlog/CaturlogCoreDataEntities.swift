@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-@objc(UserItemTag)
 class UserItemTag: NSManagedObject {
     @NSManaged var timestamp:       NSDate
     
@@ -18,39 +17,35 @@ class UserItemTag: NSManagedObject {
     @NSManaged var user:            User
 }
 
-@objc(User)
 class User: NSManagedObject {
     @NSManaged var name:            String
     @NSManaged var userID:          String
     
-    @NSManaged var items:           NSSet
-    @NSManaged var userItemTags:    NSSet
+    @NSManaged var items:           NSMutableSet
+    @NSManaged var userItemTags:    NSMutableSet
 }
 
-@objc(Item)
 class Item: NSManagedObject {
     @NSManaged var contentID:       String
 
-    @NSManaged var characteristics: NSSet
-    @NSManaged var tags:            NSSet
-    @NSManaged var users:           NSSet
-    @NSManaged var userItemTags:    NSSet
+    @NSManaged var characteristics: NSMutableSet
+    @NSManaged var tags:            NSMutableSet
+    @NSManaged var users:           NSMutableSet
+    @NSManaged var userItemTags:    NSMutableSet
     
 }
 
-@objc(Tag)
 class Tag: NSManagedObject {
     @NSManaged var name:            String
     
-    @NSManaged var items:           NSSet
-    @NSManaged var userItemTags:    NSSet
+    @NSManaged var items:           NSMutableSet
+    @NSManaged var userItemTags:    NSMutableSet
     
 }
 
-@objc(Characteristic)
 class Characteristic: NSManagedObject {
     @NSManaged var name:            String
     @NSManaged var value:           String
 
-    @NSManaged var items:           NSSet
+    @NSManaged var items:           NSMutableSet
 }

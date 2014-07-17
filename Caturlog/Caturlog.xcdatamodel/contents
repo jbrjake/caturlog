@@ -5,8 +5,8 @@
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="characteristics" inverseEntity="Item" syncable="YES"/>
     </entity>
-    <entity name="Item" syncable="YES">
-        <attribute name="contentID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    <entity name="Item" representedClassName="Caturlog.Item" syncable="YES">
+        <attribute name="contentID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="characteristics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Characteristic" inverseName="items" inverseEntity="Characteristic" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="items" inverseEntity="Tag" syncable="YES"/>
         <relationship name="userItemTags" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserItemTag" inverseName="item" inverseEntity="UserItemTag" syncable="YES"/>
