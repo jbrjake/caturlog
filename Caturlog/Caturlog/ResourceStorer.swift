@@ -41,7 +41,7 @@ class ResourceStorer: ResourceStoringServiceProtocol {
     
     // Return an existing or new Item? with the contentID
     func resourceWithContentID(contentID: String) -> Item? {
-        let predicate = NSPredicate(format: "contentID = %@", contentID, nil)
+        let predicate = NSPredicate(format: "contentID = %@", [contentID])
         
         if let item = fetchEntity("Item", predicate: predicate) as? Item {
             return item
@@ -61,7 +61,7 @@ class ResourceStorer: ResourceStoringServiceProtocol {
 
     // Return an existing or new Characteristic? with name "URL" and value url
     func characteristicForURL(url: NSURL) -> Characteristic? {
-        let predicate = NSPredicate(format: "name = %@ && value = %@", "URL", url.absoluteString, nil)
+        let predicate = NSPredicate(format: "name = %@ && value = %@", ["URL", url.absoluteString])
         
         if let entity = fetchEntity("Characteristic", predicate: predicate) as? Characteristic {
             return entity
