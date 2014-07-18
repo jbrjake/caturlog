@@ -9,49 +9,28 @@
 import Foundation
 import AppKit
 import CoreData
-import Cocoa
 
 class ResourceStorer: ResourceStoringServiceProtocol {
 
-    
     /*Add the item if it isn't present, add the URL as a characteristic if it isn't present,
       and associate the two of them together. */
     func storeResource(contentID: String, fromURL: NSURL) -> (Bool, NSErrorPointer?) {
-        println("storing resource")
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+        
         if let moc = appDelegate.managedObjectContext {
-            println("moc exists")
-            var item :Item? = resourceWithContentID(contentID)
-            if (item == nil) {
-                println("resourceWithContentID returned nil")
-               item = NSEntityDescription.insertNewObjectForEntityForName("Item", inManagedObjectContext: moc) as? Item
-            }
-            if (item != nil) {
-                item!.contentID = contentID
-                
-                var maybeChar = characteristicForURL(fromURL)
-                if (!maybeChar?) {
-                    maybeChar = NSEntityDescription.insertNewObjectForEntityForName("Characteristic", inManagedObjectContext: moc) as? Characteristic
-                }
-                
-                if let char = maybeChar? {
-                    char.name = "URL"
-                    char.value = fromURL.absoluteString
+            if let item = resourceWithContentID(contentID) {
+                if let char = characteristicForURL(fromURL) {
                     char.items.addObject(item)
-                    item!.characteristics.addObject(char)
-                    
+                    item.characteristics.addObject(char)
                 }
-                
-                println("about to save item: \(item!)")
+
+                // Save out in this scope in case the item or char are new inserts
                 let err: NSErrorPointer = nil
                 let saveWorked = moc.save(err)
-                
                 if(err) {
-                    println("returning \(saveWorked): \(err)")
                     return (saveWorked, err)
                 }
                 else {
-                    println("returning \(saveWorked)")
                     return (saveWorked, nil)
                 }
             }
@@ -60,39 +39,60 @@ class ResourceStorer: ResourceStoringServiceProtocol {
         return (false, nil)
     }
     
+    // Return an existing or new Item? with the contentID
     func resourceWithContentID(contentID: String) -> Item? {
-        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
-
-        if let moc = appDelegate.managedObjectContext {
-            let entity = NSEntityDescription.entityForName("Item", inManagedObjectContext: moc)
-            var request = NSFetchRequest()
-            request.entity = entity
-            let predicate = NSPredicate(format: "contentID = %@", contentID, nil)
-             request.predicate = predicate
-            var err:NSErrorPointer = nil
-            let results = moc.executeFetchRequest(request, error: err)
-            println("fetch results: \(results)")
-            if (results.count > 0) {
-                return results[0] as? Item
+        let predicate = NSPredicate(format: "contentID = %@", contentID, nil)
+        
+        if let item = fetchEntity("Item", predicate: predicate) as? Item {
+            return item
+        }
+        else {
+            let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+            if let moc = appDelegate.managedObjectContext {
+                if let item = NSEntityDescription.insertNewObjectForEntityForName("Item", inManagedObjectContext: moc) as? Item {
+                    item.contentID = contentID
+                    return item
+                }
             }
         }
         
         return nil
     }
 
+    // Return an existing or new Characteristic? with name "URL" and value url
     func characteristicForURL(url: NSURL) -> Characteristic? {
+        let predicate = NSPredicate(format: "name = %@ && value = %@", "URL", url.absoluteString, nil)
+        
+        if let entity = fetchEntity("Characteristic", predicate: predicate) as? Characteristic {
+            return entity
+        }
+        else {
+            let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+            if let moc = appDelegate.managedObjectContext {
+                if let char = NSEntityDescription.insertNewObjectForEntityForName("Characteristic", inManagedObjectContext: moc) as? Characteristic {
+                    char.name = "URL"
+                    char.value = url.absoluteString
+                    return char
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    // Return the first fetch result for the named managed object matching the given predicate
+    func fetchEntity(name: String, predicate: NSPredicate) -> NSManagedObject? {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         
         if let moc = appDelegate.managedObjectContext {
-            let entity = NSEntityDescription.entityForName("Characteristic", inManagedObjectContext: moc)
+            let entity = NSEntityDescription.entityForName(name, inManagedObjectContext: moc)
             var request = NSFetchRequest()
             request.entity = entity
-            let predicate = NSPredicate(format: "name = %@ && value = %@", "URL", url.absoluteString, nil)
             request.predicate = predicate
-            var err:NSErrorPointer = nil
+            var err: NSErrorPointer = nil
             let results = moc.executeFetchRequest(request, error: err)
             if(results.count > 0) {
-                return results[0] as? Characteristic
+                return results[0] as? NSManagedObject
             }
         }
         
