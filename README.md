@@ -83,6 +83,7 @@ Version 1.5 Milestones: Crowd-tagging
 * I want to be able to receive tags from the server so that I can see what other tags other users have applied to an image
 * I want to be able to search my library by tags other users have applied to images in my library
 * I want to be able to see other tags users have applied to a particular image in my library and apply those tags myself
+	* To encourage tagging, maybe this should only be available on images I give at least 3 three tags?
 
 Version 2.0 Milestones: Analysis
 --------------------------------
@@ -146,9 +147,9 @@ TODO
 ------
 
 * Import
-	* Direct download images from URL
-	* Store images on disk
-	* Represent the image in Core Data
+	* ~~Direct download images from URL~~
+	* ~~Store images on disk~~
+	* ~~Represent the image in Core Data~~
 	* Display the image on screen
 * Filtering
 	* Inspect frames and bitmaps
@@ -257,4 +258,19 @@ Methods:
 func storeResource(contentID: String fromURL: NSURL) -> (Bool, NSError?)
 
 storeResource() will take a contentID and its source URL and store an entity for it, tying it to a characteristic with key URL and value fromURL.
+
+Tagging
+-------
+
+Tagging will be handled by yet another member of CaturlogServices, ResourceTagger, which will implement a ResourceTaggingServiceProtocol.
+
+Methods:
+func addTag(String forContentID: String andUser: User) -> (Bool, NSError?)
+Creates a tag, if it doesn't already exist, and generates a UserItemTag entry
+
+func itemsForTag(String withUser: User) -> (NSSet)
+Returns all stored Item entities associated with the tag for the user
+
+
+
 
