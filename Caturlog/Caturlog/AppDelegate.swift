@@ -16,15 +16,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
-        println("Getting data")
-        self.caturlogServices.resourceLoader.getResource(NSURL.URLWithString("http://i.imgur.com/kFLQf.gif"), completion: {
-            data in
-            println("Data returned")
-            if data != nil {
-                self.caturlogServices.resourceStorer.storeResource(data!.sha256(), fromURL:NSURL.URLWithString("http://i.imgur.com/kFLQf.gif" ))
-            }
-        })
-        println("Awaiting data return")
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {
