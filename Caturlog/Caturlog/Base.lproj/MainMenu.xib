@@ -779,7 +779,7 @@
             </view>
             <point key="canvasLocation" x="139" y="145"/>
         </window>
-        <customObject id="3w9-fE-hxQ" customClass="CaturlogWindowController" customModule="Caturlog" customModuleProvider="target">
+        <customObject id="3w9-fE-hxQ" customClass="OmnibarViewController" customModule="Caturlog" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="R7T-Wu-WEF" id="1vs-VD-esj"/>
                 <outlet property="itemTable" destination="udr-YF-MR3" id="plx-sY-lPZ"/>
