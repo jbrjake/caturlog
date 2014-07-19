@@ -18,31 +18,28 @@ class CaturlogWindowController : NSWindowController {
     
     override func windowWillLoad() {
         super.windowWillLoad()
-        
-        
     }
     
     override func controlTextDidEndEditing(obj: NSNotification!) {
         var textField :NSTextField = obj.object as NSTextField
         if( textField.isEqualTo(omnibar)) {
-            addResourceFromOmnibar()
+            if let url = NSURL.URLWithString(omnibar.stringValue) {
+                addResource(url)                
+            }
         }
     }
 
-    func addResourceFromOmnibar() {
-        println("add resource from omnibar")
+    func addResource(url: NSURL) {
         var appDel = NSApplication.sharedApplication().delegate as AppDelegate
         var services = appDel.caturlogServices
-        var url = omnibar.stringValue
-        services.resourceLoader.getResource(NSURL.URLWithString(url), completion: {
+        services.resourceLoader.getResource(url, completion: {
             data in
-            println("Data returned")
             if data != nil {
-                services.resourceStorer.storeResource(data!.sha256(), fromURL:NSURL.URLWithString(url))
+                services.resourceStorer.storeResource(data!.sha256(), fromURL:url)
             }
-            })
-
+        })
     }
+    
 }
 
 
