@@ -738,7 +738,7 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="R7T-Wu-WEF" secondAttribute="height" multiplier="71:66" id="dkC-Z6-soK"/>
                         </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="eHC-vj-69S">
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="eHC-vj-69S">
                             <connections>
                                 <binding destination="5rj-dD-g6r" name="value" keyPath="selection.contentID" id="kok-eV-nTl">
                                     <dictionary key="options">
