@@ -15,6 +15,10 @@ class CaturlogWindowController : NSWindowController {
     @IBOutlet var itemTable :NSTableView
     @IBOutlet var imageView :NSImageView
     @IBOutlet var tagField :NSTokenField
+
+    var moc :NSManagedObjectContext? {
+        return (NSApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
+    }
     
     override func windowWillLoad() {
         super.windowWillLoad()
