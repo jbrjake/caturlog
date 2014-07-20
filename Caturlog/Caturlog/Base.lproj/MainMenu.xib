@@ -679,7 +679,7 @@
                     <tokenField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AR9-dT-Cua">
                         <rect key="frame" x="20" y="316" width="440" height="24"/>
                         <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" allowsEditingTextAttributes="YES" id="Yr7-dW-ECn">
-                            <font key="font" metaFont="titleBar" size="12"/>
+                            <font key="font" metaFont="cellTitle"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </tokenFieldCell>
@@ -694,7 +694,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" id="udr-YF-MR3">
-                                    <rect key="frame" x="0.0" y="0.0" width="238" height="117"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="219" height="19"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -738,10 +738,11 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="R7T-Wu-WEF" secondAttribute="height" multiplier="71:66" id="dkC-Z6-soK"/>
                         </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="eHC-vj-69S">
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" id="eHC-vj-69S">
                             <connections>
-                                <binding destination="5rj-dD-g6r" name="value" keyPath="selection.contentID" id="kok-eV-nTl">
+                                <binding destination="5rj-dD-g6r" name="value" keyPath="selection.contentID" id="pfA-wg-cPH">
                                     <dictionary key="options">
+                                        <bool key="NSConditionallySetsEnabled" value="NO"/>
                                         <string key="NSValueTransformerName">Caturlog.ContentIDToNSImageTransformer</string>
                                     </dictionary>
                                 </binding>
