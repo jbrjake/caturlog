@@ -12,7 +12,6 @@ import CoreData
 
 class CaturlogWindowController : NSWindowController {
 
-    @IBOutlet var itemTable :NSTableView
     @IBOutlet var imageView :NSImageView
     @IBOutlet var tagField :NSTokenField
 
