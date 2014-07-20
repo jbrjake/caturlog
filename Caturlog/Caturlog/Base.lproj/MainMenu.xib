@@ -670,15 +670,15 @@
         <window title="Caturlog" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
+            <rect key="contentRect" x="335" y="390" width="416" height="330"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="416" height="330"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <tokenField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AR9-dT-Cua">
-                        <rect key="frame" x="20" y="316" width="440" height="24"/>
-                        <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" allowsEditingTextAttributes="YES" id="Yr7-dW-ECn">
+                        <rect key="frame" x="20" y="286" width="376" height="24"/>
+                        <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" allowsEditingTextAttributes="YES" bezelStyle="round" id="Yr7-dW-ECn">
                             <font key="font" metaFont="cellTitle"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -687,18 +687,18 @@
                             <outlet property="delegate" destination="3w9-fE-hxQ" id="8t8-cz-K92"/>
                         </connections>
                     </tokenField>
-                    <scrollView misplaced="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrs-pT-NXa">
-                        <rect key="frame" x="20" y="20" width="219" height="288"/>
-                        <clipView key="contentView" misplaced="YES" id="z8m-JP-lqN">
+                    <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrs-pT-NXa">
+                        <rect key="frame" x="20" y="20" width="120" height="261"/>
+                        <clipView key="contentView" id="z8m-JP-lqN">
                             <rect key="frame" x="1" y="17" width="238" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" id="udr-YF-MR3">
+                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" id="udr-YF-MR3">
                                     <rect key="frame" x="0.0" y="0.0" width="219" height="19"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="gridColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
                                         <tableColumn identifier="AutomaticTableColumnIdentifier.0" width="216" minWidth="40" maxWidth="1000" id="ltR-BW-Dcz">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
@@ -709,12 +709,12 @@
                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="nZT-7I-4MN">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 <connections>
                                                     <binding destination="5rj-dD-g6r" name="value" keyPath="arrangedObjects.contentID" id="Zqe-Ie-MmX"/>
                                                 </connections>
                                             </textFieldCell>
-                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                             <connections>
                                                 <binding destination="5rj-dD-g6r" name="value" keyPath="arrangedObjects.contentID" id="ZYg-Nl-uKb"/>
                                             </connections>
@@ -722,9 +722,13 @@
                                     </tableColumns>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="TWk-p6-AT9">
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="3vs-9i-DSA"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Cu2-vW-E6l"/>
+                        </constraints>
+                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="TWk-p6-AT9">
                             <rect key="frame" x="1" y="119" width="223" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -734,11 +738,11 @@
                         </scroller>
                     </scrollView>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7T-Wu-WEF">
-                        <rect key="frame" x="247" y="110" width="213" height="198"/>
+                        <rect key="frame" x="148" y="55" width="243" height="226"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="R7T-Wu-WEF" secondAttribute="height" multiplier="71:66" id="dkC-Z6-soK"/>
                         </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" id="eHC-vj-69S">
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="eHC-vj-69S">
                             <connections>
                                 <binding destination="5rj-dD-g6r" name="value" keyPath="selection.contentID" id="pfA-wg-cPH">
                                     <dictionary key="options">
@@ -750,7 +754,7 @@
                         </imageCell>
                     </imageView>
                     <tokenField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Evg-Yc-YJ6">
-                        <rect key="frame" x="247" y="20" width="213" height="82"/>
+                        <rect key="frame" x="148" y="20" width="243" height="82"/>
                         <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" allowsEditingTextAttributes="YES" id="eLh-rC-7Cn">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -774,7 +778,7 @@
                     <constraint firstAttribute="trailing" secondItem="R7T-Wu-WEF" secondAttribute="trailing" constant="20" id="vMd-Eu-jtd"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="139" y="145"/>
+            <point key="canvasLocation" x="105" y="126"/>
         </window>
         <customObject id="3w9-fE-hxQ" customClass="OmnibarViewController" customModule="Caturlog" customModuleProvider="target">
             <connections>
