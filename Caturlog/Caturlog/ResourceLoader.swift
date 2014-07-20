@@ -26,6 +26,14 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
             makeRemoteRequest(url, completion: completion)
         }
     }
+    
+    func getResourceSynchronously(contentID: String) -> NSData? {
+        var returnData :NSData? = nil
+        makeLocalRequestWithLocalURL(localURLForContentID(contentID), completion: {
+            returnData = $0
+        })
+        return returnData
+    }
 
     func appSupportURL () -> (NSURL) {
         var err: NSErrorPointer = nil
@@ -53,10 +61,16 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
 
     // For an item's data, this will return the local path file:///path/to/AppSupportDir/items/imagehash.gif
     func localURLForItem(item: NSData) -> NSURL {
-        let localURL = self.appSupportURL().URLByAppendingPathComponent("items").URLByAppendingPathComponent(item.sha256()).URLByAppendingPathExtension("gif")
-        
+        let localURL = localURLForContentID(item.sha256())
         println("returning local URL: \(localURL)")
         return localURL
+    }
+    
+    func localURLForContentID(contentID:String) -> NSURL {
+        let localURL = self.appSupportURL().URLByAppendingPathComponent("items").URLByAppendingPathComponent(contentID).URLByAppendingPathExtension("gif")
+        
+        println("returning local URL: \(localURL)")
+        return localURL        
     }
     
     func localDirectoryFromLocalURL(localURL: NSURL) -> String {
@@ -125,12 +139,18 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
     }
     
     func makeLocalRequest(url: NSURL, completion:(data: NSData?) -> () ) {
-        println("returning local resource: \(self.localURLForRemoteURL(url).absoluteString)")
-        let data = NSData.dataWithContentsOfMappedFile(
-            self.localURLForRemoteURL(url).absoluteString.stringByRemovingPercentEncoding.stringByReplacingOccurrencesOfString("file://", withString: "", options: nil, range: nil)) as? NSData
+        let localURL = self.localURLForRemoteURL(url)
+        makeLocalRequestWithLocalURL(localURL, completion: completion)
+    }
+    
+    func makeLocalRequestWithLocalURL(url: NSURL, completion:(data: NSData?) -> () ) {
+        let localPath = url.absoluteString.stringByRemovingPercentEncoding
+            .stringByReplacingOccurrencesOfString("file://", withString: "", options: nil, range: nil)
+        let data = NSData.dataWithContentsOfMappedFile(localPath) as? NSData
         cache.setObject(data, forKey: url, cost: data!.length)
         completion(
             data: data
         )
     }
+
 }
