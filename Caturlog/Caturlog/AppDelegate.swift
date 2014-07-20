@@ -14,8 +14,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let caturlogServices = CaturlogServices()
 
+    let windowController : CaturlogWindowController = CaturlogWindowController(windowNibName: "CaturlogWindow")
+    
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
+        windowController.showWindow(nil)
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {

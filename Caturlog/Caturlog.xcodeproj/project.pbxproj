@@ -11,6 +11,8 @@
 		7429689F1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */; };
 		742968A1197A17220037FBA3 /* OmnibarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742968A0197A17220037FBA3 /* OmnibarViewController.swift */; };
 		742968A2197A17220037FBA3 /* OmnibarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742968A0197A17220037FBA3 /* OmnibarViewController.swift */; };
+		742968A7197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */; };
+		742968A8197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */; };
 		74D0811819650CDD004ACF9F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0811719650CDD004ACF9F /* main.swift */; };
 		74D0811A19650CDD004ACF9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0811919650CDD004ACF9F /* AppDelegate.swift */; };
 		74D0811F19650CDD004ACF9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D0811E19650CDD004ACF9F /* Images.xcassets */; };
@@ -41,6 +43,7 @@
 /* Begin PBXFileReference section */
 		7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogWindowController.swift; sourceTree = "<group>"; };
 		742968A0197A17220037FBA3 /* OmnibarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnibarViewController.swift; sourceTree = "<group>"; };
+		742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaturlogWindow.xib; sourceTree = "<group>"; };
 		74D0811219650CDD004ACF9F /* Caturlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caturlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D0811619650CDD004ACF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74D0811719650CDD004ACF9F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 				7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */,
 				742968A0197A17220037FBA3 /* OmnibarViewController.swift */,
 				74D0812019650CDD004ACF9F /* MainMenu.xib */,
+				742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */,
 				74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */,
 				74D0811519650CDD004ACF9F /* Supporting Files */,
 			);
@@ -223,6 +227,7 @@
 			files = (
 				74D0811F19650CDD004ACF9F /* Images.xcassets in Resources */,
 				74D0812219650CDD004ACF9F /* MainMenu.xib in Resources */,
+				742968A7197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				742968A8197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
