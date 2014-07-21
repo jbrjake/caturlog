@@ -55,9 +55,16 @@ Version 1.0 Milestones: Minimum Viable Product
 * I want to be able to enter URLs of images so that I can store copies of them locally
 * I want to be able to see a list of stored images so that I can view them
 
+### Version 0.2: MVVM ###
+* I want to break up presentation logic from presentation model logic.
+
 ### Version 0.5: Tagging ###
 * I want to be able to tag images so that I can find them later
 * I want to be able to search the images via tags so that I can find appropriate images for a given situation
+
+### Version 0.6: Polish ###
+* I want the look and feel to better match the 10.10 Spotlight UI, with etching to separate sections and reduced chrome.
+* I want the table view to be resizable horizontally.
 
 ### Version 0.9: Sharing ###
 * I want to be able to share existing links to the images
