@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.7"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CaturlogWindowController" customModule="Caturlog" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="vBf-eO-inq" id="XQZ-JG-rRw"/>
+                <outlet property="tagField" destination="6CC-gY-pgh" id="NaX-VJ-AcQ"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="uop-ms-W97"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="Caturlog" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="501" height="344"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="501" height="344"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="39" horizontalPageScroll="10" verticalLineScroll="39" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sct-Bi-lWA">
+                        <rect key="frame" x="8" y="8" width="120" height="328"/>
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="tm2-m3-kLe">
+                            <rect key="frame" x="1" y="17" width="238" height="117"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="34" rowSizeStyle="large" id="HC5-Ow-Gqe">
+                                    <rect key="frame" x="0.0" y="0.0" width="219" height="19"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <size key="intercellSpacing" width="50" height="5"/>
+                                    <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="gridColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <tableColumns>
+                                        <tableColumn width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="fTU-gs-7Vu">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="HRo-Mt-v4Q">
+                                                <connections>
+                                                    <binding destination="zXN-PO-153" name="value" keyPath="selection.contentID" id="25e-om-XyN">
+                                                        <dictionary key="options">
+                                                            <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                            <string key="NSValueTransformerName">Caturlog.ContentIDToNSImageTransformer</string>
+                                                        </dictionary>
+                                                    </binding>
+                                                </connections>
+                                            </imageCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="zXN-PO-153" name="value" keyPath="arrangedObjects.contentID" id="JvQ-za-JP6">
+                                                    <dictionary key="options">
+                                                        <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                        <string key="NSValueTransformerName">Caturlog.ContentIDToNSImageTransformer</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                    </tableColumns>
+                                </tableView>
+                            </subviews>
+                            <nil key="backgroundColor"/>
+                        </clipView>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="AzC-AO-wOR"/>
+                        </constraints>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="mv6-t5-4cY">
+                            <rect key="frame" x="1" y="119" width="223" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Mnc-7h-h04">
+                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <tokenField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-gY-pgh">
+                        <rect key="frame" x="134" y="8" width="361" height="82"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="82" id="Af1-tm-QOd"/>
+                        </constraints>
+                        <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" allowsEditingTextAttributes="YES" id="fdw-pu-OyE">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </tokenFieldCell>
+                    </tokenField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq">
+                        <rect key="frame" x="136" y="98" width="357" height="238"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="zda-M5-lyt">
+                            <connections>
+                                <binding destination="zXN-PO-153" name="value" keyPath="selection.contentID" id="TXe-AO-QFT">
+                                    <dictionary key="options">
+                                        <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                        <string key="NSValueTransformerName">Caturlog.ContentIDToNSImageTransformer</string>
+                                    </dictionary>
+                                </binding>
+                            </connections>
+                        </imageCell>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="vBf-eO-inq" secondAttribute="trailing" constant="8" id="BnY-f7-m9x"/>
+                    <constraint firstItem="sct-Bi-lWA" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="8" id="FSQ-4G-5bg"/>
+                    <constraint firstItem="6CC-gY-pgh" firstAttribute="top" secondItem="vBf-eO-inq" secondAttribute="bottom" constant="8" id="I01-CH-MAR"/>
+                    <constraint firstItem="vBf-eO-inq" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="8" id="XQy-61-0PF"/>
+                    <constraint firstAttribute="trailing" secondItem="6CC-gY-pgh" secondAttribute="trailing" constant="8" id="b84-QL-U0Y"/>
+                    <constraint firstItem="6CC-gY-pgh" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="8" id="iVe-xe-85K"/>
+                    <constraint firstAttribute="bottom" secondItem="6CC-gY-pgh" secondAttribute="bottom" constant="8" id="n9x-Ra-QWN"/>
+                    <constraint firstAttribute="bottom" secondItem="sct-Bi-lWA" secondAttribute="bottom" constant="8" id="o9o-28-jz8"/>
+                    <constraint firstItem="vBf-eO-inq" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="8" id="wDq-11-VQI"/>
+                    <constraint firstItem="sct-Bi-lWA" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="8" id="zwn-kI-7Kb"/>
+                </constraints>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="6A8C8A64-7C8C-4437-9A2C-C36C99FEA0AE" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="rFu-vF-i4L">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="FF33C1EA-F5C5-4686-BF0E-958B7996AAF3" label="Omnibar" paletteLabel="Omnibar" id="P0a-AA-qSr">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="96" height="22"/>
+                        <size key="maxSize" width="3000" height="22"/>
+                        <tokenField key="view" focusRingType="none" verticalHuggingPriority="750" id="ZGS-VJ-SNU">
+                            <rect key="frame" x="0.0" y="0.0" width="96" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" placeholderString="Add or Search Images" allowsEditingTextAttributes="YES" bezelStyle="round" id="SAN-Hw-vyO">
+                                <font key="font" metaFont="titleBar" size="12"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </tokenFieldCell>
+                            <connections>
+                                <outlet property="delegate" destination="Ahe-tD-rZo" id="S8C-Rf-ydL"/>
+                            </connections>
+                        </tokenField>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="P0a-AA-qSr"/>
+                </defaultToolbarItems>
+            </toolbar>
+            <connections>
+                <outlet property="delegate" destination="-2" id="JwM-Vq-1y9"/>
+            </connections>
+            <point key="canvasLocation" x="211.5" y="147"/>
+        </window>
+        <customObject id="Ahe-tD-rZo" customClass="OmnibarViewController" customModule="Caturlog" customModuleProvider="target">
+            <connections>
+                <outlet property="omnibar" destination="ZGS-VJ-SNU" id="TW3-m3-lS2"/>
+            </connections>
+        </customObject>
+        <arrayController mode="entity" entityName="Item" editable="NO" automaticallyPreparesContent="YES" id="zXN-PO-153">
+            <connections>
+                <binding destination="-2" name="managedObjectContext" keyPath="moc" id="Y49-9p-E3s"/>
+            </connections>
+        </arrayController>
+    </objects>
+</document>

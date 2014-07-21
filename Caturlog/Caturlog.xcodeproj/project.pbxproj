@@ -1,0 +1,500 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7429689E1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */; };
+		7429689F1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */; };
+		742968A1197A17220037FBA3 /* OmnibarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742968A0197A17220037FBA3 /* OmnibarViewController.swift */; };
+		742968A2197A17220037FBA3 /* OmnibarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742968A0197A17220037FBA3 /* OmnibarViewController.swift */; };
+		742968A7197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */; };
+		742968A8197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */; };
+		74D0811819650CDD004ACF9F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0811719650CDD004ACF9F /* main.swift */; };
+		74D0811A19650CDD004ACF9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0811919650CDD004ACF9F /* AppDelegate.swift */; };
+		74D0811F19650CDD004ACF9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D0811E19650CDD004ACF9F /* Images.xcassets */; };
+		74D0812219650CDD004ACF9F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D0812019650CDD004ACF9F /* MainMenu.xib */; };
+		74D0812E19650CDD004ACF9F /* CaturlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0812D19650CDD004ACF9F /* CaturlogTests.swift */; };
+		74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */; };
+		74EE31B3197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */; };
+		74EE31B4197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */; };
+		74F6BE87196CF44E008AF8E5 /* CaturlogServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */; };
+		74F6BE88196CF44E008AF8E5 /* CaturlogServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */; };
+		74F6BE8A196CF580008AF8E5 /* ResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */; };
+		74F6BE8B196CF580008AF8E5 /* ResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */; };
+		74F6BE8D19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */; };
+		74F6BE8E19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */; };
+		74F6BE911974CC1D008AF8E5 /* CaturlogCoreDataEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE901974CC1D008AF8E5 /* CaturlogCoreDataEntities.swift */; };
+		74F6BE931974D6BC008AF8E5 /* ResourceStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE921974D6BC008AF8E5 /* ResourceStorer.swift */; };
+		74F6BE941974D6BC008AF8E5 /* ResourceStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE921974D6BC008AF8E5 /* ResourceStorer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		74D0812819650CDD004ACF9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74D0810A19650CDD004ACF9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74D0811119650CDD004ACF9F;
+			remoteInfo = Caturlog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogWindowController.swift; sourceTree = "<group>"; };
+		742968A0197A17220037FBA3 /* OmnibarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnibarViewController.swift; sourceTree = "<group>"; };
+		742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaturlogWindow.xib; sourceTree = "<group>"; };
+		74D0811219650CDD004ACF9F /* Caturlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caturlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D0811619650CDD004ACF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D0811719650CDD004ACF9F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		74D0811919650CDD004ACF9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		74D0811E19650CDD004ACF9F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		74D0812119650CDD004ACF9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		74D0812719650CDD004ACF9F /* CaturlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaturlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D0812C19650CDD004ACF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D0812D19650CDD004ACF9F /* CaturlogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaturlogTests.swift; sourceTree = "<group>"; };
+		74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Caturlog.xcdatamodel; sourceTree = SOURCE_ROOT; };
+		74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentIDToNSImageTransformer.swift; sourceTree = "<group>"; };
+		74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogServices.swift; sourceTree = "<group>"; };
+		74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceLoader.swift; sourceTree = "<group>"; };
+		74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+CommonDigest.swift"; sourceTree = "<group>"; };
+		74F6BE8F19737EE7008AF8E5 /* CaturlogBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaturlogBridgingHeader.h; sourceTree = "<group>"; };
+		74F6BE901974CC1D008AF8E5 /* CaturlogCoreDataEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogCoreDataEntities.swift; sourceTree = "<group>"; };
+		74F6BE921974D6BC008AF8E5 /* ResourceStorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceStorer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		74D0810F19650CDD004ACF9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D0812419650CDD004ACF9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		74D0810919650CDD004ACF9F = {
+			isa = PBXGroup;
+			children = (
+				74D0811419650CDD004ACF9F /* Caturlog */,
+				74D0812A19650CDD004ACF9F /* CaturlogTests */,
+				74D0811319650CDD004ACF9F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74D0811319650CDD004ACF9F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74D0811219650CDD004ACF9F /* Caturlog.app */,
+				74D0812719650CDD004ACF9F /* CaturlogTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74D0811419650CDD004ACF9F /* Caturlog */ = {
+			isa = PBXGroup;
+			children = (
+				74EE31B5197CBE9400FEB62B /* Model */,
+				74EE31B6197CBECB00FEB62B /* Presentation */,
+				74EE31B7197CBEF800FEB62B /* Resources */,
+				74D0811919650CDD004ACF9F /* AppDelegate.swift */,
+				74D0811519650CDD004ACF9F /* Supporting Files */,
+			);
+			path = Caturlog;
+			sourceTree = "<group>";
+		};
+		74D0811519650CDD004ACF9F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				74F6BE8F19737EE7008AF8E5 /* CaturlogBridgingHeader.h */,
+				74D0811619650CDD004ACF9F /* Info.plist */,
+				74D0811719650CDD004ACF9F /* main.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74D0812A19650CDD004ACF9F /* CaturlogTests */ = {
+			isa = PBXGroup;
+			children = (
+				74D0812D19650CDD004ACF9F /* CaturlogTests.swift */,
+				74D0812B19650CDD004ACF9F /* Supporting Files */,
+			);
+			path = CaturlogTests;
+			sourceTree = "<group>";
+		};
+		74D0812B19650CDD004ACF9F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				74D0812C19650CDD004ACF9F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74EE31B5197CBE9400FEB62B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */,
+				74F6BE901974CC1D008AF8E5 /* CaturlogCoreDataEntities.swift */,
+				74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */,
+				74F6BE921974D6BC008AF8E5 /* ResourceStorer.swift */,
+				74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */,
+				74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */,
+				74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		74EE31B6197CBECB00FEB62B /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */,
+				742968A0197A17220037FBA3 /* OmnibarViewController.swift */,
+			);
+			name = Presentation;
+			sourceTree = "<group>";
+		};
+		74EE31B7197CBEF800FEB62B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */,
+				74D0812019650CDD004ACF9F /* MainMenu.xib */,
+				74D0811E19650CDD004ACF9F /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74D0811119650CDD004ACF9F /* Caturlog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74D0813119650CDD004ACF9F /* Build configuration list for PBXNativeTarget "Caturlog" */;
+			buildPhases = (
+				74D0810E19650CDD004ACF9F /* Sources */,
+				74D0810F19650CDD004ACF9F /* Frameworks */,
+				74D0811019650CDD004ACF9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Caturlog;
+			productName = Caturlog;
+			productReference = 74D0811219650CDD004ACF9F /* Caturlog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		74D0812619650CDD004ACF9F /* CaturlogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74D0813419650CDD004ACF9F /* Build configuration list for PBXNativeTarget "CaturlogTests" */;
+			buildPhases = (
+				74D0812319650CDD004ACF9F /* Sources */,
+				74D0812419650CDD004ACF9F /* Frameworks */,
+				74D0812519650CDD004ACF9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74D0812919650CDD004ACF9F /* PBXTargetDependency */,
+			);
+			name = CaturlogTests;
+			productName = CaturlogTests;
+			productReference = 74D0812719650CDD004ACF9F /* CaturlogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74D0810A19650CDD004ACF9F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Jonathon Rubin";
+				TargetAttributes = {
+					74D0811119650CDD004ACF9F = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					74D0812619650CDD004ACF9F = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 74D0811119650CDD004ACF9F;
+					};
+				};
+			};
+			buildConfigurationList = 74D0810D19650CDD004ACF9F /* Build configuration list for PBXProject "Caturlog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 74D0810919650CDD004ACF9F;
+			productRefGroup = 74D0811319650CDD004ACF9F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74D0811119650CDD004ACF9F /* Caturlog */,
+				74D0812619650CDD004ACF9F /* CaturlogTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		74D0811019650CDD004ACF9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74D0811F19650CDD004ACF9F /* Images.xcassets in Resources */,
+				74D0812219650CDD004ACF9F /* MainMenu.xib in Resources */,
+				742968A7197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D0812519650CDD004ACF9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				742968A8197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		74D0810E19650CDD004ACF9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74F6BE911974CC1D008AF8E5 /* CaturlogCoreDataEntities.swift in Sources */,
+				74D0811A19650CDD004ACF9F /* AppDelegate.swift in Sources */,
+				74EE31B3197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */,
+				74D0811819650CDD004ACF9F /* main.swift in Sources */,
+				742968A1197A17220037FBA3 /* OmnibarViewController.swift in Sources */,
+				74F6BE8A196CF580008AF8E5 /* ResourceLoader.swift in Sources */,
+				74F6BE87196CF44E008AF8E5 /* CaturlogServices.swift in Sources */,
+				74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */,
+				7429689E1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */,
+				74F6BE931974D6BC008AF8E5 /* ResourceStorer.swift in Sources */,
+				74F6BE8D19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D0812319650CDD004ACF9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74EE31B4197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */,
+				7429689F1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */,
+				74F6BE941974D6BC008AF8E5 /* ResourceStorer.swift in Sources */,
+				74F6BE88196CF44E008AF8E5 /* CaturlogServices.swift in Sources */,
+				74D0812E19650CDD004ACF9F /* CaturlogTests.swift in Sources */,
+				742968A2197A17220037FBA3 /* OmnibarViewController.swift in Sources */,
+				74F6BE8B196CF580008AF8E5 /* ResourceLoader.swift in Sources */,
+				74F6BE8E19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		74D0812919650CDD004ACF9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74D0811119650CDD004ACF9F /* Caturlog */;
+			targetProxy = 74D0812819650CDD004ACF9F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		74D0812019650CDD004ACF9F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74D0812119650CDD004ACF9F /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		74D0812F19650CDD004ACF9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		74D0813019650CDD004ACF9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		74D0813219650CDD004ACF9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Caturlog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Caturlog/CaturlogBridgingHeader.h;
+			};
+			name = Debug;
+		};
+		74D0813319650CDD004ACF9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Caturlog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Caturlog/CaturlogBridgingHeader.h;
+			};
+			name = Release;
+		};
+		74D0813519650CDD004ACF9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Caturlog.app/Contents/MacOS/Caturlog";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CaturlogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		74D0813619650CDD004ACF9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Caturlog.app/Contents/MacOS/Caturlog";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CaturlogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		74D0810D19650CDD004ACF9F /* Build configuration list for PBXProject "Caturlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74D0812F19650CDD004ACF9F /* Debug */,
+				74D0813019650CDD004ACF9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74D0813119650CDD004ACF9F /* Build configuration list for PBXNativeTarget "Caturlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74D0813219650CDD004ACF9F /* Debug */,
+				74D0813319650CDD004ACF9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74D0813419650CDD004ACF9F /* Build configuration list for PBXNativeTarget "CaturlogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74D0813519650CDD004ACF9F /* Debug */,
+				74D0813619650CDD004ACF9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74D0810A19650CDD004ACF9F /* Project object */;
+}
