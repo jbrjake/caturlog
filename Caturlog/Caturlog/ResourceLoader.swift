@@ -28,17 +28,18 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
     }
     
     func getResourceSynchronously(contentID: String) -> NSData? {
-        var returnData :NSData? = nil
-        makeLocalRequestWithLocalURL(localURLForContentID(contentID), completion: {
-            returnData = $0
-        })
+        var returnData: NSData? = nil
+        makeLocalRequestWithLocalURL(
+            localURLForContentID(contentID), completion: {
+                returnData = $0
+            }
+        )
         return returnData
     }
 
     func appSupportURL () -> (NSURL) {
         var err: NSErrorPointer = nil
-        var path = NSFileManager.defaultManager().URLForDirectory(
-            NSSearchPathDirectory.ApplicationSupportDirectory,
+        var path = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationSupportDirectory,
             inDomain: NSSearchPathDomainMask.UserDomainMask,
             appropriateForURL: nil,
             create: true,
@@ -46,7 +47,6 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
         ).absoluteString
         path = path + "Caturlog/"
         
-        println("App support url: \(path)")
         return NSURL.URLWithString(path)
     }
     
@@ -55,28 +55,28 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
     // this will return the local path file:///path/to/AppSupportDir/items/imagehash.gif
     func localURLForRemoteURL(remoteURL: NSURL) -> NSURL {
         let localURL = NSURL()
-        println("returning local URL: \(localURL)")
         return localURL
     }
 
     // For an item's data, this will return the local path file:///path/to/AppSupportDir/items/imagehash.gif
     func localURLForItem(item: NSData) -> NSURL {
         let localURL = localURLForContentID(item.sha256())
-        println("returning local URL: \(localURL)")
         return localURL
     }
     
     func localURLForContentID(contentID:String) -> NSURL {
-        let localURL = self.appSupportURL().URLByAppendingPathComponent("items").URLByAppendingPathComponent(contentID).URLByAppendingPathExtension("gif")
-        
-        println("returning local URL: \(localURL)")
+        let localURL = self.appSupportURL()
+            .URLByAppendingPathComponent("items")
+            .URLByAppendingPathComponent(contentID)
+            .URLByAppendingPathExtension("gif")        
         return localURL        
     }
     
     func localDirectoryFromLocalURL(localURL: NSURL) -> String {
         var localDirectoryPath = localURL.absoluteString.stringByRemovingPercentEncoding
         localDirectoryPath = localDirectoryPath.stringByDeletingLastPathComponent;
-        localDirectoryPath = localDirectoryPath.stringByReplacingOccurrencesOfString("file:/", withString: "", options: nil, range: nil)
+        localDirectoryPath = localDirectoryPath
+            .stringByReplacingOccurrencesOfString("file:/", withString: "", options: nil, range: nil)
         localDirectoryPath = "/" + localDirectoryPath + "/"
         return localDirectoryPath
     }
@@ -86,26 +86,23 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
         return false
     }
     
-    func writeFile( url: NSURL, data: NSData ) {
+    func writeFile(url: NSURL, data: NSData) {
         var err: NSErrorPointer = nil
         let urlDir = url.URLByDeletingLastPathComponent
-        let urlPath = url.absoluteString.stringByRemovingPercentEncoding.stringByReplacingOccurrencesOfString("file://",
-            withString: "",
-            options: nil,
-            range: nil
-        )
+        let urlPath = url.absoluteString.stringByRemovingPercentEncoding
+            .stringByReplacingOccurrencesOfString("file://",
+                withString: "",
+                options:    nil,
+                range:      nil
+            )
         
-        println("trying to create dir \(urlDir) and file \(urlPath)")
-        var writeState = NSFileManager.defaultManager().createDirectoryAtURL( urlDir,
+        var writeState = NSFileManager.defaultManager().createDirectoryAtURL(urlDir,
             withIntermediateDirectories: true,
             attributes: nil,
             error: err
         )
         if(err) {
             println("err:\(err)")
-        }
-        else {
-            println("no err, write succeeded with state: \(writeState)")
         }
 
         NSFileManager.defaultManager().createFileAtPath(urlPath,
@@ -114,36 +111,36 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
         )
     }
     
-    func makeRemoteRequest(url: NSURL, completion: (data: NSData?) -> () ) {
-        println("returning remote request")
+    func makeRemoteRequest(url: NSURL, completion: (data: NSData?) -> ()) {
         let request = NSMutableURLRequest(URL: url)
-        NSURLConnection.sendAsynchronousRequest(request, queue: backgroundQueue, completionHandler:{
-            response, data, error in
-            if error == nil {
-                // Write the file to disk
-                println("writing file to \(self.localURLForItem(data).absoluteString)")
-                self.writeFile(self.localURLForItem(data), data: data)
+        NSURLConnection.sendAsynchronousRequest(request,
+            queue: backgroundQueue,
+            completionHandler: {
+                response, data, error in
+                if error == nil {
+                    // Write the file to disk
+                    self.writeFile(self.localURLForItem(data), data: data)
                 
-                // Cache in memory
-                self.cache.setObject(data, forKey: url, cost: data.length)
+                    // Cache in memory
+                    self.cache.setObject(data, forKey: url, cost: data.length)
                 
-                // Then return it
-                completion(data: data)
+                    // Then return it
+                    completion(data: data)
+                }
+                else {
+                    println("Failure loading item: \(error)")
+                    completion(data: nil)
+                }
             }
-            else {
-                println("Failure loading item: \(error)")
-                completion(data:nil)
-            }
-            return
-            })
+        )
     }
     
-    func makeLocalRequest(url: NSURL, completion:(data: NSData?) -> () ) {
+    func makeLocalRequest(url: NSURL, completion:(data: NSData?) -> ()) {
         let localURL = self.localURLForRemoteURL(url)
         makeLocalRequestWithLocalURL(localURL, completion: completion)
     }
     
-    func makeLocalRequestWithLocalURL(url: NSURL, completion:(data: NSData?) -> () ) {
+    func makeLocalRequestWithLocalURL(url: NSURL, completion:(data: NSData?) -> ()) {
         let localPath = url.absoluteString.stringByRemovingPercentEncoding
             .stringByReplacingOccurrencesOfString("file://", withString: "", options: nil, range: nil)
         let data = NSData.dataWithContentsOfMappedFile(localPath) as? NSData

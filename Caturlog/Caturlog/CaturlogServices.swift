@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ResourceLoadingServiceProtocol {
-    func getResource(url: NSURL, completion: (data: NSData?) -> () )
+    func getResource(url: NSURL, completion: (data: NSData?) -> ())
     func getResourceSynchronously(contentID: String) -> NSData?
 }
 
@@ -24,8 +24,8 @@ protocol ResourceTaggingServiceProtocol {
 
 class CaturlogServices {
     
-    let resourceLoader : ResourceLoadingServiceProtocol
-    let resourceStorer : ResourceStoringServiceProtocol
+    let resourceLoader: ResourceLoadingServiceProtocol
+    let resourceStorer: ResourceStoringServiceProtocol
     
     init() {
         self.resourceLoader = ResourceLoader()

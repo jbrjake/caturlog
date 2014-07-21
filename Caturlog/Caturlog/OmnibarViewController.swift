@@ -10,14 +10,16 @@ import Cocoa
 
 class OmnibarViewController :NSViewController, NSTextFieldDelegate {
 
-    @IBOutlet var omnibar :NSTokenField
+    @IBOutlet var omnibar: NSTokenField
 
     override func controlTextDidEndEditing(obj: NSNotification!) {
-        var textField :NSTextField = obj.object as NSTextField
-        if( textField.isEqualTo(omnibar) ) {
+        var textField = obj.object as NSTextField
+        
+        if(textField.isEqualTo(omnibar)) {
             let tokenField = textField as NSTokenField
             let tokens = tokenField.objectValue as Array<String>
             let (urls,tags) = urlsAndTagsFromTokens(tokens)
+            
             for url in urls {
                 addResource(url)
             }
@@ -27,6 +29,7 @@ class OmnibarViewController :NSViewController, NSTextFieldDelegate {
     func urlsAndTagsFromTokens(tokens :Array<String>) -> (Array<NSURL>,Array<String>) {
         var urls = Array<NSURL>()
         var tags = Array<String>()
+        
         for tokenString in tokens {
             if let url = NSURL.URLWithString(tokenString) {
                 urls.append(url)
@@ -35,12 +38,14 @@ class OmnibarViewController :NSViewController, NSTextFieldDelegate {
                 tags.append(tokenString)
             }
         }
+        
         return(urls, tags)
     }
     
     func addResource(url: NSURL) {
         var appDel = NSApplication.sharedApplication().delegate as AppDelegate
         var services = appDel.caturlogServices
+        
         services.resourceLoader.getResource(url, completion: {
             data in
             if data != nil {

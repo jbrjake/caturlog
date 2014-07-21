@@ -9,13 +9,11 @@
 import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-                            
-    @IBOutlet var window: NSWindow
+
+    let windowController: CaturlogWindowController = CaturlogWindowController(windowNibName: "CaturlogWindow")
 
     let caturlogServices = CaturlogServices()
 
-    let windowController : CaturlogWindowController = CaturlogWindowController(windowNibName: "CaturlogWindow")
-    
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
         windowController.showWindow(nil)
