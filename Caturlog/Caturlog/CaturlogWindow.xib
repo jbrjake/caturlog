@@ -22,36 +22,41 @@
                 <rect key="frame" x="0.0" y="0.0" width="501" height="344"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sct-Bi-lWA">
+                    <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="39" horizontalPageScroll="10" verticalLineScroll="39" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sct-Bi-lWA">
                         <rect key="frame" x="8" y="8" width="120" height="328"/>
                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="tm2-m3-kLe">
                             <rect key="frame" x="1" y="17" width="238" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" id="HC5-Ow-Gqe">
+                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="34" rowSizeStyle="large" id="HC5-Ow-Gqe">
                                     <rect key="frame" x="0.0" y="0.0" width="219" height="19"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <size key="intercellSpacing" width="3" height="2"/>
+                                    <size key="intercellSpacing" width="50" height="5"/>
                                     <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="gridColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="gridColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="AutomaticTableColumnIdentifier.0" width="216" minWidth="40" maxWidth="1000" id="7qk-P8-gWX">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                        <tableColumn width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="fTU-gs-7Vu">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
-                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="yju-z7-8jB">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="HRo-Mt-v4Q">
+                                                <connections>
+                                                    <binding destination="zXN-PO-153" name="value" keyPath="selection.contentID" id="25e-om-XyN">
+                                                        <dictionary key="options">
+                                                            <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                            <string key="NSValueTransformerName">Caturlog.ContentIDToNSImageTransformer</string>
+                                                        </dictionary>
+                                                    </binding>
+                                                </connections>
+                                            </imageCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="zXN-PO-153" name="value" keyPath="arrangedObjects.contentID" id="brb-cd-gsa">
+                                                <binding destination="zXN-PO-153" name="value" keyPath="arrangedObjects.contentID" id="JvQ-za-JP6">
                                                     <dictionary key="options">
-                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
-                                                        <bool key="NSConditionallySetsEditable" value="NO"/>
+                                                        <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                        <string key="NSValueTransformerName">Caturlog.ContentIDToNSImageTransformer</string>
                                                     </dictionary>
                                                 </binding>
                                             </connections>
@@ -59,7 +64,7 @@
                                     </tableColumns>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <nil key="backgroundColor"/>
                         </clipView>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="AzC-AO-wOR"/>
