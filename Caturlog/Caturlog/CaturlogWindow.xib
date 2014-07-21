@@ -22,9 +22,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="501" height="344"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <tokenField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gwZ-Br-F5C">
-                        <rect key="frame" x="121" y="320" width="380" height="24"/>
-                        <tokenFieldCell key="cell" selectable="YES" editable="YES" alignment="left" placeholderString="Add or Search Images" allowsEditingTextAttributes="YES" id="kYo-Cd-Xjc">
+                    <tokenField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gwZ-Br-F5C">
+                        <rect key="frame" x="136" y="312" width="357" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="fwx-hS-qhd"/>
+                        </constraints>
+                        <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" placeholderString="Add or Search Images" allowsEditingTextAttributes="YES" bezelStyle="round" id="kYo-Cd-Xjc">
                             <font key="font" metaFont="titleBar" size="12"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -33,9 +36,9 @@
                             <outlet property="delegate" destination="Ahe-tD-rZo" id="F8P-96-chy"/>
                         </connections>
                     </tokenField>
-                    <scrollView focusRingType="none" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sct-Bi-lWA">
-                        <rect key="frame" x="0.0" y="0.0" width="120" height="344"/>
-                        <clipView key="contentView" ambiguous="YES" misplaced="YES" drawsBackground="NO" copiesOnScroll="NO" id="tm2-m3-kLe">
+                    <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sct-Bi-lWA">
+                        <rect key="frame" x="8" y="8" width="120" height="328"/>
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="tm2-m3-kLe">
                             <rect key="frame" x="1" y="17" width="238" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -72,6 +75,9 @@
                             </subviews>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="AzC-AO-wOR"/>
+                        </constraints>
                         <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="mv6-t5-4cY">
                             <rect key="frame" x="1" y="119" width="223" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
@@ -81,16 +87,19 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <tokenField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-gY-pgh">
-                        <rect key="frame" x="123" y="0.0" width="376" height="82"/>
-                        <tokenFieldCell key="cell" selectable="YES" editable="YES" alignment="left" drawsBackground="YES" allowsEditingTextAttributes="YES" id="fdw-pu-OyE">
+                    <tokenField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-gY-pgh">
+                        <rect key="frame" x="134" y="8" width="361" height="82"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="82" id="Af1-tm-QOd"/>
+                        </constraints>
+                        <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" allowsEditingTextAttributes="YES" id="fdw-pu-OyE">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </tokenFieldCell>
                     </tokenField>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq">
-                        <rect key="frame" x="123" y="86" width="376" height="226"/>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq">
+                        <rect key="frame" x="136" y="98" width="357" height="206"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="zda-M5-lyt">
                             <connections>
                                 <binding destination="zXN-PO-153" name="value" keyPath="selection.contentID" id="TXe-AO-QFT">
@@ -103,6 +112,22 @@
                         </imageCell>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="vBf-eO-inq" secondAttribute="trailing" constant="8" id="BnY-f7-m9x"/>
+                    <constraint firstItem="sct-Bi-lWA" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="8" id="FSQ-4G-5bg"/>
+                    <constraint firstItem="6CC-gY-pgh" firstAttribute="top" secondItem="vBf-eO-inq" secondAttribute="bottom" constant="8" id="I01-CH-MAR"/>
+                    <constraint firstItem="vBf-eO-inq" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="8" id="XQy-61-0PF"/>
+                    <constraint firstAttribute="trailing" secondItem="6CC-gY-pgh" secondAttribute="trailing" constant="8" id="b84-QL-U0Y"/>
+                    <constraint firstItem="gwZ-Br-F5C" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="8" id="gdR-2Q-PdU"/>
+                    <constraint firstItem="6CC-gY-pgh" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="8" id="iVe-xe-85K"/>
+                    <constraint firstItem="gwZ-Br-F5C" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="8" id="jKL-Ig-w1n"/>
+                    <constraint firstAttribute="bottom" secondItem="6CC-gY-pgh" secondAttribute="bottom" constant="8" id="n9x-Ra-QWN"/>
+                    <constraint firstAttribute="bottom" secondItem="sct-Bi-lWA" secondAttribute="bottom" constant="8" id="o9o-28-jz8"/>
+                    <constraint firstItem="vBf-eO-inq" firstAttribute="top" secondItem="gwZ-Br-F5C" secondAttribute="bottom" constant="8" id="uZo-lU-K95"/>
+                    <constraint firstItem="vBf-eO-inq" firstAttribute="top" secondItem="gwZ-Br-F5C" secondAttribute="bottom" constant="8" id="xJa-t2-Mwk"/>
+                    <constraint firstAttribute="trailing" secondItem="gwZ-Br-F5C" secondAttribute="trailing" constant="8" id="z3t-X1-5K3"/>
+                    <constraint firstItem="sct-Bi-lWA" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="8" id="zwn-kI-7Kb"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="JwM-Vq-1y9"/>
