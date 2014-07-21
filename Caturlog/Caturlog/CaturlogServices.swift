@@ -10,6 +10,7 @@ import Foundation
 
 protocol ResourceLoadingServiceProtocol {
     func getResource(url: NSURL, completion: (data: NSData?) -> () )
+    func getResourceSynchronously(contentID: String) -> NSData?
 }
 
 protocol ResourceStoringServiceProtocol {
