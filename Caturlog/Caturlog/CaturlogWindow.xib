@@ -42,16 +42,7 @@
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
-                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="HRo-Mt-v4Q">
-                                                <connections>
-                                                    <binding destination="zXN-PO-153" name="value" keyPath="selection.contentID" id="25e-om-XyN">
-                                                        <dictionary key="options">
-                                                            <bool key="NSConditionallySetsEnabled" value="NO"/>
-                                                            <string key="NSValueTransformerName">Caturlog.ContentIDToNSImageTransformer</string>
-                                                        </dictionary>
-                                                    </binding>
-                                                </connections>
-                                            </imageCell>
+                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="HRo-Mt-v4Q"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
                                     </tableColumns>
@@ -84,16 +75,7 @@
                     </tokenField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq">
                         <rect key="frame" x="136" y="98" width="357" height="238"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="zda-M5-lyt">
-                            <connections>
-                                <binding destination="zXN-PO-153" name="value" keyPath="selection.contentID" id="TXe-AO-QFT">
-                                    <dictionary key="options">
-                                        <bool key="NSConditionallySetsEnabled" value="NO"/>
-                                        <string key="NSValueTransformerName">Caturlog.ContentIDToNSImageTransformer</string>
-                                    </dictionary>
-                                </binding>
-                            </connections>
-                        </imageCell>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="zda-M5-lyt"/>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -143,10 +125,5 @@
                 <outlet property="omnibar" destination="ZGS-VJ-SNU" id="TW3-m3-lS2"/>
             </connections>
         </customObject>
-        <arrayController mode="entity" entityName="Item" editable="NO" automaticallyPreparesContent="YES" id="zXN-PO-153">
-            <connections>
-                <binding destination="-2" name="managedObjectContext" keyPath="moc" id="Y49-9p-E3s"/>
-            </connections>
-        </arrayController>
     </objects>
 </document>

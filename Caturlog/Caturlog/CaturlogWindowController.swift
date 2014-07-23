@@ -43,5 +43,15 @@ class CaturlogWindowController: NSWindowController {
                 ]
             )                
         }
+        
+        imageView.bind(NSValueBinding,
+            toObject: viewModel?.itemArrayController,
+            withKeyPath: "selection.contentID",
+            options: [
+                NSValueTransformerNameBindingOption: "Caturlog.ContentIDToNSImageTransformer",
+                NSConditionallySetsEnabledBindingOption: false
+            ]
+        )
+        
     }    
 }
