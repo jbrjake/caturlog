@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="CaturlogWindowController" customModule="Caturlog" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="vBf-eO-inq" id="XQZ-JG-rRw"/>
+                <outlet property="itemList" destination="HC5-Ow-Gqe" id="XQj-XG-5B3"/>
                 <outlet property="tagField" destination="6CC-gY-pgh" id="NaX-VJ-AcQ"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="uop-ms-W97"/>
             </connections>
@@ -29,13 +30,13 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="34" rowSizeStyle="large" id="HC5-Ow-Gqe">
-                                    <rect key="frame" x="0.0" y="0.0" width="219" height="19"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="114" height="39"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="50" height="5"/>
                                     <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="fTU-gs-7Vu">
+                                        <tableColumn identifier="ItemImageColumnID" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="fTU-gs-7Vu">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -52,14 +53,6 @@
                                                 </connections>
                                             </imageCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                            <connections>
-                                                <binding destination="zXN-PO-153" name="value" keyPath="arrangedObjects.contentID" id="JvQ-za-JP6">
-                                                    <dictionary key="options">
-                                                        <bool key="NSConditionallySetsEnabled" value="NO"/>
-                                                        <string key="NSValueTransformerName">Caturlog.ContentIDToNSImageTransformer</string>
-                                                    </dictionary>
-                                                </binding>
-                                            </connections>
                                         </tableColumn>
                                     </tableColumns>
                                 </tableView>
@@ -126,7 +119,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="96" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" placeholderString="Add or Search Images" allowsEditingTextAttributes="YES" bezelStyle="round" id="SAN-Hw-vyO">
-                                <font key="font" metaFont="titleBar" size="12"/>
+                                <font key="font" metaFont="cellTitle"/>
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </tokenFieldCell>

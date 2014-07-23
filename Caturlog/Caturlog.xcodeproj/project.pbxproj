@@ -21,6 +21,8 @@
 		74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */; };
 		74EE31B3197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */; };
 		74EE31B4197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */; };
+		74EE31B9197F4D2300FEB62B /* CaturlogWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B8197F4D2300FEB62B /* CaturlogWindowViewModel.swift */; };
+		74EE31BA197F4D2300FEB62B /* CaturlogWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B8197F4D2300FEB62B /* CaturlogWindowViewModel.swift */; };
 		74F6BE87196CF44E008AF8E5 /* CaturlogServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */; };
 		74F6BE88196CF44E008AF8E5 /* CaturlogServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */; };
 		74F6BE8A196CF580008AF8E5 /* ResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */; };
@@ -57,6 +59,7 @@
 		74D0812D19650CDD004ACF9F /* CaturlogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaturlogTests.swift; sourceTree = "<group>"; };
 		74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Caturlog.xcdatamodel; sourceTree = SOURCE_ROOT; };
 		74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentIDToNSImageTransformer.swift; sourceTree = "<group>"; };
+		74EE31B8197F4D2300FEB62B /* CaturlogWindowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogWindowViewModel.swift; sourceTree = "<group>"; };
 		74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogServices.swift; sourceTree = "<group>"; };
 		74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceLoader.swift; sourceTree = "<group>"; };
 		74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+CommonDigest.swift"; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				74EE31B5197CBE9400FEB62B /* Model */,
+				74EE31BC197F4D4400FEB62B /* View Model */,
 				74EE31B6197CBECB00FEB62B /* Presentation */,
 				74EE31B7197CBEF800FEB62B /* Resources */,
 				74D0811919650CDD004ACF9F /* AppDelegate.swift */,
@@ -171,6 +175,14 @@
 				74D0811E19650CDD004ACF9F /* Images.xcassets */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		74EE31BC197F4D4400FEB62B /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				74EE31B8197F4D2300FEB62B /* CaturlogWindowViewModel.swift */,
+			);
+			name = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +291,7 @@
 				74EE31B3197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */,
 				74D0811819650CDD004ACF9F /* main.swift in Sources */,
 				742968A1197A17220037FBA3 /* OmnibarViewController.swift in Sources */,
+				74EE31B9197F4D2300FEB62B /* CaturlogWindowViewModel.swift in Sources */,
 				74F6BE8A196CF580008AF8E5 /* ResourceLoader.swift in Sources */,
 				74F6BE87196CF44E008AF8E5 /* CaturlogServices.swift in Sources */,
 				74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */,
@@ -297,6 +310,7 @@
 				74F6BE941974D6BC008AF8E5 /* ResourceStorer.swift in Sources */,
 				74F6BE88196CF44E008AF8E5 /* CaturlogServices.swift in Sources */,
 				74D0812E19650CDD004ACF9F /* CaturlogTests.swift in Sources */,
+				74EE31BA197F4D2300FEB62B /* CaturlogWindowViewModel.swift in Sources */,
 				742968A2197A17220037FBA3 /* OmnibarViewController.swift in Sources */,
 				74F6BE8B196CF580008AF8E5 /* ResourceLoader.swift in Sources */,
 				74F6BE8E19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */,

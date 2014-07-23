@@ -14,12 +14,34 @@ class CaturlogWindowController: NSWindowController {
 
     @IBOutlet var imageView:    NSImageView
     @IBOutlet var tagField:     NSTokenField
-
+    @IBOutlet var itemList:     NSTableView
+    
     var moc: NSManagedObjectContext? {
         return (NSApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
     }
     
+    var viewModel: CaturlogWindowViewModel? = nil
+    
     override func windowWillLoad() {
         super.windowWillLoad()
     }
+    
+    override func windowDidLoad() {
+        super.windowDidLoad()
+
+        viewModel = CaturlogWindowViewModel()
+
+        if let column: NSTableColumn = itemList.tableColumns[itemList.columnWithIdentifier("ItemImageColumnID")]
+            as? NSTableColumn
+        {
+            column.bind(NSValueBinding,
+                toObject: viewModel?.itemArrayController,
+                withKeyPath: "arrangedObjects.contentID",
+                options: [
+                    NSValueTransformerNameBindingOption: "Caturlog.ContentIDToNSImageTransformer",
+                    NSConditionallySetsEnabledBindingOption: false
+                ]
+            )                
+        }
+    }    
 }
