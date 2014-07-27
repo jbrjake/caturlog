@@ -12,21 +12,21 @@ import CoreData
 
 class CaturlogWindowViewModel {
     
-    let itemArrayController: NSArrayController
+    let itemEntityController: NSArrayController
     
     init() {
         let moc = (NSApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
-        itemArrayController = NSArrayController(content: nil)
-        itemArrayController.managedObjectContext = moc
-        itemArrayController.bind("managedObjectContext", toObject: moc, withKeyPath: "self", options: nil)
-        itemArrayController.entityName = "Item"
-        itemArrayController.automaticallyPreparesContent = true
-        itemArrayController.avoidsEmptySelection = true
-        itemArrayController.preservesSelection = true
-        itemArrayController.selectsInsertedObjects = true
-        itemArrayController.clearsFilterPredicateOnInsertion = true
-        itemArrayController.usesLazyFetching = false
-        itemArrayController.fetch(nil)
+        itemEntityController = NSArrayController(content: nil)
+        itemEntityController.managedObjectContext = moc
+        itemEntityController.bind("managedObjectContext", toObject: moc, withKeyPath: "self", options: nil)
+        itemEntityController.entityName = "Item"
+        itemEntityController.automaticallyPreparesContent = true
+        itemEntityController.avoidsEmptySelection = true
+        itemEntityController.preservesSelection = true
+        itemEntityController.selectsInsertedObjects = true
+        itemEntityController.clearsFilterPredicateOnInsertion = true
+        itemEntityController.usesLazyFetching = false
+        itemEntityController.fetch(nil)        
     }
     
 }

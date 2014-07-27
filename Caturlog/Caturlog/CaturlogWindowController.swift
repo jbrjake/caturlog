@@ -35,8 +35,8 @@ class CaturlogWindowController: NSWindowController {
             as? NSTableColumn
         {
             column.bind(NSValueBinding,
-                toObject: viewModel?.itemArrayController,
                 withKeyPath: "arrangedObjects.contentID",
+                toObject: viewModel?.itemEntityController,
                 options: [
                     NSValueTransformerNameBindingOption: "Caturlog.ContentIDToNSImageTransformer",
                     NSConditionallySetsEnabledBindingOption: false
@@ -45,8 +45,8 @@ class CaturlogWindowController: NSWindowController {
         }
         
         imageView.bind(NSValueBinding,
-            toObject: viewModel?.itemArrayController,
             withKeyPath: "selection.contentID",
+            toObject: viewModel?.itemEntityController,
             options: [
                 NSValueTransformerNameBindingOption: "Caturlog.ContentIDToNSImageTransformer",
                 NSConditionallySetsEnabledBindingOption: false
