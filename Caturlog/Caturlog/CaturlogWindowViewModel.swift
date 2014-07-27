@@ -42,7 +42,7 @@ class CaturlogWindowViewModel {
         var tags = Array<String>()
         
         for tokenString in tokens {
-            if let url = NSURL.URLWithString(tokenString) {
+            if let url = validURLWithString(tokenString) {
                 urls.append(url)
             }
             else {
@@ -65,6 +65,14 @@ class CaturlogWindowViewModel {
         })
     }
     
-
+    func validURLWithString(string: String) -> NSURL? {
+        var validURL: NSURL?  = nil
+        if let url = NSURL.URLWithString(string) {
+            if let host = url.host {
+                validURL = url
+            }
+        } 
+        return validURL
+    }
     
 }
