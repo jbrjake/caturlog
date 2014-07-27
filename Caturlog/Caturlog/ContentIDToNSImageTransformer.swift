@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ContentIDToNSImageTransformer: NSValueTransformer {
+class ItemToNSImageTransformer: NSValueTransformer {
     override class func transformedValueClass() -> (AnyClass!) {
         return NSImage.self
     }
@@ -20,6 +20,16 @@ class ContentIDToNSImageTransformer: NSValueTransformer {
     override func transformedValue(value: AnyObject!) -> AnyObject! {
         let appDel = NSApplication.sharedApplication().delegate as AppDelegate
         let loader = appDel.caturlogServices.resourceLoader
-        return NSImage(data:loader.getResourceSynchronously(value as String))
+        if let item = value as? Item {
+            if let imageData = loader.getResourceSynchronously(item.contentID){
+                return NSImage(data:imageData)
+            }
+            else {
+                return NSImage()
+            }
+        }
+        else {
+            return NSImage()
+        }
     }
 }

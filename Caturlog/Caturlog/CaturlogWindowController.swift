@@ -35,20 +35,20 @@ class CaturlogWindowController: NSWindowController {
             as? NSTableColumn
         {
             column.bind(NSValueBinding,
-                withKeyPath: "arrangedObjects.contentID",
                 toObject: viewModel?.itemEntityController,
+                withKeyPath: "arrangedObjects",
                 options: [
-                    NSValueTransformerNameBindingOption: "Caturlog.ContentIDToNSImageTransformer",
+                    NSValueTransformerNameBindingOption: "Caturlog.ItemToNSImageTransformer",
                     NSConditionallySetsEnabledBindingOption: false
                 ]
-            )                
+            )
         }
         
         imageView.bind(NSValueBinding,
-            withKeyPath: "selection.contentID",
             toObject: viewModel?.itemEntityController,
+            withKeyPath: "selection.self",
             options: [
-                NSValueTransformerNameBindingOption: "Caturlog.ContentIDToNSImageTransformer",
+                NSValueTransformerNameBindingOption: "Caturlog.ItemToNSImageTransformer",
                 NSConditionallySetsEnabledBindingOption: false
             ]
         )
