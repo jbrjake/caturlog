@@ -122,6 +122,7 @@
         </window>
         <customObject id="Ahe-tD-rZo" customClass="OmnibarViewController" customModule="Caturlog" customModuleProvider="target">
             <connections>
+                <outlet property="caturlogWindowControler" destination="-2" id="QjK-9l-d5y"/>
                 <outlet property="omnibar" destination="ZGS-VJ-SNU" id="TW3-m3-lS2"/>
             </connections>
         </customObject>
