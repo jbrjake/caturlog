@@ -23,26 +23,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="501" height="344"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="39" horizontalPageScroll="10" verticalLineScroll="39" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sct-Bi-lWA">
-                        <rect key="frame" x="8" y="8" width="120" height="328"/>
+                    <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="74" horizontalPageScroll="10" verticalLineScroll="74" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sct-Bi-lWA">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="344"/>
                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="tm2-m3-kLe">
                             <rect key="frame" x="1" y="17" width="238" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="34" rowSizeStyle="large" id="HC5-Ow-Gqe">
+                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="72" id="HC5-Ow-Gqe">
                                     <rect key="frame" x="0.0" y="0.0" width="114" height="39"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <size key="intercellSpacing" width="50" height="5"/>
+                                    <size key="intercellSpacing" width="0.0" height="2"/>
                                     <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="ItemImageColumnID" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="fTU-gs-7Vu">
+                                        <tableColumn identifier="ItemImageColumnID" width="120" minWidth="10" maxWidth="3.4028234663852886e+38" id="fTU-gs-7Vu">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
-                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="HRo-Mt-v4Q"/>
+                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" id="HRo-Mt-v4Q"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
                                     </tableColumns>
@@ -63,7 +63,7 @@
                         </scroller>
                     </scrollView>
                     <tokenField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-gY-pgh">
-                        <rect key="frame" x="134" y="8" width="361" height="82"/>
+                        <rect key="frame" x="126" y="8" width="369" height="82"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="82" id="Af1-tm-QOd"/>
                         </constraints>
@@ -74,21 +74,21 @@
                         </tokenFieldCell>
                     </tokenField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq">
-                        <rect key="frame" x="136" y="98" width="357" height="238"/>
+                        <rect key="frame" x="128" y="98" width="365" height="238"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="zda-M5-lyt"/>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="vBf-eO-inq" secondAttribute="trailing" constant="8" id="BnY-f7-m9x"/>
-                    <constraint firstItem="sct-Bi-lWA" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="8" id="FSQ-4G-5bg"/>
+                    <constraint firstItem="sct-Bi-lWA" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="FSQ-4G-5bg"/>
                     <constraint firstItem="6CC-gY-pgh" firstAttribute="top" secondItem="vBf-eO-inq" secondAttribute="bottom" constant="8" id="I01-CH-MAR"/>
                     <constraint firstItem="vBf-eO-inq" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="8" id="XQy-61-0PF"/>
                     <constraint firstAttribute="trailing" secondItem="6CC-gY-pgh" secondAttribute="trailing" constant="8" id="b84-QL-U0Y"/>
                     <constraint firstItem="6CC-gY-pgh" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="8" id="iVe-xe-85K"/>
                     <constraint firstAttribute="bottom" secondItem="6CC-gY-pgh" secondAttribute="bottom" constant="8" id="n9x-Ra-QWN"/>
-                    <constraint firstAttribute="bottom" secondItem="sct-Bi-lWA" secondAttribute="bottom" constant="8" id="o9o-28-jz8"/>
+                    <constraint firstAttribute="bottom" secondItem="sct-Bi-lWA" secondAttribute="bottom" id="o9o-28-jz8"/>
                     <constraint firstItem="vBf-eO-inq" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="8" id="wDq-11-VQI"/>
-                    <constraint firstItem="sct-Bi-lWA" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="8" id="zwn-kI-7Kb"/>
+                    <constraint firstItem="sct-Bi-lWA" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="zwn-kI-7Kb"/>
                 </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="6A8C8A64-7C8C-4437-9A2C-C36C99FEA0AE" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="rFu-vF-i4L">
