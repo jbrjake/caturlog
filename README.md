@@ -157,7 +157,7 @@ TODO
 	* ~~Direct download images from URL~~
 	* ~~Store images on disk~~
 	* ~~Represent the image in Core Data~~
-	* Display the image on screen
+	* ~~Display the image on screen~~
 * Filtering
 	* Inspect frames and bitmaps
 	* Filter chain design
@@ -240,6 +240,30 @@ ResultsTableView -> ResultsTableViewController -> ResultsTableViewDataSource -> 
 DetailView -> DetailViewController -> DetailViewModel -> ItemImage
 
 TagView -> TagViewController -> TagViewModel -> ItemTags
+
+MVVM
+----
+
+ViewController -> View Model -> Model
+   			 <binds		   <binds
+
+After v0.1, there are the following active views:
+* Omnibar (NSTokenfield) (VC is the delegate, turns the objectValue into tags and urls and tries to store them)
+* ItemList (NSTableView) (bound to nsarraycontroller)
+* ImageView (NSImageView) (bound to nsarraycontroller)
+
+But now, instead of having the NSArrayController in the VC, it will live in the view model, where it will continue to interface with the moc to get arranged objects of the Item entity. The item list and image view in the VC will bind to the VM for their contents. for display data (the view model will also be responsible for the value transform to produce the image view's image). The VC will continue to be the delegate to the omnibar, but it will forward results as they come in back to the View Model, for parsing and storage/search. 
+
+The CaturlogViewModel will expose methods to:
+* receive omnibar text
+* bind to the array controller arrangedobjects
+* bind to the array controller's selectedobject
+
+Then the VC will send it the omnibar text, and request bindings of the tableview to the arranged objects and the image view to the selected object.
+
+A gap here, for now, is that the omnibar text is not bound to the view model, but rather uses more of a delegate pattern. But why can't this be handled by bindings as well? Bind all the things!
+
+First, set up two new arraycontrollers in the VM for the tags and urls. Then, bind them to the tokenfield objects, with two different transformers to extract either tags or urls. finally, bind the items array controller's predicate to those, with a transformer to convert them into a query string. But how to recombine the signals from both controllers? or should their just be a single tagandurl array controller, that splits out the predicate based on both? of course, this will have to be bound to something else to handle downloading urls not already in the db, and associating tags with any urls entered at the same time...the tag part can wait until 0.3 though.
 
 Image Downloading
 -----------------
