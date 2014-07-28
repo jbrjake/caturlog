@@ -31,9 +31,11 @@ class CaturlogWindowViewModel {
     
     func omnibarTokensChanged(newTokens: Array<String>) {
         let (urls,tags) = urlsAndTagsFromTokens(newTokens)
+        var appDel = NSApplication.sharedApplication().delegate as AppDelegate
+        var services = appDel.caturlogServices
         
         for url in urls {
-            addResource(url)
+            services.resourceStorer.storeResource(url)
         }
     }
     
@@ -51,18 +53,6 @@ class CaturlogWindowViewModel {
         }
         
         return(urls, tags)
-    }
-    
-    func addResource(url: NSURL) {
-        var appDel = NSApplication.sharedApplication().delegate as AppDelegate
-        var services = appDel.caturlogServices
-        
-        services.resourceLoader.getResource(url, completion: {
-            data in
-            if data != nil {
-                services.resourceStorer.storeResource(data!.sha256(), fromURL:url)
-            }
-        })
     }
     
     func validURLWithString(string: String) -> NSURL? {

@@ -14,7 +14,7 @@ protocol ResourceLoadingServiceProtocol {
 }
 
 protocol ResourceStoringServiceProtocol {
-    func storeResource(contentID: String, fromURL: NSURL) -> (Bool, NSErrorPointer?)
+    func storeResource(url: NSURL)
 }
 
 protocol ResourceTaggingServiceProtocol {
