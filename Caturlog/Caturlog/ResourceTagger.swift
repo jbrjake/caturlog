@@ -67,6 +67,7 @@ class ResourceTagger: ResourceTaggingServiceProtocol {
                 .insertNewObjectForEntityForName("UserItemTag", inManagedObjectContext: moc)
                 as? UserItemTag
             {
+                userItemTag.timestamp = NSDate()
                 userItemTag.user = user
                 userItemTag.item = item
                 userItemTag.tag = tag
