@@ -25,7 +25,7 @@ protocol ResourceTaggingServiceProtocol {
 }
 
 protocol UserServiceProtocol {
-    func getCurrentUserID() -> (userID: String?)
+    func getCurrentUserID() -> (userID: Int?)
     func getCurrentUser() -> (user: User?)
 }
 

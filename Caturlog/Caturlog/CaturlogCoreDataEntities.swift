@@ -19,7 +19,7 @@ class UserItemTag: NSManagedObject {
 
 class User: NSManagedObject {
     @NSManaged var name:            String
-    @NSManaged var userID:          String
+    @NSManaged var userID:          Int
     
     @NSManaged var items:           NSMutableSet
     @NSManaged var userItemTags:    NSMutableSet

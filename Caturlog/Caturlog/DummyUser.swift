@@ -12,8 +12,8 @@ import AppKit
 
 class DummyUser: UserServiceProtocol {
 
-    func getCurrentUserID() -> (userID: String?) {
-        return "1"
+    func getCurrentUserID() -> (userID: Int?) {
+        return 1
     }
     
     func getCurrentUser() -> (user: User?) {
@@ -30,7 +30,7 @@ class DummyUser: UserServiceProtocol {
     }
     
     // Return user if it exists
-    func getUserWithID(userID: String) -> (User?) {
+    func getUserWithID(userID: Int) -> (User?) {
         let predicate = NSPredicate(format: "userID = %@", userID)
         return fetchEntity("User", predicate: predicate) as User?
     }
@@ -43,7 +43,7 @@ class DummyUser: UserServiceProtocol {
                 as? User 
             {
                 user.name = name
-                user.userID = "1" // <-- SEE THIS? REMEMBER TO CHANGE THIS POST-DUMMY, DUMMY
+                user.userID = 1 // <-- SEE THIS? REMEMBER TO CHANGE THIS POST-DUMMY, DUMMY
                 moc.save(nil)
                 return user
             }
