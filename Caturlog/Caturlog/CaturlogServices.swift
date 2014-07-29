@@ -20,7 +20,7 @@ protocol ResourceStoringServiceProtocol {
 }
 
 protocol ResourceTaggingServiceProtocol {
-    func addTag(tag: String, forContentID: String, andUser: User) -> (Bool, NSError?)
+    func addTag(tag: String, contentID: String, user: User) -> (Bool, NSError?)
     func itemsForTag(tag: String, withUser: User) -> (NSSet?)
 }
 
@@ -33,11 +33,14 @@ class CaturlogServices {
     
     let resourceLoader: ResourceLoadingServiceProtocol
     let resourceStorer: ResourceStoringServiceProtocol
-    let resourceUser: UserServiceProtocol
+    let resourceTagger: ResourceTaggingServiceProtocol
+    let resourceUser:   UserServiceProtocol
+    
     init() {
         self.resourceLoader = ResourceLoader()
         self.resourceStorer = ResourceStorer()
-        self.resourceUser = DummyUser()
+        self.resourceTagger = ResourceTagger()
+        self.resourceUser   = DummyUser()
     }
     
 }
