@@ -11,6 +11,8 @@ import Foundation
 protocol ResourceLoadingServiceProtocol {
     func getResource(url: NSURL, completion: (data: NSData?) -> ())
     func getResourceSynchronously(contentID: String) -> NSData?
+    // Return an existing or new Item? with the contentID
+    func resourceWithContentID(contentID: String) -> Item?
 }
 
 protocol ResourceStoringServiceProtocol {

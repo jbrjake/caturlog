@@ -35,7 +35,7 @@ class ResourceStorer: ResourceStoringServiceProtocol {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         
         if let moc = appDelegate.managedObjectContext {
-            if let item = resourceWithContentID(contentID) {
+            if let item = appDelegate.caturlogServices.resourceLoader.resourceWithContentID(contentID) {
                 if let char = characteristicForURL(fromURL) {
                     char.items.addObject(item)
                     item.characteristics.addObject(char)
@@ -56,28 +56,6 @@ class ResourceStorer: ResourceStoringServiceProtocol {
         return (false, nil)
     }
     
-    // Return an existing or new Item? with the contentID
-    func resourceWithContentID(contentID: String) -> Item? {
-        let predicate = NSPredicate(format: "contentID = %@", contentID)
-
-        if let item = fetchEntity("Item", predicate: predicate) as? Item {
-            return item
-        }
-        else {
-            let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
-            if let moc = appDelegate.managedObjectContext {
-                if let item = NSEntityDescription
-                    .insertNewObjectForEntityForName("Item", inManagedObjectContext: moc) 
-                    as? Item 
-                {
-                    item.contentID = contentID
-                    return item
-                }
-            }
-        }
-        
-        return nil
-    }
 
     // Return an existing or new Characteristic? with name "URL" and value url
     func characteristicForURL(url: NSURL) -> Characteristic? {
