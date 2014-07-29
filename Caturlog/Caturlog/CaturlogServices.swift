@@ -22,14 +22,20 @@ protocol ResourceTaggingServiceProtocol {
     func itemsForTag(tag: String, withUser: User) -> (NSSet?)
 }
 
+protocol UserServiceProtocol {
+    func getCurrentUserID() -> (userID: String?)
+    func getCurrentUser() -> (user: User?)
+}
+
 class CaturlogServices {
     
     let resourceLoader: ResourceLoadingServiceProtocol
     let resourceStorer: ResourceStoringServiceProtocol
-    
+    let resourceUser: UserServiceProtocol
     init() {
         self.resourceLoader = ResourceLoader()
         self.resourceStorer = ResourceStorer()
+        self.resourceUser = DummyUser()
     }
     
 }
