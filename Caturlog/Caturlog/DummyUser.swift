@@ -31,44 +31,18 @@ class DummyUser: UserServiceProtocol {
     
     // Return user if it exists
     func getUserWithID(userID: Int) -> (User?) {
-        let predicate = NSPredicate(format: "userID = %@", userID)
-        return fetchEntity("User", predicate: predicate) as User?
+        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+        let services = appDelegate.caturlogServices
+        return services.entityAccessor.getUser(userID)
     }
     
     func addUser(name: String) -> (User?) {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
-        if let moc = appDelegate.managedObjectContext {
-            if let user = NSEntityDescription
-                .insertNewObjectForEntityForName("User", inManagedObjectContext: moc) 
-                as? User 
-            {
-                user.name = name
-                user.userID = 1 // <-- SEE THIS? REMEMBER TO CHANGE THIS POST-DUMMY, DUMMY
-                moc.save(nil)
-                return user
-            }
-        }
-        return nil
-    }
-
-    // Copying this over like this is horrible. Need to find a centralized location for CD helpers.
-    // Return the first fetch result for the named managed object matching the given predicate
-    func fetchEntity(name: String, predicate: NSPredicate) -> NSManagedObject? {
-        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
-        
-        if let moc = appDelegate.managedObjectContext {
-            let entity = NSEntityDescription.entityForName(name, inManagedObjectContext: moc)
-            var request = NSFetchRequest()
-            request.entity = entity
-            request.predicate = predicate
-            var err: NSErrorPointer = nil
-            let results = moc.executeFetchRequest(request, error: err)
-            if(results.count > 0) {
-                return results[0] as? NSManagedObject
-            }
-        }
-        
-        return nil
+        let services = appDelegate.caturlogServices
+        if let user = services.entityAccessor.insertUser(1)?  { // CHANGE THIS '1' LATER
+            user.name = name                            // Need another accessor method to pass this instead
+            appDelegate.managedObjectContext?.save(nil) // Oh my god I can't believe I'm doing this to save time :(
+        }        
     }
 
 }

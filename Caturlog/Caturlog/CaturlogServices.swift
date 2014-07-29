@@ -8,11 +8,20 @@
 
 import Foundation
 
+protocol EntityAccessingServiceProtocol {
+    func getItem(contentID: String) -> (item: Item?)
+    func getUser(userID: Int) -> (user: User?)
+    func getTag(name: String) -> (tag: Tag?)
+    func getCharacteristic(name: String, value:String) -> (characteristic: Characteristic?)
+    func insertItem(contentID: String) -> (item: Item?)
+    func insertUser(userID: Int) -> (user: User?)
+    func insertTag(name: String) -> (tag: Tag?)
+    func insertCharacteristic(name: String, value: String) -> (characteristic: Characteristic?)
+}
+
 protocol ResourceLoadingServiceProtocol {
     func getResource(url: NSURL, completion: (data: NSData?) -> ())
     func getResourceSynchronously(contentID: String) -> NSData?
-    // Return an existing or new Item? with the contentID
-    func resourceWithContentID(contentID: String) -> Item?
 }
 
 protocol ResourceStoringServiceProtocol {
@@ -31,12 +40,14 @@ protocol UserServiceProtocol {
 
 class CaturlogServices {
     
+    let entityAccessor: EntityAccessingServiceProtocol
     let resourceLoader: ResourceLoadingServiceProtocol
     let resourceStorer: ResourceStoringServiceProtocol
     let resourceTagger: ResourceTaggingServiceProtocol
     let resourceUser:   UserServiceProtocol
     
     init() {
+        self.entityAccessor = EntityAccessor()
         self.resourceLoader = ResourceLoader()
         self.resourceStorer = ResourceStorer()
         self.resourceTagger = ResourceTagger()

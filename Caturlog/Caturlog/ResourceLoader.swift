@@ -39,29 +39,6 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
         return returnData
     }
 
-    // Return an existing or new Item? with the contentID
-    func resourceWithContentID(contentID: String) -> Item? {
-        let predicate = NSPredicate(format: "contentID = %@", contentID)
-        
-        if let item = fetchEntity("Item", predicate: predicate) as? Item {
-            return item
-        }
-        else {
-            let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
-            if let moc = appDelegate.managedObjectContext {
-                if let item = NSEntityDescription
-                    .insertNewObjectForEntityForName("Item", inManagedObjectContext: moc) 
-                    as? Item 
-                {
-                    item.contentID = contentID
-                    return item
-                }
-            }
-        }
-        
-        return nil
-    }
-
     // Return the first fetch result for the named managed object matching the given predicate
     func fetchEntity(name: String, predicate: NSPredicate) -> NSManagedObject? {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate

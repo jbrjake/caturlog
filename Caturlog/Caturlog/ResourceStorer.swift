@@ -35,7 +35,7 @@ class ResourceStorer: ResourceStoringServiceProtocol {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         
         if let moc = appDelegate.managedObjectContext {
-            if let item = appDelegate.caturlogServices.resourceLoader.resourceWithContentID(contentID) {
+            if let item = appDelegate.caturlogServices.entityAccessor.getItem(contentID)? {
                 if let char = characteristicForURL(fromURL) {
                     char.items.addObject(item)
                     item.characteristics.addObject(char)
@@ -59,46 +59,17 @@ class ResourceStorer: ResourceStoringServiceProtocol {
 
     // Return an existing or new Characteristic? with name "URL" and value url
     func characteristicForURL(url: NSURL) -> Characteristic? {
-        let predicate = NSPredicate(format: "name = %@ && value = %@", "URL", url.absoluteString)
         
-        if let entity = fetchEntity("Characteristic", predicate: predicate) as? Characteristic {
+        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+        let services = appDelegate.caturlogServices
+        if let entity = services.entityAccessor.getCharacteristic("URL", value: url.absoluteString)? {
             return entity
         }
-        else {
-            let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
-            if let moc = appDelegate.managedObjectContext {
-                if let char = NSEntityDescription
-                    .insertNewObjectForEntityForName("Characteristic", inManagedObjectContext: moc)
-                    as? Characteristic
-                {
-                    char.name = "URL"
-                    char.value = url.absoluteString
-                    return char
-                }
-            }
+        else if let entity = services.entityAccessor.insertCharacteristic("URL", value: url.absoluteString)? {
+            return entity
         }
         
         return nil
     }
-    
-    // Return the first fetch result for the named managed object matching the given predicate
-    func fetchEntity(name: String, predicate: NSPredicate) -> NSManagedObject? {
-        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
-        
-        if let moc = appDelegate.managedObjectContext {
-            let entity = NSEntityDescription.entityForName(name, inManagedObjectContext: moc)
-            var request = NSFetchRequest()
-            request.entity = entity
-            request.predicate = predicate
-            var err: NSErrorPointer = nil
-            let results = moc.executeFetchRequest(request, error: err)
-            if(results.count > 0) {
-                return results[0] as? NSManagedObject
-            }
-        }
-        
-        return nil
-    }
-
 
 }
