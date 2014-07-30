@@ -42,7 +42,9 @@ class DummyUser: UserServiceProtocol {
         if let user = services.entityAccessor.insertUser(1)?  { // CHANGE THIS '1' LATER
             user.name = name                            // Need another accessor method to pass this instead
             appDelegate.managedObjectContext?.save(nil) // Oh my god I can't believe I'm doing this to save time :(
-        }        
+            return user
+        }
+        return nil
     }
 
 }
