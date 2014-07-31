@@ -28,14 +28,23 @@ class CaturlogWindowViewModel {
         itemEntityController.usesLazyFetching = false
         itemEntityController.fetch(nil)        
     }
-    
+        
     func omnibarTokensChanged(newTokens: Array<String>) {
         let (urls,tags) = urlsAndTagsFromTokens(newTokens)
+
         var appDel = NSApplication.sharedApplication().delegate as AppDelegate
         var services = appDel.caturlogServices
-        
-        for url in urls {
-            services.resourceStorer.storeResource(url)
+        if let user = appDel.caturlogServices.user.getCurrentUser()? {
+            for url in urls {
+                services.filer.storeAsItem(url, completion: { (item: Item) -> () in 
+                    for tag in tags {
+                        // Apply the tag for the URL
+                        services.tagger.addTag(tag, contentID: item.contentID, user:user)
+                    }                    
+                })
+                
+                
+            }
         }
     }
     
