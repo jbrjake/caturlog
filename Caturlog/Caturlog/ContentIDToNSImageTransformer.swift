@@ -19,9 +19,9 @@ class ItemToNSImageTransformer: NSValueTransformer {
     
     override func transformedValue(value: AnyObject!) -> AnyObject! {
         let appDel = NSApplication.sharedApplication().delegate as AppDelegate
-        let loader = appDel.caturlogServices.resourceLoader
+        let filer = appDel.caturlogServices.filer
         if let item = value as? Item {
-            if let imageData = loader.getResourceSynchronously(item.contentID){
+            if let imageData = filer.getFile(item.contentID){
                 return NSImage(data:imageData)
             }
             else {

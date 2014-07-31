@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol EntityAccessingServiceProtocol {
+// Get/insert for entities, eventually delete too
+protocol EntityServiceProtocol {
     func getItem(contentID: String) -> (item: Item?)
     func getUser(userID: Int) -> (user: User?)
     func getTag(name: String) -> (tag: Tag?)
@@ -19,16 +20,18 @@ protocol EntityAccessingServiceProtocol {
     func insertCharacteristic(name: String, value: String) -> (characteristic: Characteristic?)
 }
 
-protocol ResourceLoadingServiceProtocol {
-    func getResource(url: NSURL, completion: (data: NSData?) -> ())
-    func getResourceSynchronously(contentID: String) -> NSData?
+protocol FileServiceProtocol {
+    
+    // Take a URL, download the data, and, if it's new: save to disk, create a     
+    // corresponding Item based on the content hash, tie it to a URL characteristic, 
+    // and return the Item. Otherwise, return the existing item. Or nil for failure.
+    func storeAsItem(url: NSURL) -> Item?
+    
+    // Take a content hash and return a stored file's data if it exists
+    func getFile(contentID: String) -> NSData?
 }
 
-protocol ResourceStoringServiceProtocol {
-    func storeResource(url: NSURL)
-}
-
-protocol ResourceTaggingServiceProtocol {
+protocol TagServiceProtocol {
     func addTag(tag: String, contentID: String, user: User) -> (Bool, NSError?)
     func itemsForTag(tag: String, withUser: User) -> (NSSet?)
 }
@@ -37,21 +40,18 @@ protocol UserServiceProtocol {
     func getCurrentUserID() -> (userID: Int?)
     func getCurrentUser() -> (user: User?)
 }
-
 class CaturlogServices {
     
-    let entityAccessor: EntityAccessingServiceProtocol
-    let resourceLoader: ResourceLoadingServiceProtocol
-    let resourceStorer: ResourceStoringServiceProtocol
-    let resourceTagger: ResourceTaggingServiceProtocol
-    let resourceUser:   UserServiceProtocol
+    let entityAccessor: EntityServiceProtocol
+    let filer:          FileServiceProtocol
+    let tagger:         TagServiceProtocol
+    let user:           UserServiceProtocol
     
     init() {
         self.entityAccessor = EntityAccessor()
-        self.resourceLoader = ResourceLoader()
-        self.resourceStorer = ResourceStorer()
-        self.resourceTagger = ResourceTagger()
-        self.resourceUser   = DummyUser()
+        self.filer = Filer()
+        self.tagger = Tagger()
+        self.user   = DummyUser()
     }
     
 }

@@ -1,8 +1,8 @@
 //
-//  ResourceLoader.swift
+//  Filer.swift
 //  Caturlog
 //
-//  Created by Jonathon Rubin on 7/8/14.
+//  Created by Jonathon Rubin on 7/14/14.
 //  Copyright (c) 2014 Jonathon Rubin. All rights reserved.
 //
 
@@ -10,8 +10,69 @@ import Foundation
 import AppKit
 import CoreData
 
-class ResourceLoader: ResourceLoadingServiceProtocol {
+class Filer: FileServiceProtocol {
+
+    // Goes right from a URL to an Item saved in the moc
+    func storeAsItem(url: NSURL) -> Item? {
+        var appDel = NSApplication.sharedApplication().delegate as AppDelegate
+        var services = appDel.caturlogServices
+        var result = false, error: NSErrorPointer? = nil
+
+        getResource(url, completion: {
+            data in
+            if data != nil {
+                // Should be passing errors here, but the closure
+                // syntax for tuples is damned confusing.
+                self.storeResource(data!.sha256(), fromURL:url)
+            }
+        })
+        
+        return nil
+    }
+
+    /*Add the item if it isn't present, add the URL as a characteristic if it isn't present,
+      and associate the two of them together. */
+    func storeResource(contentID: String, fromURL: NSURL) -> (Bool, NSErrorPointer?) {
+        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+        
+        if let moc = appDelegate.managedObjectContext {
+            if let item = appDelegate.caturlogServices.entityAccessor.getItem(contentID)? {
+                if let char = characteristicForURL(fromURL) {
+                    char.items.addObject(item)
+                    item.characteristics.addObject(char)
+                }
+
+                // Save out in this scope in case the item or char are new inserts
+                let err: NSErrorPointer = nil
+                let saveWorked = moc.save(err)
+                if(err) {
+                    return (saveWorked, err)
+                }
+                else {
+                    return (saveWorked, nil)
+                }
+            }
+        }
+        
+        return (false, nil)
+    }
     
+
+    // Return an existing or new Characteristic? with name "URL" and value url
+    func characteristicForURL(url: NSURL) -> Characteristic? {
+        
+        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+        let services = appDelegate.caturlogServices
+        if let entity = services.entityAccessor.getCharacteristic("URL", value: url.absoluteString)? {
+            return entity
+        }
+        else if let entity = services.entityAccessor.insertCharacteristic("URL", value: url.absoluteString)? {
+            return entity
+        }
+        
+        return nil
+    }
+
     let backgroundQueue = NSOperationQueue()
     let cache = NSCache()
     
@@ -29,7 +90,7 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
         }
     }
     
-    func getResourceSynchronously(contentID: String) -> NSData? {
+    func getFile(contentID: String) -> NSData? {
         var returnData: NSData? = nil
         makeLocalRequestWithLocalURL(
             localURLForContentID(contentID), completion: {
@@ -38,7 +99,7 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
         )
         return returnData
     }
-
+    
     // Return the first fetch result for the named managed object matching the given predicate
     func fetchEntity(name: String, predicate: NSPredicate) -> NSManagedObject? {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
@@ -57,7 +118,7 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
         
         return nil
     }
-
+    
     func appSupportURL () -> (NSURL) {
         var err: NSErrorPointer = nil
         var path = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationSupportDirectory,
@@ -65,20 +126,20 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
             appropriateForURL: nil,
             create: true,
             error: err
-        ).absoluteString
+            ).absoluteString
         path = path + "Caturlog/"
         
         return NSURL.URLWithString(path)
     }
     
-
+    
     // Once we can query core data for the image hash associated with a URL,
     // this will return the local path file:///path/to/AppSupportDir/items/imagehash.gif
     func localURLForRemoteURL(remoteURL: NSURL) -> NSURL {
         let localURL = NSURL()
         return localURL
     }
-
+    
     // For an item's data, this will return the local path file:///path/to/AppSupportDir/items/imagehash.gif
     func localURLForItem(item: NSData) -> NSURL {
         let localURL = localURLForContentID(item.sha256())
@@ -115,7 +176,7 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
                 withString: "",
                 options:    nil,
                 range:      nil
-            )
+        )
         
         var writeState = NSFileManager.defaultManager().createDirectoryAtURL(urlDir,
             withIntermediateDirectories: true,
@@ -125,7 +186,7 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
         if(err) {
             println("err:\(err)")
         }
-
+        
         NSFileManager.defaultManager().createFileAtPath(urlPath,
             contents: data,
             attributes: nil
@@ -141,10 +202,10 @@ class ResourceLoader: ResourceLoadingServiceProtocol {
                 if error == nil {
                     // Write the file to disk
                     self.writeFile(self.localURLForItem(data), data: data)
-                
+                    
                     // Cache in memory
                     self.cache.setObject(data, forKey: url, cost: data.length)
-                
+                    
                     // Then return it
                     completion(data: data)
                 }

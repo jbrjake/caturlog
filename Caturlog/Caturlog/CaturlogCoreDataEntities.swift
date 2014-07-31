@@ -51,7 +51,7 @@ class Characteristic: NSManagedObject {
     @NSManaged var items:           NSMutableSet
 }
 
-class EntityAccessor: EntityAccessingServiceProtocol {
+class EntityAccessor: EntityServiceProtocol {
     
     func getItem(contentID: String) -> (item: Item?) {
         let predicate = NSPredicate(format: "contentID = %@", contentID)

@@ -10,7 +10,7 @@ import Foundation
 import AppKit
 import CoreData
 
-class ResourceTagger: ResourceTaggingServiceProtocol {
+class Tagger: TagServiceProtocol {
  
     func addTag(tag: String, contentID: String, user: User) -> (Bool, NSError?) {
         var appDel = NSApplication.sharedApplication().delegate as AppDelegate
