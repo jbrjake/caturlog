@@ -12,15 +12,30 @@ import CoreData
 
 class CaturlogWindowController: NSWindowController {
 
-    @IBOutlet var imageView:    NSImageView
-    @IBOutlet var tagField:     NSTokenField
-    @IBOutlet var itemList:     NSTableView
+    @IBOutlet var imageView:    NSImageView!
+    @IBOutlet var tagField:     NSTokenField!
+    @IBOutlet var itemList:     NSTableView!
     
     var moc: NSManagedObjectContext? {
         return (NSApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
     }
     
     var viewModel: CaturlogWindowViewModel? = nil
+
+    
+    init() {
+        super.init()
+    }
+    
+    init(window: NSWindow!) {
+        super.init(window: window)
+        //Initialization code here.
+    }
+    
+    init(coder: NSCoder!){
+        super.init(coder: coder);
+    }
+
     
     override func windowWillLoad() {
         super.windowWillLoad()

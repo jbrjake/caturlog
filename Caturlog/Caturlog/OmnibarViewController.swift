@@ -10,8 +10,8 @@ import Cocoa
 
 class OmnibarViewController :NSViewController, NSTextFieldDelegate {
 
-    @IBOutlet var omnibar: NSTokenField
-    @IBOutlet var caturlogWindowControler :CaturlogWindowController
+    @IBOutlet var omnibar: NSTokenField!
+    @IBOutlet var caturlogWindowControler :CaturlogWindowController!
     
     override func controlTextDidEndEditing(obj: NSNotification!) {
         var textField = obj.object as NSTextField
