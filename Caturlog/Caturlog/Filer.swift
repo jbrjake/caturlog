@@ -13,7 +13,7 @@ import CoreData
 class Filer: FileServiceProtocol {
 
     // Goes right from a URL to an Item saved in the moc
-    func storeAsItem(url: NSURL) -> Item? {
+    func storeAsItem(url: NSURL, completion:(Item) -> ()) {
         var appDel = NSApplication.sharedApplication().delegate as AppDelegate
         var services = appDel.caturlogServices
         var result = false, error: NSErrorPointer? = nil
@@ -21,22 +21,23 @@ class Filer: FileServiceProtocol {
         getResource(url, completion: {
             data in
             if data != nil {
-                // Should be passing errors here, but the closure
-                // syntax for tuples is damned confusing.
-                self.storeResource(data!.sha256(), fromURL:url)
+                var (maybeItem, result, maybeErr) = self.storeResource(data!.sha256(), fromURL:url)
+                println("item:\(maybeItem) result:\(result) err:\(maybeErr)")
+                if let item = maybeItem? {
+                    // We got something
+                    completion(item)
+                }
             }
-        })
-        
-        return nil
+        })        
     }
 
     /*Add the item if it isn't present, add the URL as a characteristic if it isn't present,
       and associate the two of them together. */
-    func storeResource(contentID: String, fromURL: NSURL) -> (Bool, NSErrorPointer?) {
+    func storeResource(contentID: String, fromURL: NSURL) -> (Item?, Bool, NSErrorPointer?) {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         
         if let moc = appDelegate.managedObjectContext {
-            if let item = appDelegate.caturlogServices.entityAccessor.getItem(contentID)? {
+            if let item = itemForContentID(contentID)? {
                 if let char = characteristicForURL(fromURL) {
                     char.items.addObject(item)
                     item.characteristics.addObject(char)
@@ -46,17 +47,30 @@ class Filer: FileServiceProtocol {
                 let err: NSErrorPointer = nil
                 let saveWorked = moc.save(err)
                 if(err) {
-                    return (saveWorked, err)
+                    return (nil, saveWorked, err)
                 }
                 else {
-                    return (saveWorked, nil)
+                    return (item, saveWorked, nil)
                 }
             }
         }
         
-        return (false, nil)
+        return (nil, false, nil)
     }
-    
+
+    func itemForContentID(contentID: String) -> Item? {
+        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+        let services = appDelegate.caturlogServices
+        if let entity = services.entityAccessor.getItem(contentID)? {
+            return entity
+        }
+        else if let entity = services.entityAccessor.insertItem(contentID)? {
+            return entity
+        }
+        
+        return nil
+
+    }
 
     // Return an existing or new Characteristic? with name "URL" and value url
     func characteristicForURL(url: NSURL) -> Characteristic? {

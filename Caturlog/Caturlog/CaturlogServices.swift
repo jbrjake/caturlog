@@ -25,8 +25,7 @@ protocol FileServiceProtocol {
     // Take a URL, download the data, and, if it's new: save to disk, create a     
     // corresponding Item based on the content hash, tie it to a URL characteristic, 
     // and return the Item. Otherwise, return the existing item. Or nil for failure.
-    func storeAsItem(url: NSURL) -> Item?
-    
+    func storeAsItem(url: NSURL, completion:(Item) -> ())    
     // Take a content hash and return a stored file's data if it exists
     func getFile(contentID: String) -> NSData?
 }
