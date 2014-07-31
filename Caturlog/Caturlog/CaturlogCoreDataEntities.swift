@@ -108,7 +108,7 @@ class EntityAccessor: EntityServiceProtocol {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         if let moc = appDelegate.managedObjectContext {
             if let tag = NSEntityDescription
-                .insertNewObjectForEntityForName("Item", inManagedObjectContext: moc) 
+                .insertNewObjectForEntityForName("Tag", inManagedObjectContext: moc) 
                 as? Tag 
             {
                 tag.name = name
