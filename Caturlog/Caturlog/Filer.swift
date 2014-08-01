@@ -97,7 +97,7 @@ class Filer: FileServiceProtocol {
     func getResource(url: NSURL, completion: (data: NSData?) -> ()) {
         if( urlIsOnDisk(url)) {
             // Read and return it
-            makeLocalRequest(url, completion: completion)
+            completion(makeLocalRequest(url))
         }
         else {
             makeRemoteRequest(url, completion: completion)
@@ -106,11 +106,7 @@ class Filer: FileServiceProtocol {
     
     func getFile(contentID: String) -> NSData? {
         var returnData: NSData? = nil
-        makeLocalRequestWithLocalURL(
-            localURLForContentID(contentID), completion: {
-                returnData = $0
-            }
-        )
+        returnData = makeLocalRequestWithLocalURL(localURLForContentID(contentID))
         return returnData
     }
     
@@ -231,19 +227,17 @@ class Filer: FileServiceProtocol {
         )
     }
     
-    func makeLocalRequest(url: NSURL, completion:(data: NSData?) -> ()) {
+    func makeLocalRequest(url: NSURL) -> (data: NSData?) {
         let localURL = self.localURLForRemoteURL(url)
-        makeLocalRequestWithLocalURL(localURL, completion: completion)
+        return makeLocalRequestWithLocalURL(localURL)
     }
     
-    func makeLocalRequestWithLocalURL(url: NSURL, completion:(data: NSData?) -> ()) {
+    func makeLocalRequestWithLocalURL(url: NSURL) -> (data: NSData?) {
         let localPath = url.absoluteString.stringByRemovingPercentEncoding
             .stringByReplacingOccurrencesOfString("file://", withString: "", options: nil, range: nil)
         let data = NSData.dataWithContentsOfMappedFile(localPath) as? NSData
         cache.setObject(data, forKey: url, cost: data!.length)
-        completion(
-            data: data
-        )
+        return data
     }
 
 }
