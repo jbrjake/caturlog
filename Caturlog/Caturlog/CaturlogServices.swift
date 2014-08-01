@@ -33,6 +33,7 @@ protocol FileServiceProtocol {
 protocol TagServiceProtocol {
     func addTag(tag: String, contentID: String, user: User) -> (Bool, NSError?)
     func itemsForTag(tag: String, withUser: User) -> (NSSet?)
+    func tagNamesForItem(item: Item) -> Array<String>?
 }
 
 protocol UserServiceProtocol {

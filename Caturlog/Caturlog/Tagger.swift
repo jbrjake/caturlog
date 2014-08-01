@@ -28,7 +28,22 @@ class Tagger: TagServiceProtocol {
         return (false, nil)
     }
     
+    func tagNamesForItem(item: Item) -> Array<String>? {
+        var tags = Array<String>()
+        
+        if let associations = item.userItemTags as NSMutableSet? {
+            for association in associations {
+                if let userItemTag = association as? UserItemTag {
+                    tags.append(userItemTag.tag.name)
+                }
+            }
+            return tags
+        }
+        return nil
+    }
+    
     func alreadyAssociated(user: User, item: Item, tag: Tag) -> Bool {
+        
         let associations :NSMutableSet = item.userItemTags
         for association in associations {
             if let userItemTag = association as? UserItemTag {

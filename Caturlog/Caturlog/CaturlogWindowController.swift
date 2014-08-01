@@ -68,5 +68,13 @@ class CaturlogWindowController: NSWindowController {
             ]
         )
         
+        tagField.bind(NSValueBinding,
+            toObject: viewModel?.itemEntityController,
+            withKeyPath: "selection.self",
+            options: [
+                NSValueTransformerNameBindingOption: "Caturlog.ItemToTagStringsTransformer",
+                NSConditionallySetsEnabledBindingOption: false
+            ]
+        )
     }    
 }
