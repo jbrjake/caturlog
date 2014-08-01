@@ -93,7 +93,7 @@ class EntityAccessor: EntityServiceProtocol {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         if let moc = appDelegate.managedObjectContext {
             if let user = NSEntityDescription
-                .insertNewObjectForEntityForName("Item", inManagedObjectContext: moc) 
+                .insertNewObjectForEntityForName("User", inManagedObjectContext: moc) 
                 as? User 
             {
                 user.userID = userID
