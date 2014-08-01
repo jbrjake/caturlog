@@ -18,14 +18,28 @@ class Tagger: TagServiceProtocol {
 
         if let tagEntity = getTag(tag) {
             if let item = services.entityAccessor.getItem(contentID)? {
-                addUserItemTag(user, item: item, tag: tagEntity) // UH no only do this if we can't find it already
-                return (true, nil)
+                if(!alreadyAssociated(user, item: item, tag: tagEntity)) {
+                    addUserItemTag(user, item: item, tag: tagEntity)
+                    return (true, nil)
+                }
             }
         }
         
         return (false, nil)
     }
     
+    func alreadyAssociated(user: User, item: Item, tag: Tag) -> Bool {
+        let associations :NSMutableSet = item.userItemTags
+        for association in associations {
+            if let userItemTag = association as? UserItemTag {
+                if(userItemTag.tag.name == tag.name && userItemTag.user == user) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
     func itemsForTag(tag: String, withUser: User) -> (NSSet?) {
         
         return nil
@@ -44,7 +58,7 @@ class Tagger: TagServiceProtocol {
         return nil
         
     }
-
+    
     func addUserItemTag(user: User, item: Item, tag: Tag) {
         var appDel = NSApplication.sharedApplication().delegate as AppDelegate
         var services = appDel.caturlogServices
