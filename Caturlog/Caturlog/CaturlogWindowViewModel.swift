@@ -56,7 +56,7 @@ class CaturlogWindowViewModel {
                 if(i > 0) {
                     predicateString += " AND "
                 }
-                predicateString += "ANY userItemTags.tag.name = '\(tag)'"
+                predicateString += "ANY userItemTags.tag.name BEGINSWITH '\(tag)'"
                 i++
             }
             itemEntityController.fetchPredicate = NSPredicate(format: predicateString)
