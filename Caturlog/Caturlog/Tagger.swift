@@ -55,8 +55,18 @@ class Tagger: TagServiceProtocol {
         return false
     }
 
-    func itemsForTag(tag: String, withUser: User) -> (NSSet?) {
+    func itemsForTag(tag: String, user: User) -> (Array<Item>?) {
+        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+        let services = appDelegate.caturlogServices
         
+        var items = Array<Item>()
+        if let userItemTags = services.entityAccessor.getUserItemTagsForTag(tag, user: user) {
+            for userItemTag in userItemTags {
+                items.append(userItemTag.item)
+            }
+            return items
+        }
+
         return nil
     }
     

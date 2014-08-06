@@ -74,6 +74,11 @@ class EntityAccessor: EntityServiceProtocol {
         return fetchEntity("Characteristic", predicate: predicate) as Characteristic?
     }
 
+    func getUserItemTagsForTag(name: String, user: User) -> (Array<UserItemTag>?) {
+        let predicate = NSPredicate(format: "tag.name = %@ and user = %@", name, user)
+        return fetchEntities(name, predicate: predicate) as? Array<UserItemTag>
+    }
+
     func insertItem(contentID: String) -> (item: Item?) {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         if let moc = appDelegate.managedObjectContext {
@@ -137,6 +142,16 @@ class EntityAccessor: EntityServiceProtocol {
 
     // Return the first fetch result for the named managed object matching the given predicate
     func fetchEntity(name: String, predicate: NSPredicate) -> NSManagedObject? {
+        
+        if let results = fetchEntities(name, predicate: predicate) {
+            return results[0] as NSManagedObject?            
+        }
+        
+        return nil
+    }
+
+    // Return all the results for the named managed object matching the given predicate
+    func fetchEntities(name: String, predicate: NSPredicate) -> Array<NSManagedObject>? {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         
         if let moc = appDelegate.managedObjectContext {
@@ -147,7 +162,7 @@ class EntityAccessor: EntityServiceProtocol {
             var err: NSErrorPointer = nil
             let results = moc.executeFetchRequest(request, error: err)
             if(results.count > 0) {
-                return results[0] as? NSManagedObject
+                return results as? Array<NSManagedObject>
             }
         }
         
