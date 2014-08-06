@@ -34,16 +34,41 @@ class CaturlogWindowViewModel {
 
         var appDel = NSApplication.sharedApplication().delegate as AppDelegate
         var services = appDel.caturlogServices
+        
+        if(urls.count > 0) {
+            // Add URLs and bind them to tags; use an empty predicate
+            if let user = appDel.caturlogServices.user.getCurrentUser()? {
+                for url in urls {
+                    services.filer.storeAsItem(url, completion: { (item: Item) -> () in 
+                        for tag in tags {
+                            // Apply the tag for the URL
+                            services.tagger.addTag(tag, contentID: item.contentID, user:user)
+                        }                    
+                    })
+                }
+            }
+        }
+        else if (tags.count > 0){
+            // Create and search with a predicate
+            var i = 0
+            var predicateString = ""
+            for tag in tags {
+                if(i > 0) {
+                    predicateString += " AND "
+                }
+                predicateString += "ANY userItemTags.tag.name = '\(tag)'"
+                i++
+            }
+            itemEntityController.fetchPredicate = NSPredicate(format: predicateString)
+            itemEntityController.fetch(nil)
+        }
+        else {
+            // Empty field, fetch all items
+            itemEntityController.fetchPredicate = nil;
+            itemEntityController.fetch(nil)
+        }
+    }
         if let user = appDel.caturlogServices.user.getCurrentUser()? {
-            for url in urls {
-                services.filer.storeAsItem(url, completion: { (item: Item) -> () in 
-                    for tag in tags {
-                        // Apply the tag for the URL
-                        services.tagger.addTag(tag, contentID: item.contentID, user:user)
-                    }                    
-                })
-                
-                
             }
         }
     }
