@@ -61,6 +61,13 @@ class CaturlogWindowViewModel {
             }
             itemEntityController.fetchPredicate = NSPredicate(format: predicateString)
             itemEntityController.fetch(nil)
+            dispatch_async(dispatch_get_main_queue(), {
+                // If there are no matching entities, revert to showing all
+                if(self.itemEntityController.arrangedObjects.count == 0) {
+                    self.itemEntityController.fetchPredicate = nil
+                    self.itemEntityController.fetch(nil)                
+                }
+            })
         }
         else {
             // Empty field, fetch all items
