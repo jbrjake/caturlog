@@ -14,14 +14,31 @@ class TagViewController :NSViewController, NSTextFieldDelegate {
     @IBOutlet var caturlogWindowController: CaturlogWindowController!
     
     func bindTagField() {
-        tagField.bind(NSValueBinding,
-            toObject: caturlogWindowController.viewModel?.itemEntityController,
-            withKeyPath: "selection.self",
-            options: [
-                NSValueTransformerNameBindingOption: "Caturlog.ItemToTagStringsTransformer",
-                NSConditionallySetsEnabledBindingOption: false
-            ]
-        )        
+        caturlogWindowController.viewModel?.itemEntityController.addObserver(self,
+            forKeyPath: "selection.self", 
+            options: nil, 
+            context: nil
+        )
+    }
+    
+    override func observeValueForKeyPath(keyPath: String!,
+        ofObject object: AnyObject!,
+        change: [NSObject : AnyObject]!,
+        context: UnsafePointer<()>
+    ) {
+        switch keyPath! {
+        case "selection.self":
+            updateTagsFromModel()
+            break
+        default:
+            break
+        }
+    }
+    
+    func updateTagsFromModel() {
+        tagField.objectValue = ItemToTagStringsTransformer().transformedValue(
+            caturlogWindowController.viewModel?.itemEntityController.valueForKeyPath("selection.self")
+        )
     }
     
     override func controlTextDidChange(obj: NSNotification!) {
