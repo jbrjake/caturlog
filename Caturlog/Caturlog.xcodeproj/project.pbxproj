@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7424E2D31993350A00CB8EBE /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7424E2D21993350A00CB8EBE /* TagViewController.swift */; };
+		7424E2D41993350A00CB8EBE /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7424E2D21993350A00CB8EBE /* TagViewController.swift */; };
 		7429689E1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */; };
 		7429689F1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */; };
 		742968A1197A17220037FBA3 /* OmnibarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742968A0197A17220037FBA3 /* OmnibarViewController.swift */; };
@@ -48,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7424E2D21993350A00CB8EBE /* TagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogWindowController.swift; sourceTree = "<group>"; };
 		742968A0197A17220037FBA3 /* OmnibarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnibarViewController.swift; sourceTree = "<group>"; };
 		742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaturlogWindow.xib; sourceTree = "<group>"; };
@@ -170,6 +173,7 @@
 			children = (
 				7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */,
 				742968A0197A17220037FBA3 /* OmnibarViewController.swift */,
+				7424E2D21993350A00CB8EBE /* TagViewController.swift */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";
@@ -305,6 +309,7 @@
 				74F6BE87196CF44E008AF8E5 /* CaturlogServices.swift in Sources */,
 				74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */,
 				7429689E1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */,
+				7424E2D31993350A00CB8EBE /* TagViewController.swift in Sources */,
 				74F6BE931974D6BC008AF8E5 /* Filer.swift in Sources */,
 				74F6BE8D19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */,
 			);
@@ -320,6 +325,7 @@
 				74EE31C11985EC4600FEB62B /* DummyUser.swift in Sources */,
 				74F6BE88196CF44E008AF8E5 /* CaturlogServices.swift in Sources */,
 				74B94C39198B34B80037AB83 /* ItemToTagStringsTransformer.swift in Sources */,
+				7424E2D41993350A00CB8EBE /* TagViewController.swift in Sources */,
 				74D0812E19650CDD004ACF9F /* CaturlogTests.swift in Sources */,
 				74EE31BA197F4D2300FEB62B /* CaturlogWindowViewModel.swift in Sources */,
 				742968A2197A17220037FBA3 /* OmnibarViewController.swift in Sources */,

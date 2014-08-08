@@ -9,6 +9,7 @@
                 <outlet property="imageView" destination="vBf-eO-inq" id="XQZ-JG-rRw"/>
                 <outlet property="itemList" destination="HC5-Ow-Gqe" id="XQj-XG-5B3"/>
                 <outlet property="tagField" destination="6CC-gY-pgh" id="NaX-VJ-AcQ"/>
+                <outlet property="tagViewController" destination="bBD-L3-Ybe" id="1q5-nS-ztt"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="uop-ms-W97"/>
             </connections>
         </customObject>
@@ -118,12 +119,18 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="JwM-Vq-1y9"/>
             </connections>
-            <point key="canvasLocation" x="211.5" y="147"/>
+            <point key="canvasLocation" x="360.5" y="242"/>
         </window>
         <customObject id="Ahe-tD-rZo" customClass="OmnibarViewController" customModule="Caturlog" customModuleProvider="target">
             <connections>
                 <outlet property="caturlogWindowControler" destination="-2" id="QjK-9l-d5y"/>
                 <outlet property="omnibar" destination="ZGS-VJ-SNU" id="TW3-m3-lS2"/>
+            </connections>
+        </customObject>
+        <customObject id="bBD-L3-Ybe" customClass="TagViewController" customModule="Caturlog" customModuleProvider="target">
+            <connections>
+                <outlet property="caturlogWindowController" destination="-2" id="L4o-iJ-jcm"/>
+                <outlet property="tagField" destination="6CC-gY-pgh" id="lwM-Ud-rdU"/>
             </connections>
         </customObject>
     </objects>

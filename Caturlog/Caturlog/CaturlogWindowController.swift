@@ -15,6 +15,7 @@ class CaturlogWindowController: NSWindowController {
     @IBOutlet var imageView:    NSImageView!
     @IBOutlet var tagField:     NSTokenField!
     @IBOutlet var itemList:     NSTableView!
+    @IBOutlet var tagViewController: TagViewController!
     
     var moc: NSManagedObjectContext? {
         return (NSApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
@@ -35,16 +36,20 @@ class CaturlogWindowController: NSWindowController {
     init(coder: NSCoder!){
         super.init(coder: coder);
     }
-
+    
+    override func awakeFromNib()  {
+        super.awakeFromNib()
+        viewModel = CaturlogWindowViewModel()
+        self.tagViewController.bindTagField()
+    }
     
     override func windowWillLoad() {
         super.windowWillLoad()
     }
-    
+     
     override func windowDidLoad() {
         super.windowDidLoad()
 
-        viewModel = CaturlogWindowViewModel()
 
         if let column: NSTableColumn = itemList.tableColumns[itemList.columnWithIdentifier("ItemImageColumnID")]
             as? NSTableColumn
@@ -64,15 +69,6 @@ class CaturlogWindowController: NSWindowController {
             withKeyPath: "selection.self",
             options: [
                 NSValueTransformerNameBindingOption: "Caturlog.ItemToNSImageTransformer",
-                NSConditionallySetsEnabledBindingOption: false
-            ]
-        )
-        
-        tagField.bind(NSValueBinding,
-            toObject: viewModel?.itemEntityController,
-            withKeyPath: "selection.self",
-            options: [
-                NSValueTransformerNameBindingOption: "Caturlog.ItemToTagStringsTransformer",
                 NSConditionallySetsEnabledBindingOption: false
             ]
         )
