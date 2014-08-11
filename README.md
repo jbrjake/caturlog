@@ -65,6 +65,8 @@ Version 1.0 Milestones: Minimum Viable Product
 ### Version 0.4: Polish ###
 * I want the look and feel to better match the 10.10 Spotlight UI, with etching to separate sections and reduced chrome.
 * I want the table view to be resizable horizontally.
+* I want to be able to delete items
+* I want to document the codebase
 
 ### Version 0.5: Sharing ###
 * I want to be able to share existing links to the images
