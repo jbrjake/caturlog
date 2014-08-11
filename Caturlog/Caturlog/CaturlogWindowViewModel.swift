@@ -76,13 +76,24 @@ class CaturlogWindowViewModel {
         }
     }
     
-    func tagTokensChanged(newTokens: Array<String>) {
+    func tagTokensChanged(oldTokens: Array<String>, newTokens: Array<String>) {
+        
+        let tokensToInsert = newTokens.filter { value in
+            !contains(oldTokens, value)
+        }
+        let tokensToRemove = oldTokens.filter { value in
+            !contains(newTokens, value)
+        }
+        
         var appDel = NSApplication.sharedApplication().delegate as AppDelegate
         var services = appDel.caturlogServices
         if let user = appDel.caturlogServices.user.getCurrentUser()? {
             if let item = itemEntityController.valueForKeyPath("selection.self") as? Item {
-                for tag in newTokens {
+                for tag in tokensToInsert {
                     services.tagger.addTag(tag, contentID: item.contentID, user: user)
+                }
+                for tag in tokensToRemove {
+                    services.tagger.removeTag(tag, contentID: item.contentID, user: user)
                 }
             }
         }

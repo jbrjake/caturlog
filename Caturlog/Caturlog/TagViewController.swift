@@ -13,6 +13,8 @@ class TagViewController :NSViewController, NSTextFieldDelegate {
     @IBOutlet var tagField: NSTokenField!
     @IBOutlet var caturlogWindowController: CaturlogWindowController!
     
+    var oldTokens :Array<String> = []
+    
     func bindTagField() {
         caturlogWindowController.viewModel?.itemEntityController.addObserver(self,
             forKeyPath: "selection.self", 
@@ -45,8 +47,9 @@ class TagViewController :NSViewController, NSTextFieldDelegate {
         var textField = obj.object as NSTextField
         if(textField.isEqualTo(tagField)) {
             let tokenField = textField as NSTokenField
-            let tokens = tokenField.objectValue as Array<String>            
-            caturlogWindowController.viewModel?.tagTokensChanged(tokens)            
+            let newTokens = tokenField.objectValue as Array<String>
+            caturlogWindowController.viewModel?.tagTokensChanged(oldTokens, newTokens: newTokens)
+            oldTokens = newTokens
         }
     }
     
