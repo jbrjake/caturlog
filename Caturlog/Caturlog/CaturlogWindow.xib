@@ -73,6 +73,9 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </tokenFieldCell>
+                        <connections>
+                            <outlet property="delegate" destination="bBD-L3-Ybe" id="IVe-2h-VuK"/>
+                        </connections>
                     </tokenField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq">
                         <rect key="frame" x="128" y="98" width="365" height="238"/>

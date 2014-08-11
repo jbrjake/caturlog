@@ -75,7 +75,15 @@ class CaturlogWindowViewModel {
             itemEntityController.fetch(nil)
         }
     }
+    
+    func tagTokensChanged(newTokens: Array<String>) {
+        var appDel = NSApplication.sharedApplication().delegate as AppDelegate
+        var services = appDel.caturlogServices
         if let user = appDel.caturlogServices.user.getCurrentUser()? {
+            if let item = itemEntityController.valueForKeyPath("selection.self") as? Item {
+                for tag in newTokens {
+                    services.tagger.addTag(tag, contentID: item.contentID, user: user)
+                }
             }
         }
     }

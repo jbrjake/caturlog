@@ -41,13 +41,11 @@ class TagViewController :NSViewController, NSTextFieldDelegate {
         )
     }
     
-    override func controlTextDidChange(obj: NSNotification!) {
+    override func controlTextDidEndEditing(obj: NSNotification!) {
         var textField = obj.object as NSTextField
-        
         if(textField.isEqualTo(tagField)) {
             let tokenField = textField as NSTokenField
-            let tokens = tokenField.objectValue as Array<String>
-            
+            let tokens = tokenField.objectValue as Array<String>            
             caturlogWindowController.viewModel?.tagTokensChanged(tokens)            
         }
     }
