@@ -58,34 +58,28 @@ Version 1.0 Milestones: Minimum Viable Product
 ### Version 0.2: MVVM ###
 * I want to break up presentation logic from presentation model logic.
 
-### Version 0.5: Tagging ###
+### Version 0.3: Tagging ###
 * I want to be able to tag images so that I can find them later
 * I want to be able to search the images via tags so that I can find appropriate images for a given situation
 
-### Version 0.6: Polish ###
+### Version 0.4: Polish ###
 * I want the look and feel to better match the 10.10 Spotlight UI, with etching to separate sections and reduced chrome.
 * I want the table view to be resizable horizontally.
 
-### Version 0.9: Sharing ###
+### Version 0.5: Sharing ###
 * I want to be able to share existing links to the images
 
-Version 1.1 Milestones: Strong search and imgur
-----------------------
-
+### Version 0.6: Strong search and imgur ###
 * I want to be able to generate complex search predicates based on tags so that I can do searches other than tagA AND tagB. For example, (tagA AND tagB) NOT (tagC OR tagD).
 * I want to be able to upload images to imgur for sharing so that I don't have to depend on the original image URL still being around.
 
-Version 1.2 Milestones: Twitter and Pocket integration
----------------------- 
-
+### Version 0.7: Twitter and Pocket integration ###
 * I want to be able to automatically import images from my Twitter feed so that I don't have to manually add them
 * I want to be able to automatically import images from my Pocket library so that I don't have to manually add them
 * I want to be able to post images to Twitter
 * I want to be able to save images to Pocket
 
-Version 1.5 Milestones: Crowd-tagging
--------------------------
-
+### Version 1.0: Crowd-tagging
 * I want to be able to send tags to a server so that every unique piece of content has a centralized record of every tag applied to it by every user
 * I want to be able to receive tags from the server so that I can see what other tags other users have applied to an image
 * I want to be able to search my library by tags other users have applied to images in my library
@@ -302,6 +296,14 @@ Creates a tag, if it doesn't already exist, and generates a UserItemTag entry
 func itemsForTag(String withUser: User) -> (NSSet)
 Returns all stored Item entities associated with the tag for the user
 
+UI Dreams
+---------
+
+One day, I'd like to make the UI really snazzy:
+
+* The sidebar images should be flush against the left edge and against each other vertically, with the right side rounded off to demarcate each image from the others.
+* The selected image should be rounded on the bottom left and flush with the right edge and top edge of the window.
+* When an image is selected in the left sidebar, it should shrink down to 0 height and hide, with the other rows crowding in on its space. Simultaneously, a copy of the image should start at the same xy position and move itself to the center of the selected image view while animating its size to match the selected image view. The idea is an effect where the image seems to zoom out of the list and into the main view. The same thing would happen in reverse when another image was selected. And a similar effect would happen to transition a downloaded URL to the sidebar list.
 
 
 
