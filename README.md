@@ -302,6 +302,14 @@ Creates a tag, if it doesn't already exist, and generates a UserItemTag entry
 func itemsForTag(String withUser: User) -> (NSSet)
 Returns all stored Item entities associated with the tag for the user
 
+UI Dreams
+---------
+
+One day, I'd like to make the UI really snazzy:
+
+* The sidebar images should be flush against the left edge and against each other vertically, with the right side rounded off to demarcate each image from the others.
+* The selected image should be rounded on the bottom left and flush with the right edge and top edge of the window.
+* When an image is selected in the left sidebar, it should shrink down to 0 height and hide, with the other rows crowding in on its space. Simultaneously, a copy of the image should start at the same xy position and move itself to the center of the selected image view while animating its size to match the selected image view. The idea is an effect where the image seems to zoom out of the list and into the main view. The same thing would happen in reverse when another image was selected. And a similar effect would happen to transition a downloaded URL to the sidebar list.
 
 
 
