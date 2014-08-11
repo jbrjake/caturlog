@@ -28,6 +28,22 @@ class Tagger: TagServiceProtocol {
         return (false, nil)
     }
     
+    func removeTag(tag: String, contentID: String, user: User) -> (Bool, NSError?) {
+        var appDel = NSApplication.sharedApplication().delegate as AppDelegate
+        var services = appDel.caturlogServices
+        
+        if let tagEntity = getTag(tag) {
+            if let item = services.entityAccessor.getItem(contentID)? {
+                if(alreadyAssociated(user, item: item, tag: tagEntity)) {
+                    removeUserItemTag(user, item: item, tag: tagEntity)
+                    return (true, nil)
+                }
+            }
+        }
+        
+        return (false, nil)        
+    }
+    
     func tagNamesForItem(item: Item) -> Array<String>? {
         var tags = Array<String>()
         
@@ -101,5 +117,17 @@ class Tagger: TagServiceProtocol {
             }
         }
     }
-    
+
+    func removeUserItemTag(user: User, item: Item, tag: Tag) {
+        var appDel = NSApplication.sharedApplication().delegate as AppDelegate
+        var services = appDel.caturlogServices
+        
+        if let moc = appDel.managedObjectContext {
+            if let userItemTag = services.entityAccessor.getUserItemTag(tag.name, contentID: item.contentID, user: user) {
+                moc.deleteObject(userItemTag)
+            }
+            moc.save(nil) // Fixme: do error checking
+        }
+    }
+
 }

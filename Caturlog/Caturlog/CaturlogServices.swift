@@ -14,6 +14,7 @@ protocol EntityServiceProtocol {
     func getUser(userID: Int) -> (user: User?)
     func getTag(name: String) -> (tag: Tag?)
     func getCharacteristic(name: String, value:String) -> (characteristic: Characteristic?)
+    func getUserItemTag(tag: String, contentID: String, user: User) -> (UserItemTag?)
     func getUserItemTagsForTag(name: String, user: User) -> (Array<UserItemTag>?)
     func insertItem(contentID: String) -> (item: Item?)
     func insertUser(userID: Int) -> (user: User?)
@@ -33,6 +34,7 @@ protocol FileServiceProtocol {
 
 protocol TagServiceProtocol {
     func addTag(tag: String, contentID: String, user: User) -> (Bool, NSError?)
+    func removeTag(tag: String, contentID: String, user: User) -> (Bool, NSError?)
     func itemsForTag(tag: String, user: User) -> (Array<Item>?)
     func tagNamesForItem(item: Item) -> Array<String>?
 }

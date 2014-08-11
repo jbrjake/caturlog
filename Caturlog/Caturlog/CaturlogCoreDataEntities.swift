@@ -79,6 +79,11 @@ class EntityAccessor: EntityServiceProtocol {
         return fetchEntities(name, predicate: predicate) as? Array<UserItemTag>
     }
 
+    func getUserItemTag(tag: String, contentID: String, user: User) -> (UserItemTag?) {
+        let predicate = NSPredicate(format: "tag.name = %@ and user = %@ and item.contentID = %@", tag, user, contentID)
+        return fetchEntity("UserItemTag", predicate: predicate) as UserItemTag?
+    }
+    
     func insertItem(contentID: String) -> (item: Item?) {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         if let moc = appDelegate.managedObjectContext {
