@@ -28,14 +28,74 @@ class CaturlogWindowViewModel {
         itemEntityController.usesLazyFetching = false
         itemEntityController.fetch(nil)        
     }
-    
+        
     func omnibarTokensChanged(newTokens: Array<String>) {
         let (urls,tags) = urlsAndTagsFromTokens(newTokens)
+
         var appDel = NSApplication.sharedApplication().delegate as AppDelegate
         var services = appDel.caturlogServices
         
-        for url in urls {
-            services.resourceStorer.storeResource(url)
+        if(urls.count > 0) {
+            // Add URLs and bind them to tags; use an empty predicate
+            if let user = appDel.caturlogServices.user.getCurrentUser()? {
+                for url in urls {
+                    services.filer.storeAsItem(url, completion: { (item: Item) -> () in 
+                        for tag in tags {
+                            // Apply the tag for the URL
+                            services.tagger.addTag(tag, contentID: item.contentID, user:user)
+                        }                    
+                    })
+                }
+            }
+        }
+        else if (tags.count > 0){
+            // Create and search with a predicate
+            var i = 0
+            var predicateString = ""
+            for tag in tags {
+                if(i > 0) {
+                    predicateString += " AND "
+                }
+                predicateString += "ANY userItemTags.tag.name BEGINSWITH '\(tag)'"
+                i++
+            }
+            itemEntityController.fetchPredicate = NSPredicate(format: predicateString)
+            itemEntityController.fetch(nil)
+            dispatch_async(dispatch_get_main_queue(), {
+                // If there are no matching entities, revert to showing all
+                if(self.itemEntityController.arrangedObjects.count == 0) {
+                    self.itemEntityController.fetchPredicate = nil
+                    self.itemEntityController.fetch(nil)                
+                }
+            })
+        }
+        else {
+            // Empty field, fetch all items
+            itemEntityController.fetchPredicate = nil;
+            itemEntityController.fetch(nil)
+        }
+    }
+    
+    func tagTokensChanged(oldTokens: Array<String>, newTokens: Array<String>) {
+        
+        let tokensToInsert = newTokens.filter { value in
+            !contains(oldTokens, value)
+        }
+        let tokensToRemove = oldTokens.filter { value in
+            !contains(newTokens, value)
+        }
+        
+        var appDel = NSApplication.sharedApplication().delegate as AppDelegate
+        var services = appDel.caturlogServices
+        if let user = appDel.caturlogServices.user.getCurrentUser()? {
+            if let item = itemEntityController.valueForKeyPath("selection.self") as? Item {
+                for tag in tokensToInsert {
+                    services.tagger.addTag(tag, contentID: item.contentID, user: user)
+                }
+                for tag in tokensToRemove {
+                    services.tagger.removeTag(tag, contentID: item.contentID, user: user)
+                }
+            }
         }
     }
     

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.7"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CaturlogWindowController" customModule="Caturlog" customModuleProvider="target">
@@ -9,40 +9,41 @@
                 <outlet property="imageView" destination="vBf-eO-inq" id="XQZ-JG-rRw"/>
                 <outlet property="itemList" destination="HC5-Ow-Gqe" id="XQj-XG-5B3"/>
                 <outlet property="tagField" destination="6CC-gY-pgh" id="NaX-VJ-AcQ"/>
+                <outlet property="tagViewController" destination="bBD-L3-Ybe" id="1q5-nS-ztt"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="uop-ms-W97"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Caturlog" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="501" height="344"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="501" height="344"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="39" horizontalPageScroll="10" verticalLineScroll="39" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sct-Bi-lWA">
-                        <rect key="frame" x="8" y="8" width="120" height="328"/>
+                    <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="74" horizontalPageScroll="10" verticalLineScroll="74" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sct-Bi-lWA">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="344"/>
                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="tm2-m3-kLe">
                             <rect key="frame" x="1" y="17" width="238" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="34" rowSizeStyle="large" id="HC5-Ow-Gqe">
-                                    <rect key="frame" x="0.0" y="0.0" width="114" height="39"/>
+                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="72" id="HC5-Ow-Gqe">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <size key="intercellSpacing" width="50" height="5"/>
+                                    <size key="intercellSpacing" width="0.0" height="2"/>
                                     <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="ItemImageColumnID" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="fTU-gs-7Vu">
+                                        <tableColumn identifier="ItemImageColumnID" width="120" minWidth="10" maxWidth="3.4028234663852886e+38" id="fTU-gs-7Vu">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
-                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="HRo-Mt-v4Q"/>
+                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" id="HRo-Mt-v4Q"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
                                     </tableColumns>
@@ -63,32 +64,35 @@
                         </scroller>
                     </scrollView>
                     <tokenField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-gY-pgh">
-                        <rect key="frame" x="134" y="8" width="361" height="82"/>
+                        <rect key="frame" x="126" y="8" width="369" height="82"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="82" id="Af1-tm-QOd"/>
                         </constraints>
-                        <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" allowsEditingTextAttributes="YES" id="fdw-pu-OyE">
+                        <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="center" allowsEditingTextAttributes="YES" id="fdw-pu-OyE">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </tokenFieldCell>
+                        <connections>
+                            <outlet property="delegate" destination="bBD-L3-Ybe" id="IVe-2h-VuK"/>
+                        </connections>
                     </tokenField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq">
-                        <rect key="frame" x="136" y="98" width="357" height="238"/>
+                        <rect key="frame" x="128" y="98" width="365" height="238"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="zda-M5-lyt"/>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="vBf-eO-inq" secondAttribute="trailing" constant="8" id="BnY-f7-m9x"/>
-                    <constraint firstItem="sct-Bi-lWA" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="8" id="FSQ-4G-5bg"/>
+                    <constraint firstItem="sct-Bi-lWA" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="FSQ-4G-5bg"/>
                     <constraint firstItem="6CC-gY-pgh" firstAttribute="top" secondItem="vBf-eO-inq" secondAttribute="bottom" constant="8" id="I01-CH-MAR"/>
                     <constraint firstItem="vBf-eO-inq" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="8" id="XQy-61-0PF"/>
                     <constraint firstAttribute="trailing" secondItem="6CC-gY-pgh" secondAttribute="trailing" constant="8" id="b84-QL-U0Y"/>
                     <constraint firstItem="6CC-gY-pgh" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="8" id="iVe-xe-85K"/>
                     <constraint firstAttribute="bottom" secondItem="6CC-gY-pgh" secondAttribute="bottom" constant="8" id="n9x-Ra-QWN"/>
-                    <constraint firstAttribute="bottom" secondItem="sct-Bi-lWA" secondAttribute="bottom" constant="8" id="o9o-28-jz8"/>
+                    <constraint firstAttribute="bottom" secondItem="sct-Bi-lWA" secondAttribute="bottom" id="o9o-28-jz8"/>
                     <constraint firstItem="vBf-eO-inq" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="8" id="wDq-11-VQI"/>
-                    <constraint firstItem="sct-Bi-lWA" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="8" id="zwn-kI-7Kb"/>
+                    <constraint firstItem="sct-Bi-lWA" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="zwn-kI-7Kb"/>
                 </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="6A8C8A64-7C8C-4437-9A2C-C36C99FEA0AE" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="rFu-vF-i4L">
@@ -118,12 +122,18 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="JwM-Vq-1y9"/>
             </connections>
-            <point key="canvasLocation" x="211.5" y="147"/>
+            <point key="canvasLocation" x="360.5" y="242"/>
         </window>
         <customObject id="Ahe-tD-rZo" customClass="OmnibarViewController" customModule="Caturlog" customModuleProvider="target">
             <connections>
                 <outlet property="caturlogWindowControler" destination="-2" id="QjK-9l-d5y"/>
                 <outlet property="omnibar" destination="ZGS-VJ-SNU" id="TW3-m3-lS2"/>
+            </connections>
+        </customObject>
+        <customObject id="bBD-L3-Ybe" customClass="TagViewController" customModule="Caturlog" customModuleProvider="target">
+            <connections>
+                <outlet property="caturlogWindowController" destination="-2" id="L4o-iJ-jcm"/>
+                <outlet property="tagField" destination="6CC-gY-pgh" id="lwM-Ud-rdU"/>
             </connections>
         </customObject>
     </objects>

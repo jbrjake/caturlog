@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7424E2D31993350A00CB8EBE /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7424E2D21993350A00CB8EBE /* TagViewController.swift */; };
+		7424E2D41993350A00CB8EBE /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7424E2D21993350A00CB8EBE /* TagViewController.swift */; };
 		7429689E1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */; };
 		7429689F1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */; };
 		742968A1197A17220037FBA3 /* OmnibarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742968A0197A17220037FBA3 /* OmnibarViewController.swift */; };
 		742968A2197A17220037FBA3 /* OmnibarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742968A0197A17220037FBA3 /* OmnibarViewController.swift */; };
 		742968A7197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */; };
 		742968A8197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */; };
+		74B94C38198B34B80037AB83 /* ItemToTagStringsTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B94C37198B34B80037AB83 /* ItemToTagStringsTransformer.swift */; };
+		74B94C39198B34B80037AB83 /* ItemToTagStringsTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B94C37198B34B80037AB83 /* ItemToTagStringsTransformer.swift */; };
 		74D0811819650CDD004ACF9F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0811719650CDD004ACF9F /* main.swift */; };
 		74D0811A19650CDD004ACF9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0811919650CDD004ACF9F /* AppDelegate.swift */; };
 		74D0811F19650CDD004ACF9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D0811E19650CDD004ACF9F /* Images.xcassets */; };
@@ -23,15 +27,16 @@
 		74EE31B4197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */; };
 		74EE31B9197F4D2300FEB62B /* CaturlogWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B8197F4D2300FEB62B /* CaturlogWindowViewModel.swift */; };
 		74EE31BA197F4D2300FEB62B /* CaturlogWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B8197F4D2300FEB62B /* CaturlogWindowViewModel.swift */; };
+		74EE31BE1985EA1C00FEB62B /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31BD1985EA1C00FEB62B /* Tagger.swift */; };
+		74EE31C01985EC4600FEB62B /* DummyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31BF1985EC4600FEB62B /* DummyUser.swift */; };
+		74EE31C11985EC4600FEB62B /* DummyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31BF1985EC4600FEB62B /* DummyUser.swift */; };
 		74F6BE87196CF44E008AF8E5 /* CaturlogServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */; };
 		74F6BE88196CF44E008AF8E5 /* CaturlogServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */; };
-		74F6BE8A196CF580008AF8E5 /* ResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */; };
-		74F6BE8B196CF580008AF8E5 /* ResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */; };
 		74F6BE8D19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */; };
 		74F6BE8E19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */; };
 		74F6BE911974CC1D008AF8E5 /* CaturlogCoreDataEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE901974CC1D008AF8E5 /* CaturlogCoreDataEntities.swift */; };
-		74F6BE931974D6BC008AF8E5 /* ResourceStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE921974D6BC008AF8E5 /* ResourceStorer.swift */; };
-		74F6BE941974D6BC008AF8E5 /* ResourceStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE921974D6BC008AF8E5 /* ResourceStorer.swift */; };
+		74F6BE931974D6BC008AF8E5 /* Filer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE921974D6BC008AF8E5 /* Filer.swift */; };
+		74F6BE941974D6BC008AF8E5 /* Filer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6BE921974D6BC008AF8E5 /* Filer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7424E2D21993350A00CB8EBE /* TagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogWindowController.swift; sourceTree = "<group>"; };
 		742968A0197A17220037FBA3 /* OmnibarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnibarViewController.swift; sourceTree = "<group>"; };
 		742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaturlogWindow.xib; sourceTree = "<group>"; };
+		74B94C37198B34B80037AB83 /* ItemToTagStringsTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemToTagStringsTransformer.swift; sourceTree = "<group>"; };
 		74D0811219650CDD004ACF9F /* Caturlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caturlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D0811619650CDD004ACF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74D0811719650CDD004ACF9F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -60,12 +67,13 @@
 		74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Caturlog.xcdatamodel; sourceTree = SOURCE_ROOT; };
 		74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentIDToNSImageTransformer.swift; sourceTree = "<group>"; };
 		74EE31B8197F4D2300FEB62B /* CaturlogWindowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogWindowViewModel.swift; sourceTree = "<group>"; };
+		74EE31BD1985EA1C00FEB62B /* Tagger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tagger.swift; sourceTree = "<group>"; };
+		74EE31BF1985EC4600FEB62B /* DummyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyUser.swift; sourceTree = "<group>"; };
 		74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogServices.swift; sourceTree = "<group>"; };
-		74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceLoader.swift; sourceTree = "<group>"; };
 		74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+CommonDigest.swift"; sourceTree = "<group>"; };
 		74F6BE8F19737EE7008AF8E5 /* CaturlogBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaturlogBridgingHeader.h; sourceTree = "<group>"; };
 		74F6BE901974CC1D008AF8E5 /* CaturlogCoreDataEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogCoreDataEntities.swift; sourceTree = "<group>"; };
-		74F6BE921974D6BC008AF8E5 /* ResourceStorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceStorer.swift; sourceTree = "<group>"; };
+		74F6BE921974D6BC008AF8E5 /* Filer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,10 +158,12 @@
 				74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */,
 				74F6BE901974CC1D008AF8E5 /* CaturlogCoreDataEntities.swift */,
 				74F6BE86196CF44E008AF8E5 /* CaturlogServices.swift */,
-				74F6BE921974D6BC008AF8E5 /* ResourceStorer.swift */,
-				74F6BE89196CF580008AF8E5 /* ResourceLoader.swift */,
+				74EE31BF1985EC4600FEB62B /* DummyUser.swift */,
+				74F6BE921974D6BC008AF8E5 /* Filer.swift */,
+				74EE31BD1985EA1C00FEB62B /* Tagger.swift */,
 				74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */,
 				74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */,
+				74B94C37198B34B80037AB83 /* ItemToTagStringsTransformer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -163,6 +173,7 @@
 			children = (
 				7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */,
 				742968A0197A17220037FBA3 /* OmnibarViewController.swift */,
+				7424E2D21993350A00CB8EBE /* TagViewController.swift */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";
@@ -287,16 +298,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				74F6BE911974CC1D008AF8E5 /* CaturlogCoreDataEntities.swift in Sources */,
+				74B94C38198B34B80037AB83 /* ItemToTagStringsTransformer.swift in Sources */,
+				74EE31C01985EC4600FEB62B /* DummyUser.swift in Sources */,
 				74D0811A19650CDD004ACF9F /* AppDelegate.swift in Sources */,
+				74EE31BE1985EA1C00FEB62B /* Tagger.swift in Sources */,
 				74EE31B3197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */,
 				74D0811819650CDD004ACF9F /* main.swift in Sources */,
 				742968A1197A17220037FBA3 /* OmnibarViewController.swift in Sources */,
 				74EE31B9197F4D2300FEB62B /* CaturlogWindowViewModel.swift in Sources */,
-				74F6BE8A196CF580008AF8E5 /* ResourceLoader.swift in Sources */,
 				74F6BE87196CF44E008AF8E5 /* CaturlogServices.swift in Sources */,
 				74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */,
 				7429689E1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */,
-				74F6BE931974D6BC008AF8E5 /* ResourceStorer.swift in Sources */,
+				7424E2D31993350A00CB8EBE /* TagViewController.swift in Sources */,
+				74F6BE931974D6BC008AF8E5 /* Filer.swift in Sources */,
 				74F6BE8D19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,12 +321,14 @@
 			files = (
 				74EE31B4197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */,
 				7429689F1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */,
-				74F6BE941974D6BC008AF8E5 /* ResourceStorer.swift in Sources */,
+				74F6BE941974D6BC008AF8E5 /* Filer.swift in Sources */,
+				74EE31C11985EC4600FEB62B /* DummyUser.swift in Sources */,
 				74F6BE88196CF44E008AF8E5 /* CaturlogServices.swift in Sources */,
+				74B94C39198B34B80037AB83 /* ItemToTagStringsTransformer.swift in Sources */,
+				7424E2D41993350A00CB8EBE /* TagViewController.swift in Sources */,
 				74D0812E19650CDD004ACF9F /* CaturlogTests.swift in Sources */,
 				74EE31BA197F4D2300FEB62B /* CaturlogWindowViewModel.swift in Sources */,
 				742968A2197A17220037FBA3 /* OmnibarViewController.swift in Sources */,
-				74F6BE8B196CF580008AF8E5 /* ResourceLoader.swift in Sources */,
 				74F6BE8E19737C15008AF8E5 /* NSData+CommonDigest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

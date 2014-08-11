@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.15" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6208.6" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Characteristic" representedClassName="Caturlog.Characteristic" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,7 +9,7 @@
         <attribute name="contentID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="characteristics" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Characteristic" inverseName="items" inverseEntity="Characteristic" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="items" inverseEntity="Tag" syncable="YES"/>
-        <relationship name="userItemTags" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserItemTag" inverseName="item" inverseEntity="UserItemTag" syncable="YES"/>
+        <relationship name="userItemTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserItemTag" inverseName="item" inverseEntity="UserItemTag" syncable="YES"/>
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="items" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="Caturlog.Tag" syncable="YES">
