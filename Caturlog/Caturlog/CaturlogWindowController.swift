@@ -39,6 +39,9 @@ class CaturlogWindowController: NSWindowController {
     
     override func awakeFromNib()  {
         super.awakeFromNib()
+        if (self.window.respondsToSelector(NSSelectorFromString("titleVisibility"))) {
+            self.window.titleVisibility = .Hidden
+        }
         viewModel = CaturlogWindowViewModel()
         self.tagViewController.bindTagField()
     }
