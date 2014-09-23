@@ -41,6 +41,9 @@ class CaturlogWindowController: NSWindowController {
         super.awakeFromNib()
         if (self.window.respondsToSelector(NSSelectorFromString("titleVisibility"))) {
             self.window.titleVisibility = .Hidden
+            self.window.titlebarAppearsTransparent = true;
+            self.window.styleMask = self.window.styleMask | NSFullSizeContentViewWindowMask;
+
         }
         viewModel = CaturlogWindowViewModel()
         self.tagViewController.bindTagField()
