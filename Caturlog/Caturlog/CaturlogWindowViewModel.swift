@@ -125,4 +125,12 @@ class CaturlogWindowViewModel {
         return validURL
     }
     
+    func deleteSelectedItem() {
+        if let item = itemEntityController.valueForKeyPath("selection.self") as? Item {            
+            var appDel = NSApplication.sharedApplication().delegate as AppDelegate
+            var services = appDel.caturlogServices
+            services.filer.deleteItem(item.contentID)
+        }
+    }
+    
 }

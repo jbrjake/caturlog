@@ -42,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let fileManager = NSFileManager.defaultManager()
         let urls = fileManager.URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask)
         let appSupportURL: AnyObject = urls[urls.endIndex - 1]
-        return appSupportURL.URLByAppendingPathComponent("us.ubiquit.Caturlog")
+        return appSupportURL.URLByAppendingPathComponent("Caturlog")
     }
 
     var managedObjectModel: NSManagedObjectModel {

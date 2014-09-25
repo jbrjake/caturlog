@@ -17,6 +17,7 @@ protocol EntityServiceProtocol {
     func getUserItemTag(tag: String, contentID: String, user: User) -> (UserItemTag?)
     func getUserItemTagsForTag(name: String, user: User) -> (Array<UserItemTag>?)
     func insertItem(contentID: String) -> (item: Item?)
+    func removeItem(contentID: String) -> ()        
     func insertUser(userID: Int) -> (user: User?)
     func insertTag(name: String) -> (tag: Tag?)
     func insertCharacteristic(name: String, value: String) -> (characteristic: Characteristic?)
@@ -30,6 +31,8 @@ protocol FileServiceProtocol {
     func storeAsItem(url: NSURL, completion:(Item) -> ())    
     // Take a content hash and return a stored file's data if it exists
     func getFile(contentID: String) -> NSData?
+    // Remove a file
+    func deleteItem(contentID: String)
 }
 
 protocol TagServiceProtocol {

@@ -99,6 +99,16 @@ class EntityAccessor: EntityServiceProtocol {
         return nil
     }
     
+    func removeItem(contentID: String) -> () {        
+        var appDel = NSApplication.sharedApplication().delegate as AppDelegate
+        if let moc = appDel.managedObjectContext {
+            if let item = getItem(contentID)? {
+                moc.deleteObject(item)
+            }
+            moc.save(nil) // Fixme: do error checking
+        }
+    }
+    
     func insertUser(userID: Int) -> (user: User?) {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         if let moc = appDelegate.managedObjectContext {

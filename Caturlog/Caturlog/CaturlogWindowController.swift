@@ -39,6 +39,12 @@ class CaturlogWindowController: NSWindowController {
     
     override func awakeFromNib()  {
         super.awakeFromNib()
+        if (self.window.respondsToSelector(NSSelectorFromString("titleVisibility"))) {
+            self.window.titleVisibility = .Hidden
+            self.window.titlebarAppearsTransparent = true;
+            self.window.styleMask = self.window.styleMask | NSFullSizeContentViewWindowMask;
+
+        }
         viewModel = CaturlogWindowViewModel()
         self.tagViewController.bindTagField()
     }
@@ -73,4 +79,18 @@ class CaturlogWindowController: NSWindowController {
             ]
         )
     }    
+}
+
+extension CaturlogWindowController: NSMenuDelegate {
+    
+    func menuNeedsUpdate(menu:NSMenu) {
+        let deleteItem = NSMenuItem(title: "Delete", action: NSSelectorFromString("clickedDeleteItem"), keyEquivalent: "d")
+        menu.removeAllItems()
+        menu.addItem(deleteItem)
+    }
+    
+    func clickedDeleteItem() {
+        self.viewModel?.deleteSelectedItem()
+    }
+
 }
