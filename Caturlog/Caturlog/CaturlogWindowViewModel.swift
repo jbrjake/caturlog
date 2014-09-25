@@ -132,5 +132,19 @@ class CaturlogWindowViewModel {
             services.filer.deleteItem(item.contentID)
         }
     }
+
+    func urlsForSelectedItem() -> (Array<String>) {
+        var urls = Array<String>()
+        if let item = itemEntityController.valueForKeyPath("selection.self") as? Item {            
+            let characteristics = item.characteristics.allObjects
+            for characteristic in characteristics {
+                let charEntity = characteristic as Characteristic
+                if (charEntity.name == "URL") {
+                    urls.append(charEntity.value)
+                }
+            }
+        }
+        return urls
+    }
     
 }
