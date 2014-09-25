@@ -62,14 +62,17 @@ Version 1.0 Milestones: Minimum Viable Product
 * I want to be able to tag images so that I can find them later
 * I want to be able to search the images via tags so that I can find appropriate images for a given situation
 
-### Version 0.4: Polish ###
+### Version 0.4: Spit-polish and deletion ###
 * I want the look and feel to better match the 10.10 Spotlight UI, with etching to separate sections and reduced chrome.
-* I want the table view to be resizable horizontally.
 * I want to be able to delete items
-* I want to document the codebase
 
 ### Version 0.5: Sharing ###
 * I want to be able to share existing links to the images
+
+### Version 0.5.5: More Polish ###
+* I want to etching to separate sections
+* I want the table view to be resizable horizontally
+* I want to document the codebase
 
 ### Version 0.6: Strong search and imgur ###
 * I want to be able to generate complex search predicates based on tags so that I can do searches other than tagA AND tagB. For example, (tagA AND tagB) NOT (tagC OR tagD).
