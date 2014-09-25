@@ -74,13 +74,21 @@ Version 1.0 Milestones: Minimum Viable Product
 * I want the table view to be resizable horizontally
 * I want to document the codebase
 * I want the image views to have slightly rounded corners
+* Auto-refresh tableview when image downloads complete
+* Delete url from omnibar when image downloads complete
+* Progress indicator for download so the user knows something is happening
 
-### Version 0.6: Strong search and imgur ###
+### Version 0.6: Basic Single User Syncing ###
+
+* I want to use iCloud to share my database
+* I want to be able to redownload images referenced in my database if they don't exist on the local device
+
+### Version 0.7: Strong search and imgur ###
 * I want to be able to generate complex search predicates based on tags so that I can do searches other than tagA AND tagB. For example, (tagA AND tagB) NOT (tagC OR tagD).
 * I want to be able to upload images to imgur for sharing so that I don't have to depend on the original image URL still being around.
 * I want to be able to check on known image URLs to see if they're still around
 
-### Version 0.7: Twitter and Pocket integration ###
+### Version 0.8: Twitter and Pocket integration ###
 * I want to be able to automatically import images from my Twitter feed so that I don't have to manually add them
 * I want to be able to automatically import images from my Pocket library so that I don't have to manually add them
 * I want to be able to post images to Twitter
