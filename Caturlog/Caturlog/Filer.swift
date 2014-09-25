@@ -58,6 +58,19 @@ class Filer: FileServiceProtocol {
         return (nil, false, nil)
     }
 
+    func deleteItem(contentID: String) {
+        // Get the local url
+        let itemURL = localURLForContentID(contentID)
+
+        // Delete the entity
+        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+        let services = appDelegate.caturlogServices
+        services.entityAccessor.removeItem(contentID)
+        
+        // Delete the file
+        deleteFile(itemURL)
+    }
+
     func itemForContentID(contentID: String) -> Item? {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         let services = appDelegate.caturlogServices
@@ -201,6 +214,14 @@ class Filer: FileServiceProtocol {
             contents: data,
             attributes: nil
         )
+    }
+    
+    func deleteFile(url: NSURL) {
+        var err: NSErrorPointer = nil
+        NSFileManager.defaultManager().removeItemAtURL(url, error: err)
+        if(err) {
+            println("err:\(err)")
+        }
     }
     
     func makeRemoteRequest(url: NSURL, completion: (data: NSData?) -> ()) {
