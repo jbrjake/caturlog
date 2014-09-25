@@ -39,8 +39,10 @@ class Filer: FileServiceProtocol {
         if let moc = appDelegate.managedObjectContext {
             if let item = itemForContentID(contentID)? {
                 if let char = characteristicForURL(fromURL) {
-                    char.items.addObject(item)
-                    item.characteristics.addObject(char)
+                    var charItems = char.mutableSetValueForKey("items")
+                    var itemChars = item.mutableSetValueForKey("characteristics")
+                    charItems.addObject(item)
+                    itemChars.addObject(char)
                 }
 
                 // Save out in this scope in case the item or char are new inserts
