@@ -84,13 +84,32 @@ class CaturlogWindowController: NSWindowController {
 extension CaturlogWindowController: NSMenuDelegate {
     
     func menuNeedsUpdate(menu:NSMenu) {
-        let deleteItem = NSMenuItem(title: "Delete", action: NSSelectorFromString("clickedDeleteItem"), keyEquivalent: "d")
         menu.removeAllItems()
+        
+        if let itemURLs = self.viewModel?.urlsForSelectedItem() {
+            for url: String in itemURLs {
+                let host = NSURL(string:url).host
+                let linkItem = NSMenuItem(title: "Copy link from \(host)", action: Selector("clickedCopyLinkFrom:"), keyEquivalent: "")
+                linkItem.toolTip = url
+                menu.addItem(linkItem)
+            }
+        }
+        
+        let deleteItem = NSMenuItem(title: "Delete", action: NSSelectorFromString("clickedDeleteItem"), keyEquivalent: "d")
         menu.addItem(deleteItem)
+
     }
     
     func clickedDeleteItem() {
         self.viewModel?.deleteSelectedItem()
+    }
+    
+    func clickedCopyLinkFrom(sender: AnyObject) {
+        let menuItem = sender as? NSMenuItem
+        let url = menuItem?.toolTip
+        let pasteBoard = NSPasteboard.generalPasteboard()
+        pasteBoard.declareTypes([NSStringPboardType], owner: nil)
+        pasteBoard.setString(url, forType: NSStringPboardType)
     }
 
 }

@@ -25,10 +25,10 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="light" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="SmV-GI-Maw">
-                        <rect key="frame" x="8" y="0.0" width="493" height="344"/>
+                        <rect key="frame" x="0.0" y="0.0" width="501" height="344"/>
                     </visualEffectView>
                     <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="74" horizontalPageScroll="10" verticalLineScroll="74" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sct-Bi-lWA">
-                        <rect key="frame" x="8" y="8" width="120" height="298"/>
+                        <rect key="frame" x="16" y="16" width="120" height="284"/>
                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="tm2-m3-kLe">
                             <rect key="frame" x="1" y="17" width="238" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,17 +57,17 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="AzC-AO-wOR"/>
                         </constraints>
-                        <scroller key="horizontalScroller" hidden="YES" appearanceType="vibrantLight" verticalHuggingPriority="750" horizontal="YES" id="mv6-t5-4cY">
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="mv6-t5-4cY">
                             <rect key="frame" x="1" y="119" width="223" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" hidden="YES" appearanceType="vibrantLight" verticalHuggingPriority="750" horizontal="NO" id="Mnc-7h-h04">
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Mnc-7h-h04">
                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
                     <tokenField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-gY-pgh">
-                        <rect key="frame" x="134" y="8" width="361" height="82"/>
+                        <rect key="frame" x="150" y="16" width="337" height="82"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="82" id="Af1-tm-QOd"/>
                         </constraints>
@@ -81,7 +81,7 @@
                         </connections>
                     </tokenField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq">
-                        <rect key="frame" x="136" y="98" width="357" height="208"/>
+                        <rect key="frame" x="152" y="114" width="333" height="185"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="zda-M5-lyt"/>
                         <connections>
                             <outlet property="menu" destination="Lwx-vH-6mB" id="heg-mN-Ajm"/>
@@ -89,20 +89,20 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="vBf-eO-inq" secondAttribute="trailing" constant="8" id="BnY-f7-m9x"/>
-                    <constraint firstItem="sct-Bi-lWA" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="8" id="FSQ-4G-5bg"/>
-                    <constraint firstItem="6CC-gY-pgh" firstAttribute="top" secondItem="vBf-eO-inq" secondAttribute="bottom" constant="8" id="I01-CH-MAR"/>
-                    <constraint firstItem="vBf-eO-inq" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="8" id="XQy-61-0PF"/>
-                    <constraint firstAttribute="trailing" secondItem="6CC-gY-pgh" secondAttribute="trailing" constant="8" id="b84-QL-U0Y"/>
+                    <constraint firstAttribute="trailing" secondItem="vBf-eO-inq" secondAttribute="trailing" constant="16" id="BnY-f7-m9x"/>
+                    <constraint firstItem="sct-Bi-lWA" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="16" id="FSQ-4G-5bg"/>
+                    <constraint firstItem="6CC-gY-pgh" firstAttribute="top" secondItem="vBf-eO-inq" secondAttribute="bottom" constant="16" id="I01-CH-MAR"/>
+                    <constraint firstItem="vBf-eO-inq" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="16" id="XQy-61-0PF"/>
+                    <constraint firstAttribute="trailing" secondItem="6CC-gY-pgh" secondAttribute="trailing" constant="16" id="b84-QL-U0Y"/>
                     <constraint firstItem="SmV-GI-Maw" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="c6C-zZ-dqa"/>
-                    <constraint firstItem="6CC-gY-pgh" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="8" id="iVe-xe-85K"/>
+                    <constraint firstItem="SmV-GI-Maw" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="f06-Xa-G2U"/>
+                    <constraint firstItem="6CC-gY-pgh" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="16" id="iVe-xe-85K"/>
                     <constraint firstAttribute="bottom" secondItem="SmV-GI-Maw" secondAttribute="bottom" id="jra-Ss-Srl"/>
-                    <constraint firstAttribute="bottom" secondItem="6CC-gY-pgh" secondAttribute="bottom" constant="8" id="n9x-Ra-QWN"/>
-                    <constraint firstAttribute="bottom" secondItem="sct-Bi-lWA" secondAttribute="bottom" constant="8" id="o9o-28-jz8"/>
-                    <constraint firstItem="SmV-GI-Maw" firstAttribute="leading" secondItem="sct-Bi-lWA" secondAttribute="trailing" constant="-120" id="rcS-78-uro"/>
-                    <constraint firstItem="vBf-eO-inq" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="38" id="wDq-11-VQI"/>
+                    <constraint firstAttribute="bottom" secondItem="6CC-gY-pgh" secondAttribute="bottom" constant="16" id="n9x-Ra-QWN"/>
+                    <constraint firstAttribute="bottom" secondItem="sct-Bi-lWA" secondAttribute="bottom" constant="16" id="o9o-28-jz8"/>
+                    <constraint firstItem="vBf-eO-inq" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="45" id="wDq-11-VQI"/>
                     <constraint firstAttribute="trailing" secondItem="SmV-GI-Maw" secondAttribute="trailing" id="yzE-Au-LEc"/>
-                    <constraint firstItem="sct-Bi-lWA" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="38" id="zwn-kI-7Kb"/>
+                    <constraint firstItem="sct-Bi-lWA" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="44" id="zwn-kI-7Kb"/>
                 </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="6A8C8A64-7C8C-4437-9A2C-C36C99FEA0AE" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="rFu-vF-i4L">
@@ -148,7 +148,10 @@
         </customObject>
         <menu id="Lwx-vH-6mB" userLabel="Contextual Menu">
             <items>
-                <menuItem title="Delete" id="QFM-Bt-xt8">
+                <menuItem title="Copy link from ..." id="QFM-Bt-xt8">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Delete" id="HO3-uq-5GW">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
             </items>
