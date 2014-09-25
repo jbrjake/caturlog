@@ -74,3 +74,17 @@ class CaturlogWindowController: NSWindowController {
         )
     }    
 }
+
+extension CaturlogWindowController: NSMenuDelegate {
+    
+    func menuNeedsUpdate(menu:NSMenu) {
+        let deleteItem = NSMenuItem(title: "Delete", action: NSSelectorFromString("clickedDeleteItem"), keyEquivalent: "d")
+        menu.removeAllItems()
+        menu.addItem(deleteItem)
+    }
+    
+    func clickedDeleteItem() {
+        self.viewModel?.deleteSelectedItem()
+    }
+
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6185.11" systemVersion="14A361c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.11"/>
     </dependencies>
@@ -19,7 +19,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="501" height="344"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="501" height="344"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -80,6 +80,9 @@
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq">
                         <rect key="frame" x="128" y="98" width="365" height="238"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="zda-M5-lyt"/>
+                        <connections>
+                            <outlet property="menu" destination="Lwx-vH-6mB" id="heg-mN-Ajm"/>
+                        </connections>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -136,5 +139,16 @@
                 <outlet property="tagField" destination="6CC-gY-pgh" id="lwM-Ud-rdU"/>
             </connections>
         </customObject>
+        <menu id="Lwx-vH-6mB" userLabel="Contextual Menu">
+            <items>
+                <menuItem title="Delete" id="QFM-Bt-xt8">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+            <connections>
+                <outlet property="delegate" destination="-2" id="crN-bB-puQ"/>
+            </connections>
+            <point key="canvasLocation" x="157" y="-66.5"/>
+        </menu>
     </objects>
 </document>

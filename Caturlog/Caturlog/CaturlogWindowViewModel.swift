@@ -125,4 +125,8 @@ class CaturlogWindowViewModel {
         return validURL
     }
     
+    func deleteSelectedItem() {
+        
+    }
+    
 }
