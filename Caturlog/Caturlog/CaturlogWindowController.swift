@@ -12,7 +12,7 @@ import CoreData
 
 class CaturlogWindowController: NSWindowController {
 
-    @IBOutlet var imageView:    NSImageView!
+    @IBOutlet var imageView:    CaturlogImageView!
     @IBOutlet var tagField:     NSTokenField!
     @IBOutlet var itemList:     NSTableView!
     @IBOutlet var tagViewController: TagViewController!
@@ -78,6 +78,8 @@ class CaturlogWindowController: NSWindowController {
                 NSConditionallySetsEnabledBindingOption: false
             ]
         )
+        
+        
     }    
 }
 

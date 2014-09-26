@@ -27,7 +27,7 @@
                     <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="light" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="SmV-GI-Maw">
                         <rect key="frame" x="0.0" y="0.0" width="501" height="344"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq" customClass="CaturlogImageView" customModule="Caturlog" customModuleProvider="target">
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="zda-M5-lyt"/>
                                 <connections>
                                     <outlet property="menu" destination="Lwx-vH-6mB" id="heg-mN-Ajm"/>
