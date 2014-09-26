@@ -43,3 +43,19 @@ class CaturlogImageView: NSImageView {
         return centeredFrame
     }
 }
+
+class CaturlogImageCell: NSImageCell {
+    
+    override func drawInteriorWithFrame(cellFrame: NSRect, inView controlView: NSView!) {
+        println("drawing interior of cell")
+        if let imageSize = image?.size {
+            NSGraphicsContext.saveGraphicsState()
+            let path = NSBezierPath(roundedRect: cellFrame, xRadius: 5, yRadius: 5)
+            path.addClip()
+            image.drawInRect(cellFrame, fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0)
+            NSGraphicsContext.restoreGraphicsState()
+        }
+        
+    }
+
+}
