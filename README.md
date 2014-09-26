@@ -71,9 +71,7 @@ Version 1.0 Milestones: Minimum Viable Product
 
 ### Version 0.5.5: More Polish ###
 * I want to etching to separate sections
-* I want the table view to be resizable horizontally
-* I want to document the codebase
-* I want the image views to have slightly rounded corners
+* I want the image view to have slightly rounded corners
 * Auto-refresh tableview when image downloads complete
 * Delete url from omnibar when image downloads complete
 * Progress indicator for download so the user knows something is happening
@@ -93,6 +91,12 @@ Version 1.0 Milestones: Minimum Viable Product
 * I want to be able to automatically import images from my Pocket library so that I don't have to manually add them
 * I want to be able to post images to Twitter
 * I want to be able to save images to Pocket
+
+### Version 0.9: More Polish ###
+* I want the table view to be resizable horizontally
+* I want the image table views to have slightly rounded corners
+* I want to document the codebase
+
 
 ### Version 1.0: Crowd-tagging
 * I want to be able to send tags to a server so that every unique piece of content has a centralized record of every tag applied to it by every user
