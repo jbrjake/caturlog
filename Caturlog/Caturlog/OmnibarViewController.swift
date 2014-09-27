@@ -20,7 +20,14 @@ class OmnibarViewController :NSViewController, NSTextFieldDelegate {
             let tokenField = textField as NSTokenField
             let tokens = tokenField.objectValue as Array<String>
             
-            caturlogWindowControler.viewModel?.omnibarTokensChanged(tokens)            
+            caturlogWindowControler.viewModel?.omnibarTokensChanged(tokens,
+                begin: {
+                    self.caturlogWindowControler.downloadBegan()
+                },
+                completion:{
+                    self.caturlogWindowControler.downloadCompleted()
+                }
+            )            
         }
     }
         

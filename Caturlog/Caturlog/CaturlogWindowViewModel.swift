@@ -29,7 +29,7 @@ class CaturlogWindowViewModel {
         itemEntityController.fetch(nil)        
     }
         
-    func omnibarTokensChanged(newTokens: Array<String>) {
+    func omnibarTokensChanged(newTokens: Array<String>, begin:()->(), completion:()->()) {
         let (urls,tags) = urlsAndTagsFromTokens(newTokens)
 
         var appDel = NSApplication.sharedApplication().delegate as AppDelegate
@@ -39,7 +39,9 @@ class CaturlogWindowViewModel {
             // Add URLs and bind them to tags; use an empty predicate
             if let user = appDel.caturlogServices.user.getCurrentUser()? {
                 for url in urls {
+                    dispatch_async(dispatch_get_main_queue(), {begin()})
                     services.filer.storeAsItem(url, completion: { (item: Item) -> () in 
+                        dispatch_async(dispatch_get_main_queue(), {completion()})
                         for tag in tags {
                             // Apply the tag for the URL
                             services.tagger.addTag(tag, contentID: item.contentID, user:user)

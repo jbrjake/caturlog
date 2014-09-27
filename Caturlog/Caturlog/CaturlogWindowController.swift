@@ -81,6 +81,16 @@ class CaturlogWindowController: NSWindowController {
         
         
     }    
+    
+    func downloadBegan() {
+        
+    }
+    
+    func downloadCompleted() {
+        self.viewModel?.itemEntityController.rearrangeObjects()
+        self.itemList.reloadData()
+        self.itemList.selectRowIndexes( NSIndexSet(index: self.itemList.numberOfRows-1), byExtendingSelection: false)
+    }
 }
 
 extension CaturlogWindowController: NSMenuDelegate {
