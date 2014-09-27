@@ -70,14 +70,17 @@ Version 1.0 Milestones: Minimum Viable Product
 * I want to be able to share existing links to the images
 
 ### Version 0.5.5: More Polish ###
-* I want to etching to separate sections
-* I want the image view to have slightly rounded corners
-* Auto-refresh tableview when image downloads complete
+* ~~I want to etching to separate sections~~
+* ~~I want the image view to have slightly rounded corners~~
+* ~~Icon~~
+* ~~Auto-refresh tableview when image downloads complete~~
 * Delete url from omnibar when image downloads complete
 * Progress indicator for download so the user knows something is happening
+* Validate URLs are to supported file formats (let's say .gif, .jpg, and .png)
 
 ### Version 0.6: Basic Single User Syncing ###
 
+* I want to be able to uniquely identify users by CloudKit ID
 * I want to use iCloud to share my database
 * I want to be able to redownload images referenced in my database if they don't exist on the local device
 
