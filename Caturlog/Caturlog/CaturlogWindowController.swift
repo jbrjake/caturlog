@@ -16,6 +16,8 @@ class CaturlogWindowController: NSWindowController {
     @IBOutlet var tagField:     NSTokenField!
     @IBOutlet var itemList:     NSTableView!
     @IBOutlet var tagViewController: TagViewController!
+    @IBOutlet var toolbar: NSToolbar!
+    @IBOutlet var spinner: NSProgressIndicator!
     
     var moc: NSManagedObjectContext? {
         return (NSApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
@@ -83,10 +85,13 @@ class CaturlogWindowController: NSWindowController {
     }    
     
     func downloadBegan() {
-        
+        self.toolbar.insertItemWithItemIdentifier("spinner", atIndex: 1)
+        spinner.startAnimation(self)
     }
     
     func downloadCompleted() {
+        spinner.stopAnimation(self)
+        self.toolbar.removeItemAtIndex(1)
         self.viewModel?.itemEntityController.rearrangeObjects()
         self.itemList.reloadData()
         self.itemList.selectRowIndexes( NSIndexSet(index: self.itemList.numberOfRows-1), byExtendingSelection: false)
@@ -125,3 +130,4 @@ extension CaturlogWindowController: NSMenuDelegate {
     }
 
 }
+

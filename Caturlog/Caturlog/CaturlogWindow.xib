@@ -8,8 +8,10 @@
             <connections>
                 <outlet property="imageView" destination="vBf-eO-inq" id="XQZ-JG-rRw"/>
                 <outlet property="itemList" destination="HC5-Ow-Gqe" id="XQj-XG-5B3"/>
+                <outlet property="spinner" destination="HCK-tU-DSE" id="NKw-AT-liC"/>
                 <outlet property="tagField" destination="6CC-gY-pgh" id="NaX-VJ-AcQ"/>
                 <outlet property="tagViewController" destination="bBD-L3-Ybe" id="1q5-nS-ztt"/>
+                <outlet property="toolbar" destination="rFu-vF-i4L" id="Ded-l6-Vgy"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="uop-ms-W97"/>
             </connections>
         </customObject>
@@ -44,7 +46,7 @@
                             <rect key="frame" x="1" y="17" width="238" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="72" id="HC5-Ow-Gqe">
+                                <tableView focusRingType="none" appearanceType="vibrantLight" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="72" id="HC5-Ow-Gqe">
                                     <rect key="frame" x="0.0" y="0.0" width="120" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="0.0" height="2"/>
@@ -153,6 +155,15 @@
                                 <outlet property="delegate" destination="Ahe-tD-rZo" id="S8C-Rf-ydL"/>
                             </connections>
                         </tokenField>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="D54FA620-A170-41E2-BB0B-3B4DFE93A61E" explicitItemIdentifier="spinner" label="Custom View" paletteLabel="Custom View" tag="-1" id="xPu-w4-zAV">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="16" height="16"/>
+                        <size key="maxSize" width="16" height="16"/>
+                        <progressIndicator key="view" identifier="spinner" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="HCK-tU-DSE">
+                            <rect key="frame" x="16" y="16" width="16" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </progressIndicator>
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
