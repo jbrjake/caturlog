@@ -25,6 +25,10 @@ class OmnibarViewController :NSViewController, NSTextFieldDelegate {
                     self.caturlogWindowControler.downloadBegan()
                 },
                 completion:{
+                    urls, tags in
+                    for url: NSURL in urls {
+                        textField.stringValue = textField.stringValue.stringByReplacingOccurrencesOfString(url.absoluteString, withString:"", options: NSStringCompareOptions.CaseInsensitiveSearch, range:nil)
+                    }
                     self.caturlogWindowControler.downloadCompleted()
                 }
             )            
