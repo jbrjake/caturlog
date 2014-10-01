@@ -1,0 +1,36 @@
+Caturlog App Store Content
+==========================
+
+Description
+-----------
+Caturlog is a library app for animated GIFs. It's designed to store, tag, search, and share your favorite GIFs. Its goal is to put the perfect GIF for any situation at your fingertips.
+
+Caturlog is designed from the ground up for Mac OS X 10.10 Yosemite. It's coded purely in Swift, with a vibrancy-based UI inspired by Yosemite's Spotlight window. Written by a veteran Mac developer, Caturlog relies heavily on Apple technologies like Core Data and Cocoa Bindings, and it takes its architectural cues from modern software design patterns like MVVM. All of the code is open source under the MIT license: https://github.com/jbrjake/caturlog
+
+FEATURES
+* Store and browse copies of your favorite GIFs from the web on your hard drive
+* Tag your GIFs with multiple categories
+* Search for the perfect GIF by combining different tags
+* Share the original web links for GIFs in your library
+
+This is just the beginning for Caturlog!
+
+For more information on the app's future plans, follow it on Twitter or visit it on the web:
+https://twitter.com/caturlog
+https://jbrjake.github.io/caturlog
+
+
+Screenshots
+-----------
+
+1. Catalog your favorite gifs
+< Cat gif> displayed
+
+2. Download and store gifs from the web
+<Link in search bar with spinny indicator>
+
+3. Tag your gifs for lightning-fast search
+<Tags in search bar with relevant gif displayed>
+
+4. Share links to your gifs with friends
+<Contextual menu showing copy URL>
