@@ -76,6 +76,7 @@ Version 1.0 Milestones: Minimum Viable Product
 * ~~Auto-refresh tableview when image downloads complete~~
 * ~Delete url from omnibar when image downloads complete~
 * ~Progress indicator for download so the user knows something is happening~
+* ~~timeouts for downloads~~
 * Don't update table selection when the new one would be the same as the old one, to prevent jerky looking reloads
 * Validate URLs are to supported file formats (let's say .gif, .jpg, and .png)
 * When the arrangedObjects of the item entity list change (for example, when a tag is added or removed) the topmost item should be selected. Right now, that happens when tags are added, but not when they're deleted.
