@@ -13,7 +13,7 @@ import CoreData
 class Filer: FileServiceProtocol {
 
     // Goes right from a URL to an Item saved in the moc
-    func storeAsItem(url: NSURL, completion:(Item) -> ()) {
+    func storeAsItem(url: NSURL, completion:(Item?) -> ()) {
         var appDel = NSApplication.sharedApplication().delegate as AppDelegate
         var services = appDel.caturlogServices
         var result = false, error: NSErrorPointer? = nil
@@ -23,10 +23,10 @@ class Filer: FileServiceProtocol {
             if data != nil {
                 var (maybeItem, result, maybeErr) = self.storeResource(data!.sha256(), fromURL:url)
                 println("item:\(maybeItem) result:\(result) err:\(maybeErr)")
-                if let item = maybeItem? {
-                    // We got something
-                    completion(item)
-                }
+                completion(maybeItem)
+            }
+            else {
+                completion(nil)
             }
         })        
     }
