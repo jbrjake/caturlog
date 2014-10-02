@@ -9,7 +9,7 @@
 import Cocoa
 
 class ItemToTagStringsTransformer: NSValueTransformer {
-    override class func transformedValueClass() -> (AnyClass!) {
+    override class func transformedValueClass() -> (AnyClass) {
         return NSArray.self
     }
     
@@ -17,7 +17,7 @@ class ItemToTagStringsTransformer: NSValueTransformer {
         return false
     }
     
-    override func transformedValue(value: AnyObject!) -> AnyObject! {
+    override func transformedValue(value: AnyObject!) -> AnyObject {
         let appDel = NSApplication.sharedApplication().delegate as AppDelegate
         let tagger = appDel.caturlogServices.tagger
         if let item = value as? Item {

@@ -23,12 +23,12 @@ class TagViewController :NSViewController, NSTextFieldDelegate {
         )
     }
     
-    override func observeValueForKeyPath(keyPath: String!,
-        ofObject object: AnyObject!,
-        change: [NSObject : AnyObject]!,
-        context: UnsafePointer<()>
-    ) {
-        switch keyPath! {
+   override func observeValueForKeyPath(keyPath: String,
+    ofObject object: AnyObject,
+    change: [NSObject: AnyObject],
+    context: UnsafeMutablePointer<Void>)
+   {
+        switch keyPath {
         case "selection.self":
             updateTagsFromModel()
             break
@@ -43,7 +43,7 @@ class TagViewController :NSViewController, NSTextFieldDelegate {
         )
     }
     
-    override func controlTextDidEndEditing(obj: NSNotification!) {
+    override func controlTextDidEndEditing(obj: NSNotification) {
         var textField = obj.object as NSTextField
         if(textField.isEqualTo(tagField)) {
             let tokenField = textField as NSTokenField

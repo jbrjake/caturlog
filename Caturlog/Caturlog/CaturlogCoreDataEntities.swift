@@ -53,38 +53,38 @@ class Characteristic: NSManagedObject {
 
 class EntityAccessor: EntityServiceProtocol {
     
-    func getItem(contentID: String) -> (item: Item?) {
+    func getItem(contentID: String) -> (Item?) {
         let predicate = NSPredicate(format: "contentID = %@", contentID)
         
-        return fetchEntity("Item", predicate: predicate) as? Item
+        return fetchEntity("Item", predicate: predicate!) as? Item
     }
 
-    func getUser(userID: Int) -> (user: User?) {
+    func getUser(userID: Int) -> (User?) {
         let predicate = NSPredicate(format: "userID = %@", userID)
-        return fetchEntity("User", predicate: predicate) as User?
+        return fetchEntity("User", predicate: predicate!) as User?
     }
 
-    func getTag(name: String) -> (tag: Tag?) {
+    func getTag(name: String) -> (Tag?) {
         let predicate = NSPredicate(format: "name = %@", name)
-        return fetchEntity("Tag", predicate: predicate) as Tag?
+        return fetchEntity("Tag", predicate: predicate!) as Tag?
     }
 
-    func getCharacteristic(name: String, value:String) -> (characteristic: Characteristic?) {
+    func getCharacteristic(name: String, value:String) -> (Characteristic?) {
         let predicate = NSPredicate(format: "name = %@ && value = %@", name, value)
-        return fetchEntity("Characteristic", predicate: predicate) as Characteristic?
+        return fetchEntity("Characteristic", predicate: predicate!) as Characteristic?
     }
 
     func getUserItemTagsForTag(name: String, user: User) -> (Array<UserItemTag>?) {
         let predicate = NSPredicate(format: "tag.name = %@ and user = %@", name, user)
-        return fetchEntities(name, predicate: predicate) as? Array<UserItemTag>
+        return fetchEntities(name, predicate: predicate!) as? Array<UserItemTag>
     }
 
     func getUserItemTag(tag: String, contentID: String, user: User) -> (UserItemTag?) {
         let predicate = NSPredicate(format: "tag.name = %@ and user = %@ and item.contentID = %@", tag, user, contentID)
-        return fetchEntity("UserItemTag", predicate: predicate) as UserItemTag?
+        return fetchEntity("UserItemTag", predicate: predicate!) as UserItemTag?
     }
     
-    func insertItem(contentID: String) -> (item: Item?) {
+    func insertItem(contentID: String) -> (Item?) {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         if let moc = appDelegate.managedObjectContext {
             if let item = NSEntityDescription
@@ -109,7 +109,7 @@ class EntityAccessor: EntityServiceProtocol {
         }
     }
     
-    func insertUser(userID: Int) -> (user: User?) {
+    func insertUser(userID: Int) -> (User?) {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         if let moc = appDelegate.managedObjectContext {
             if let user = NSEntityDescription
@@ -124,7 +124,7 @@ class EntityAccessor: EntityServiceProtocol {
         return nil
     }
 
-    func insertTag(name: String) -> (tag: Tag?) {
+    func insertTag(name: String) -> (Tag?) {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         if let moc = appDelegate.managedObjectContext {
             if let tag = NSEntityDescription
@@ -139,7 +139,7 @@ class EntityAccessor: EntityServiceProtocol {
         return nil
     }
 
-    func insertCharacteristic(name: String, value: String) -> (characteristic: Characteristic?) {
+    func insertCharacteristic(name: String, value: String) -> (Characteristic?) {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         if let moc = appDelegate.managedObjectContext {
             if let characteristic = NSEntityDescription
@@ -176,7 +176,7 @@ class EntityAccessor: EntityServiceProtocol {
             request.predicate = predicate
             var err: NSErrorPointer = nil
             let results = moc.executeFetchRequest(request, error: err)
-            if(results.count > 0) {
+            if(results!.count > 0) {
                 return results as? Array<NSManagedObject>
             }
         }

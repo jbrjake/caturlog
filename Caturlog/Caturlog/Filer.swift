@@ -48,7 +48,7 @@ class Filer: FileServiceProtocol {
                 // Save out in this scope in case the item or char are new inserts
                 let err: NSErrorPointer = nil
                 let saveWorked = moc.save(err)
-                if(err) {
+                if(err != nil) {
                     return (nil, saveWorked, err)
                 }
                 else {
@@ -92,10 +92,10 @@ class Filer: FileServiceProtocol {
         
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
         let services = appDelegate.caturlogServices
-        if let entity = services.entityAccessor.getCharacteristic("URL", value: url.absoluteString)? {
+        if let entity = services.entityAccessor.getCharacteristic("URL", value: url.absoluteString!)? {
             return entity
         }
-        else if let entity = services.entityAccessor.insertCharacteristic("URL", value: url.absoluteString)? {
+        else if let entity = services.entityAccessor.insertCharacteristic("URL", value: url.absoluteString!)? {
             return entity
         }
         
@@ -112,7 +112,7 @@ class Filer: FileServiceProtocol {
     func getResource(url: NSURL, completion: (data: NSData?) -> ()) {
         if( urlIsOnDisk(url)) {
             // Read and return it
-            completion(makeLocalRequest(url))
+            completion(data: makeLocalRequest(url))
         }
         else {
             makeRemoteRequest(url, completion: completion)
@@ -136,8 +136,8 @@ class Filer: FileServiceProtocol {
             request.predicate = predicate
             var err: NSErrorPointer = nil
             let results = moc.executeFetchRequest(request, error: err)
-            if(results.count > 0) {
-                return results[0] as? NSManagedObject
+            if(results!.count > 0) {
+                return results![0] as? NSManagedObject
             }
         }
         
@@ -151,10 +151,10 @@ class Filer: FileServiceProtocol {
             appropriateForURL: nil,
             create: true,
             error: err
-            ).absoluteString
-        path = path + "Caturlog/"
+            )!.absoluteString
+        path = path! + "Caturlog/"
         
-        return NSURL.URLWithString(path)
+        return NSURL(string:path!)!
     }
     
     
@@ -180,12 +180,12 @@ class Filer: FileServiceProtocol {
     }
     
     func localDirectoryFromLocalURL(localURL: NSURL) -> String {
-        var localDirectoryPath = localURL.absoluteString.stringByRemovingPercentEncoding
-        localDirectoryPath = localDirectoryPath.stringByDeletingLastPathComponent;
-        localDirectoryPath = localDirectoryPath
+        var localDirectoryPath = localURL.absoluteString!.stringByRemovingPercentEncoding
+        localDirectoryPath = localDirectoryPath!.stringByDeletingLastPathComponent;
+        localDirectoryPath = localDirectoryPath!
             .stringByReplacingOccurrencesOfString("file:/", withString: "", options: nil, range: nil)
-        localDirectoryPath = "/" + localDirectoryPath + "/"
-        return localDirectoryPath
+        localDirectoryPath = "/" + localDirectoryPath! + "/"
+        return localDirectoryPath!
     }
     
     // Eventually this will check Core Data
@@ -196,19 +196,19 @@ class Filer: FileServiceProtocol {
     func writeFile(url: NSURL, data: NSData) {
         var err: NSErrorPointer = nil
         let urlDir = url.URLByDeletingLastPathComponent
-        let urlPath = url.absoluteString.stringByRemovingPercentEncoding
+        let urlPath = url.absoluteString!.stringByRemovingPercentEncoding!
             .stringByReplacingOccurrencesOfString("file://",
                 withString: "",
                 options:    nil,
                 range:      nil
         )
         
-        var writeState = NSFileManager.defaultManager().createDirectoryAtURL(urlDir,
+        var writeState = NSFileManager.defaultManager().createDirectoryAtURL(urlDir!,
             withIntermediateDirectories: true,
             attributes: nil,
             error: err
         )
-        if(err) {
+        if(err != nil) {
             println("err:\(err)")
         }
         
@@ -221,7 +221,7 @@ class Filer: FileServiceProtocol {
     func deleteFile(url: NSURL) {
         var err: NSErrorPointer = nil
         NSFileManager.defaultManager().removeItemAtURL(url, error: err)
-        if(err) {
+        if(err != nil) {
             println("err:\(err)")
         }
     }
@@ -250,16 +250,16 @@ class Filer: FileServiceProtocol {
         )
     }
     
-    func makeLocalRequest(url: NSURL) -> (data: NSData?) {
+    func makeLocalRequest(url: NSURL) -> (NSData?) {
         let localURL = self.localURLForRemoteURL(url)
         return makeLocalRequestWithLocalURL(localURL)
     }
     
-    func makeLocalRequestWithLocalURL(url: NSURL) -> (data: NSData?) {
-        let localPath = url.absoluteString.stringByRemovingPercentEncoding
+    func makeLocalRequestWithLocalURL(url: NSURL) -> (NSData?) {
+        let localPath = url.absoluteString!.stringByRemovingPercentEncoding!
             .stringByReplacingOccurrencesOfString("file://", withString: "", options: nil, range: nil)
         let data = NSData.dataWithContentsOfMappedFile(localPath) as? NSData
-        cache.setObject(data, forKey: url, cost: data!.length)
+        cache.setObject(data!, forKey: url, cost: data!.length)
         return data
     }
 

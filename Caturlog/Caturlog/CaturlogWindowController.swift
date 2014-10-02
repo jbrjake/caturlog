@@ -26,25 +26,25 @@ class CaturlogWindowController: NSWindowController {
     var viewModel: CaturlogWindowViewModel? = nil
 
     
-    init() {
+    override init() {
         super.init()
     }
     
-    init(window: NSWindow!) {
+    override init(window: NSWindow!) {
         super.init(window: window)
         //Initialization code here.
     }
     
-    init(coder: NSCoder!){
+    required init?(coder: NSCoder){
         super.init(coder: coder);
     }
     
     override func awakeFromNib()  {
         super.awakeFromNib()
-        if (self.window.respondsToSelector(NSSelectorFromString("titleVisibility"))) {
-            self.window.titleVisibility = .Hidden
-            self.window.titlebarAppearsTransparent = true;
-            self.window.styleMask = self.window.styleMask | NSFullSizeContentViewWindowMask;
+        if (self.window!.respondsToSelector(NSSelectorFromString("titleVisibility"))) {
+            self.window!.titleVisibility = .Hidden
+            self.window!.titlebarAppearsTransparent = true;
+            self.window!.styleMask = self.window!.styleMask | NSFullSizeContentViewWindowMask;
 
         }
         viewModel = CaturlogWindowViewModel()
@@ -63,7 +63,7 @@ class CaturlogWindowController: NSWindowController {
             as? NSTableColumn
         {
             column.bind(NSValueBinding,
-                toObject: viewModel?.itemEntityController,
+                toObject: viewModel!.itemEntityController,
                 withKeyPath: "arrangedObjects",
                 options: [
                     NSValueTransformerNameBindingOption: "Caturlog.ItemToNSImageTransformer",
@@ -73,7 +73,7 @@ class CaturlogWindowController: NSWindowController {
         }
         
         imageView.bind(NSValueBinding,
-            toObject: viewModel?.itemEntityController,
+            toObject: viewModel!.itemEntityController,
             withKeyPath: "selection.self",
             options: [
                 NSValueTransformerNameBindingOption: "Caturlog.ItemToNSImageTransformer",
@@ -105,7 +105,7 @@ extension CaturlogWindowController: NSMenuDelegate {
         
         if let itemURLs = self.viewModel?.urlsForSelectedItem() {
             for url: String in itemURLs {
-                let host = NSURL(string:url).host
+                let host = NSURL(string:url)!.host
                 let linkItem = NSMenuItem(title: "Copy link from \(host)", action: Selector("clickedCopyLinkFrom:"), keyEquivalent: "")
                 linkItem.toolTip = url
                 menu.addItem(linkItem)
@@ -126,7 +126,7 @@ extension CaturlogWindowController: NSMenuDelegate {
         let url = menuItem?.toolTip
         let pasteBoard = NSPasteboard.generalPasteboard()
         pasteBoard.declareTypes([NSStringPboardType], owner: nil)
-        pasteBoard.setString(url, forType: NSStringPboardType)
+        pasteBoard.setString(url!, forType: NSStringPboardType)
     }
 
 }

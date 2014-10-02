@@ -18,7 +18,7 @@ class CaturlogWindowViewModel {
         let moc = (NSApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
         itemEntityController = NSArrayController(content: nil)
         itemEntityController.managedObjectContext = moc
-        itemEntityController.bind("managedObjectContext", toObject: moc, withKeyPath: "self", options: nil)
+        itemEntityController.bind("managedObjectContext", toObject: moc!, withKeyPath: "self", options: nil)
         itemEntityController.entityName = "Item"
         itemEntityController.automaticallyPreparesContent = true
         itemEntityController.avoidsEmptySelection = true
@@ -121,7 +121,7 @@ class CaturlogWindowViewModel {
     
     func validURLWithString(string: String) -> NSURL? {
         var validURL: NSURL?  = nil
-        if let url = NSURL.URLWithString(string) {
+        if let url = NSURL(string: string) {
             if let host = url.host {
                 validURL = url
             }

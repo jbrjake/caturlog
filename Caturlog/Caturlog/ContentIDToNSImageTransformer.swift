@@ -9,7 +9,7 @@
 import Cocoa
 
 class ItemToNSImageTransformer: NSValueTransformer {
-    override class func transformedValueClass() -> (AnyClass!) {
+    override class func transformedValueClass() -> (AnyClass) {
         return NSImage.self
     }
     
@@ -17,7 +17,7 @@ class ItemToNSImageTransformer: NSValueTransformer {
         return false
     }
     
-    override func transformedValue(value: AnyObject!) -> AnyObject! {
+    override func transformedValue(value: AnyObject?) -> AnyObject? {
         let appDel = NSApplication.sharedApplication().delegate as AppDelegate
         let filer = appDel.caturlogServices.filer
         if let item = value as? Item {

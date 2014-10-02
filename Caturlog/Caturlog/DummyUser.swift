@@ -12,11 +12,11 @@ import AppKit
 
 class DummyUser: UserServiceProtocol {
 
-    func getCurrentUserID() -> (userID: Int?) {
+    func getCurrentUserID() -> (Int?) {
         return 1
     }
     
-    func getCurrentUser() -> (user: User?) {
+    func getCurrentUser() -> (User?) {
         if let userID = getCurrentUserID()? {
             if let user = getUserWithID(userID)? {
                 return user

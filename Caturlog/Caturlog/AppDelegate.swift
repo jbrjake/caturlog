@@ -32,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 println("\(NSStringFromClass(self.dynamicType)) unable to commit editing before saving")
             }
             if !moc.save(&error) {
-                NSApplication.sharedApplication().presentError(error)
+                NSApplication.sharedApplication().presentError(error!)
             }
         }
     }
@@ -52,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     	
         let modelURL = NSBundle.mainBundle().URLForResource("Caturlog", withExtension: "mom")
-        _managedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL)
+        _managedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL!)
         return _managedObjectModel!
     }
     var _managedObjectModel: NSManagedObjectModel? = nil
@@ -72,23 +72,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let optProperties: NSDictionary? = applicationFilesDirectory.resourceValuesForKeys([NSURLIsDirectoryKey], error: &error)
         
         if let properties = optProperties {
-            if !properties[NSURLIsDirectoryKey].boolValue {
+            if !properties[NSURLIsDirectoryKey]!.boolValue {
                 // Customize and localize this error.
                 let failureDescription = "Expected a folder to store application data, found a file \(applicationFilesDirectory.path)."
                 let dict = NSMutableDictionary()
                 dict[NSLocalizedDescriptionKey] = failureDescription
-                error = NSError.errorWithDomain("YOUR_ERROR_DOMAIN", code: 101, userInfo: dict)
+                error = NSError(domain:"YOUR_ERROR_DOMAIN", code: 101, userInfo: dict)
                 
-                NSApplication.sharedApplication().presentError(error)
+                NSApplication.sharedApplication().presentError(error!)
                 return nil
             }
         } else {
             var ok = false
             if error!.code == NSFileReadNoSuchFileError {
-                ok = fileManager.createDirectoryAtPath(applicationFilesDirectory.path, withIntermediateDirectories: true, attributes: nil, error: &error)
+                ok = fileManager.createDirectoryAtPath(applicationFilesDirectory.path!, withIntermediateDirectories: true, attributes: nil, error: &error)
             }
             if !ok {
-                NSApplication.sharedApplication().presentError(error)
+                NSApplication.sharedApplication().presentError(error!)
                 return nil
             }
         }
@@ -96,7 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let url = applicationFilesDirectory.URLByAppendingPathComponent("Caturlog.storedata")
         var coordinator = NSPersistentStoreCoordinator(managedObjectModel: mom)
             if coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: [NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption: true], error: &error) == nil {
-            NSApplication.sharedApplication().presentError(error)
+            NSApplication.sharedApplication().presentError(error!)
             return nil
         }
         _persistentStoreCoordinator = coordinator
@@ -112,11 +112,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         let coordinator = self.persistentStoreCoordinator
-        if !coordinator {
+        if !(coordinator != nil) {
             var dict = NSMutableDictionary()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the store"
             dict[NSLocalizedFailureReasonErrorKey] = "There was an error building up the data file."
-            let error = NSError.errorWithDomain("YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            let error = NSError(domain:"YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             NSApplication.sharedApplication().presentError(error)
             return nil
         }
@@ -139,7 +139,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldTerminate(sender: NSApplication) -> NSApplicationTerminateReply {
         // Save changes in the application's managed object context before the application terminates.
         
-        if !_managedObjectContext {
+        if managedObjectContext != nil {
             // Accesses the underlying stored property because we don't want to cause the lazy initialization
             return .TerminateNow
         }
@@ -156,7 +156,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var error: NSError? = nil
         if !moc.save(&error) {
             // Customize this code block to include application-specific recovery steps.              
-            let result = sender.presentError(error)
+            let result = sender.presentError(error!)
             if (result) {
                 return .TerminateCancel
             }

@@ -16,12 +16,12 @@ class CaturlogImageView: NSImageView {
             NSGraphicsContext.saveGraphicsState()
             let path = NSBezierPath(roundedRect: aspectFrame, xRadius: 5, yRadius: 5)
             path.addClip()
-            image.drawInRect(aspectFrame, fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0)
+            image?.drawInRect(aspectFrame, fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0)
             NSGraphicsContext.restoreGraphicsState()
         }
     }
     
-    func aspectFit(aspectRatio: CGSize, boundingSize: CGSize) -> (fitSize: CGSize) {
+    func aspectFit(aspectRatio: CGSize, boundingSize: CGSize) -> (CGSize) {
         var fitSize = boundingSize
         let mW = boundingSize.width / aspectRatio.width
         let mH = boundingSize.height / aspectRatio.height
@@ -34,7 +34,7 @@ class CaturlogImageView: NSImageView {
         return fitSize
     }
     
-    func center(size: CGSize, inFrame: CGRect) -> (centeredFrame: CGRect){
+    func center(size: CGSize, inFrame: CGRect) -> (CGRect){
         var centeredFrame = CGRectMake(0, 0, size.width, size.height)
         let widthDelta = inFrame.size.width - size.width
         let heightDelta = inFrame.size.height - size.height
@@ -46,13 +46,13 @@ class CaturlogImageView: NSImageView {
 
 class CaturlogImageCell: NSImageCell {
     
-    override func drawInteriorWithFrame(cellFrame: NSRect, inView controlView: NSView!) {
+    override func drawInteriorWithFrame(cellFrame: NSRect, inView controlView: NSView) {
         println("drawing interior of cell")
         if let imageSize = image?.size {
             NSGraphicsContext.saveGraphicsState()
             let path = NSBezierPath(roundedRect: cellFrame, xRadius: 5, yRadius: 5)
             path.addClip()
-            image.drawInRect(cellFrame, fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0)
+            image?.drawInRect(cellFrame, fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0)
             NSGraphicsContext.restoreGraphicsState()
         }
         

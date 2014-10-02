@@ -13,7 +13,7 @@ class OmnibarViewController :NSViewController, NSTextFieldDelegate {
     @IBOutlet var omnibar: NSTokenField!
     @IBOutlet var caturlogWindowControler :CaturlogWindowController!
         
-    override func controlTextDidChange(obj: NSNotification!) {
+    override func controlTextDidChange(obj: NSNotification) {
         var textField = obj.object as NSTextField
         
         if(textField.isEqualTo(omnibar)) {
@@ -27,7 +27,7 @@ class OmnibarViewController :NSViewController, NSTextFieldDelegate {
                 completion:{
                     urls, tags in
                     for url: NSURL in urls {
-                        textField.stringValue = textField.stringValue.stringByReplacingOccurrencesOfString(url.absoluteString, withString:"", options: NSStringCompareOptions.CaseInsensitiveSearch, range:nil)
+                        textField.stringValue = textField.stringValue.stringByReplacingOccurrencesOfString(url.absoluteString!, withString:"", options: NSStringCompareOptions.CaseInsensitiveSearch, range:nil)
                     }
                     self.caturlogWindowControler.downloadCompleted()
                 }

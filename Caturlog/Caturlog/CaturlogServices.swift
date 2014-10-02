@@ -10,17 +10,17 @@ import Foundation
 
 // Get/insert for entities, eventually delete too
 protocol EntityServiceProtocol {
-    func getItem(contentID: String) -> (item: Item?)
-    func getUser(userID: Int) -> (user: User?)
-    func getTag(name: String) -> (tag: Tag?)
-    func getCharacteristic(name: String, value:String) -> (characteristic: Characteristic?)
+    func getItem(contentID: String) -> (Item?)
+    func getUser(userID: Int) -> (User?)
+    func getTag(name: String) -> (Tag?)
+    func getCharacteristic(name: String, value:String) -> (Characteristic?)
     func getUserItemTag(tag: String, contentID: String, user: User) -> (UserItemTag?)
     func getUserItemTagsForTag(name: String, user: User) -> (Array<UserItemTag>?)
-    func insertItem(contentID: String) -> (item: Item?)
+    func insertItem(contentID: String) -> (Item?)
     func removeItem(contentID: String) -> ()        
-    func insertUser(userID: Int) -> (user: User?)
-    func insertTag(name: String) -> (tag: Tag?)
-    func insertCharacteristic(name: String, value: String) -> (characteristic: Characteristic?)
+    func insertUser(userID: Int) -> (User?)
+    func insertTag(name: String) -> (Tag?)
+    func insertCharacteristic(name: String, value: String) -> (Characteristic?)
 }
 
 protocol FileServiceProtocol {
@@ -43,8 +43,8 @@ protocol TagServiceProtocol {
 }
 
 protocol UserServiceProtocol {
-    func getCurrentUserID() -> (userID: Int?)
-    func getCurrentUser() -> (user: User?)
+    func getCurrentUserID() -> (Int?)
+    func getCurrentUser() -> (User?)
 }
 class CaturlogServices {
     
