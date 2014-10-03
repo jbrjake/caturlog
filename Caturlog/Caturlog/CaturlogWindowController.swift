@@ -119,6 +119,7 @@ extension CaturlogWindowController: NSMenuDelegate {
     
     func clickedDeleteItem() {
         self.viewModel?.deleteSelectedItem()
+        self.tagViewController.oldTokens = Array<String>()
     }
     
     func clickedCopyLinkFrom(sender: AnyObject) {
