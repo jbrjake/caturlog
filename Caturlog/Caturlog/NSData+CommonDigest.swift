@@ -10,8 +10,9 @@ import Foundation
 
 extension NSData {
     
-    func sha256() -> String! {
-        let result = UnsafeMutablePointer<UInt8>(bitPattern:Int(CC_SHA256_DIGEST_LENGTH))
+    func sha256() -> String {
+        
+        let result =  UnsafeMutablePointer<UInt8>.alloc(Int(CC_SHA256_DIGEST_LENGTH))
         
         CC_SHA256(self.bytes, UInt32(self.length), result)
         var hash = NSMutableString()
