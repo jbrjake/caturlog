@@ -90,11 +90,13 @@ class CaturlogWindowController: NSWindowController {
     }
     
     func downloadCompleted() {
-        spinner.stopAnimation(self)
-        self.toolbar.removeItemAtIndex(1)
-        self.viewModel?.itemEntityController.rearrangeObjects()
-        self.itemList.reloadData()
-        self.itemList.selectRowIndexes( NSIndexSet(index: self.itemList.numberOfRows-1), byExtendingSelection: false)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.spinner.stopAnimation(self)
+            self.toolbar.removeItemAtIndex(1)
+            self.viewModel?.itemEntityController.rearrangeObjects()
+            self.itemList.reloadData()
+            self.itemList.selectRowIndexes( NSIndexSet(index: self.itemList.numberOfRows-1), byExtendingSelection: false)
+        })
     }
 }
 
