@@ -12,13 +12,14 @@ import CoreData
 
 class CaturlogWindowController: NSWindowController {
 
+    @IBOutlet var omnibarController:      OmnibarViewController!
     @IBOutlet var imageView:    CaturlogImageView!
     @IBOutlet var tagField:     NSTokenField!
     @IBOutlet var itemList:     NSTableView!
     @IBOutlet var tagViewController: TagViewController!
     @IBOutlet var toolbar: NSToolbar!
     @IBOutlet var spinner: NSProgressIndicator!
-    
+
     var moc: NSManagedObjectContext? {
         return (NSApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
     }
@@ -45,10 +46,14 @@ class CaturlogWindowController: NSWindowController {
             self.window!.titleVisibility = .Hidden
             self.window!.titlebarAppearsTransparent = true;
             self.window!.styleMask = self.window!.styleMask | NSFullSizeContentViewWindowMask;
-
         }
         viewModel = CaturlogWindowViewModel()
-        self.tagViewController.bindTagField()
+        self.tagViewController.bindTagField()        
+
+        // Nasty hack to bring focus to the toolbar token field regardless of the loading order from the .xib
+        dispatch_after(0, dispatch_get_main_queue()) {
+            var result = self.window?.makeFirstResponder(self.omnibarController?.omnibar)
+        }
     }
     
     override func windowWillLoad() {

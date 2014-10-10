@@ -11,8 +11,13 @@ import Cocoa
 class OmnibarViewController :NSViewController, NSTextFieldDelegate {
 
     @IBOutlet var omnibar: NSTokenField!
-    @IBOutlet var caturlogWindowControler :CaturlogWindowController!
+    @IBOutlet var caturlogWindowController :CaturlogWindowController!
         
+    override func awakeFromNib()  {
+        super.awakeFromNib()
+        self.caturlogWindowController.window?.makeFirstResponder(omnibar)
+    }
+
     override func controlTextDidChange(obj: NSNotification) {
         var textField = obj.object as NSTextField
         
@@ -20,16 +25,16 @@ class OmnibarViewController :NSViewController, NSTextFieldDelegate {
             let tokenField = textField as NSTokenField
             let tokens = tokenField.objectValue as Array<String>
             
-            caturlogWindowControler.viewModel?.omnibarTokensChanged(tokens,
+            caturlogWindowController.viewModel?.omnibarTokensChanged(tokens,
                 begin: {
-                    self.caturlogWindowControler.downloadBegan()
+                    self.caturlogWindowController.downloadBegan()
                 },
                 completion:{
                     urls, tags in
                     for url: NSURL in urls {
                         textField.stringValue = textField.stringValue.stringByReplacingOccurrencesOfString(url.absoluteString!, withString:"", options: NSStringCompareOptions.CaseInsensitiveSearch, range:nil)
                     }
-                    self.caturlogWindowControler.downloadCompleted()
+                    self.caturlogWindowController.downloadCompleted()
                 }
             )            
         }

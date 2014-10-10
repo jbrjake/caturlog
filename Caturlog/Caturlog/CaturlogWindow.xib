@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6185.11" systemVersion="14A361c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6249" systemVersion="14A379a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.11"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6249"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CaturlogWindowController" customModule="Caturlog" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="vBf-eO-inq" id="XQZ-JG-rRw"/>
                 <outlet property="itemList" destination="HC5-Ow-Gqe" id="XQj-XG-5B3"/>
+                <outlet property="omnibarController" destination="Ahe-tD-rZo" id="YjQ-4m-mkh"/>
                 <outlet property="spinner" destination="HCK-tU-DSE" id="NKw-AT-liC"/>
                 <outlet property="tagField" destination="6CC-gY-pgh" id="NaX-VJ-AcQ"/>
                 <outlet property="tagViewController" destination="bBD-L3-Ybe" id="1q5-nS-ztt"/>
@@ -177,7 +178,7 @@
         </window>
         <customObject id="Ahe-tD-rZo" customClass="OmnibarViewController" customModule="Caturlog" customModuleProvider="target">
             <connections>
-                <outlet property="caturlogWindowControler" destination="-2" id="QjK-9l-d5y"/>
+                <outlet property="caturlogWindowController" destination="-2" id="DsM-hv-i9I"/>
                 <outlet property="omnibar" destination="ZGS-VJ-SNU" id="TW3-m3-lS2"/>
             </connections>
         </customObject>
