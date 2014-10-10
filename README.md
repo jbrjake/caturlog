@@ -77,10 +77,12 @@ Version 1.0 Milestones: Minimum Viable Product
 * ~Delete url from omnibar when image downloads complete~
 * ~Progress indicator for download so the user knows something is happening~
 * ~~timeouts for downloads~~
-* Don't update table selection when the new one would be the same as the old one, to prevent jerky looking reloads
-* Validate URLs are to supported file formats (let's say .gif, .jpg, and .png)
-* When the arrangedObjects of the item entity list change (for example, when a tag is added or removed) the topmost item should be selected. Right now, that happens when tags are added, but not when they're deleted.
-* focus on text field at launch
+* ~~Validate URLs are to supported file formats (let's say .gif, .jpg, and .png)~~
+* ~~When the arrangedObjects of the item entity list change (for example, when a tag is added or removed) the topmost item should be selected. Right now, that happens when tags are added, but not when they're deleted.~~
+* ~~focus on text field at launch~~
+* Selected items should be scrolled into view.
+* help text for when the app is empty
+* fix bug with links showing "Optional()"
 
 ### Version 0.6: Basic Single User Syncing ###
 
@@ -103,6 +105,8 @@ Version 1.0 Milestones: Minimum Viable Product
 * I want the table view to be resizable horizontally
 * I want the image table views to have slightly rounded corners
 * I want to document the codebase
+* Don't update table selection when the new one would be the same as the old one, to prevent jerky looking reloads
+	* This actually has a lot of overhead--since the table is populated with bindings, the only way to know if the predicate query results will be different is to do a trial run against the moc before assigning the predicate to the array controller.
 
 
 ### Version 1.0: Crowd-tagging
