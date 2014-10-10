@@ -71,6 +71,7 @@ class CaturlogWindowViewModel {
                     self.itemEntityController.fetchPredicate = nil
                     self.itemEntityController.fetch(nil)                
                 }
+                self.itemEntityController.setSelectionIndex(0)
             })
         }
         else {
