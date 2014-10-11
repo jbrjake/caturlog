@@ -113,7 +113,7 @@ extension CaturlogWindowController: NSMenuDelegate {
         if let itemURLs = self.viewModel?.urlsForSelectedItem() {
             for url: String in itemURLs {
                 let host = NSURL(string:url)!.host
-                let linkItem = NSMenuItem(title: "Copy link from \(host)", action: Selector("clickedCopyLinkFrom:"), keyEquivalent: "")
+                let linkItem = NSMenuItem(title: "Copy link from \(host!)", action: Selector("clickedCopyLinkFrom:"), keyEquivalent: "")
                 linkItem.toolTip = url
                 menu.addItem(linkItem)
             }
