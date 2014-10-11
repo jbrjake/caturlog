@@ -41,7 +41,6 @@ class TagViewController :NSViewController, NSTextFieldDelegate {
         tagField.objectValue = ItemToTagStringsTransformer().transformedValue(
             caturlogWindowController.viewModel?.itemEntityController.valueForKeyPath("selection.self")
         )
-        caturlogWindowController.window?.makeFirstResponder(nil)
     }
     
     override func controlTextDidEndEditing(obj: NSNotification) {
