@@ -124,7 +124,8 @@ class CaturlogWindowViewModel {
         var validURL: NSURL?  = nil
         if let url = NSURL(string: string) {
             if let host = url.host {
-                switch url.pathExtension {
+                if let pathExtension = url.pathExtension {
+                    switch pathExtension {
                     case "gif":
                         validURL = url
                     case "jpg":
@@ -135,6 +136,7 @@ class CaturlogWindowViewModel {
                         validURL = url
                     default:
                         validURL = nil
+                    }
                 }
             }
         } 
