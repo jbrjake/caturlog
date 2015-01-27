@@ -54,16 +54,7 @@ class CaturlogWindowController: NSWindowController {
         dispatch_after(0, dispatch_get_main_queue()) {
             var result = self.window?.makeFirstResponder(self.omnibarController?.omnibar)
         }
-    }
-    
-    override func windowWillLoad() {
-        super.windowWillLoad()
-    }
-     
-    override func windowDidLoad() {
-        super.windowDidLoad()
-
-
+        
         if let column: NSTableColumn = itemList.tableColumns[itemList.columnWithIdentifier("ItemImageColumnID")]
             as? NSTableColumn
         {
@@ -77,16 +68,33 @@ class CaturlogWindowController: NSWindowController {
             )
         }
         
-        imageView.bind(NSValueBinding,
+        imageView.bind("gifPath",
             toObject: viewModel!.itemEntityController,
             withKeyPath: "selection.self",
             options: [
-                NSValueTransformerNameBindingOption: "Caturlog.ItemToNSImageTransformer",
+                NSValueTransformerNameBindingOption: "Caturlog.ItemToFilePathTransformer",
                 NSConditionallySetsEnabledBindingOption: false
             ]
         )
-        
-        
+
+        if(viewModel?.itemEntityController.arrangedObjects.count == 0) {
+            let options = [kCGImageSourceShouldCacheImmediately as String: true]
+            if let path = NSBundle.mainBundle().pathForResource("help-small", ofType: "gif") {
+                if let pathURL = NSURL(fileURLWithPath: path) {
+                    self.imageView.gifPath = pathURL
+                }
+            }
+        }
+    }
+    
+    override func windowWillLoad() {
+        super.windowWillLoad()
+    }
+     
+    override func windowDidLoad() {
+        super.windowDidLoad()
+
+
     }    
     
     func downloadBegan() {

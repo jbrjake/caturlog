@@ -8,17 +8,20 @@
 
 import AppKit
 
-class CaturlogImageView: NSImageView {
+@objc(CaturlogImageView)
+class CaturlogImageView: GIFView {
+
     override func drawRect(dirtyRect: NSRect) {
-        if let imageSize = image?.size {
-            let aspectSize = aspectFit(imageSize, boundingSize: dirtyRect.size)
+        if let size = gifSize {
+            let aspectSize = aspectFit(size, boundingSize: dirtyRect.size)
             let aspectFrame = center(aspectSize, inFrame: dirtyRect)
-            NSGraphicsContext.saveGraphicsState()
-            let path = NSBezierPath(roundedRect: aspectFrame, xRadius: 5, yRadius: 5)
-            path.addClip()
-            image?.drawInRect(aspectFrame, fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0)
-            NSGraphicsContext.restoreGraphicsState()
+            if let convertedFrame = self.superview?.convertRect(aspectFrame, fromView: self) {
+                self.frame = convertedFrame
+                self.layer?.frame = convertedFrame
+                self.layer?.bounds = convertedFrame
+            }
         }
+        super.drawRect(dirtyRect)
     }
     
     func aspectFit(aspectRatio: CGSize, boundingSize: CGSize) -> (CGSize) {
@@ -38,24 +41,9 @@ class CaturlogImageView: NSImageView {
         var centeredFrame = CGRectMake(0, 0, size.width, size.height)
         let widthDelta = inFrame.size.width - size.width
         let heightDelta = inFrame.size.height - size.height
-        centeredFrame.origin.x = widthDelta/2
-        centeredFrame.origin.y = heightDelta/2
+        centeredFrame.origin.x = widthDelta/2.0
+        centeredFrame.origin.y = heightDelta/2.0
         return centeredFrame
     }
-}
-
-class CaturlogImageCell: NSImageCell {
     
-    override func drawInteriorWithFrame(cellFrame: NSRect, inView controlView: NSView) {
-        println("drawing interior of cell")
-        if let imageSize = image?.size {
-            NSGraphicsContext.saveGraphicsState()
-            let path = NSBezierPath(roundedRect: cellFrame, xRadius: 5, yRadius: 5)
-            path.addClip()
-            image?.drawInRect(cellFrame, fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0)
-            NSGraphicsContext.restoreGraphicsState()
-        }
-        
-    }
-
 }

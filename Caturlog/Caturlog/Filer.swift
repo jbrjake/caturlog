@@ -125,6 +125,10 @@ class Filer: FileServiceProtocol {
         return returnData
     }
     
+    func getFilePath(contentID: String) -> NSURL? {
+        return localURLForContentID(contentID)
+    }
+    
     // Return the first fetch result for the named managed object matching the given predicate
     func fetchEntity(name: String, predicate: NSPredicate) -> NSManagedObject? {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate

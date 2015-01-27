@@ -15,7 +15,9 @@
 		742968A2197A17220037FBA3 /* OmnibarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742968A0197A17220037FBA3 /* OmnibarViewController.swift */; };
 		742968A7197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */; };
 		742968A8197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */; };
+		7457A85D1A68D08D0057D27B /* GIFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457A85C1A68D08D0057D27B /* GIFView.swift */; };
 		745F382219D51312000855FC /* CaturlogImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745F382119D51312000855FC /* CaturlogImageView.swift */; };
+		74A944B01A6C581A00CE84F5 /* ContentIDToFilePathTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A944AF1A6C581A00CE84F5 /* ContentIDToFilePathTransformer.swift */; };
 		74B94C38198B34B80037AB83 /* ItemToTagStringsTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B94C37198B34B80037AB83 /* ItemToTagStringsTransformer.swift */; };
 		74B94C39198B34B80037AB83 /* ItemToTagStringsTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B94C37198B34B80037AB83 /* ItemToTagStringsTransformer.swift */; };
 		74D0811819650CDD004ACF9F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0811719650CDD004ACF9F /* main.swift */; };
@@ -24,6 +26,7 @@
 		74D0812219650CDD004ACF9F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D0812019650CDD004ACF9F /* MainMenu.xib */; };
 		74D0812E19650CDD004ACF9F /* CaturlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0812D19650CDD004ACF9F /* CaturlogTests.swift */; };
 		74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */; };
+		74EA0D7919EE2D4D0015A5D9 /* help-small.gif in Resources */ = {isa = PBXBuildFile; fileRef = 74EA0D7819EE2D4D0015A5D9 /* help-small.gif */; };
 		74EE31B3197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */; };
 		74EE31B4197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */; };
 		74EE31B9197F4D2300FEB62B /* CaturlogWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE31B8197F4D2300FEB62B /* CaturlogWindowViewModel.swift */; };
@@ -55,7 +58,9 @@
 		7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogWindowController.swift; sourceTree = "<group>"; };
 		742968A0197A17220037FBA3 /* OmnibarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnibarViewController.swift; sourceTree = "<group>"; };
 		742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaturlogWindow.xib; sourceTree = "<group>"; };
+		7457A85C1A68D08D0057D27B /* GIFView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFView.swift; sourceTree = "<group>"; };
 		745F382119D51312000855FC /* CaturlogImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogImageView.swift; sourceTree = "<group>"; };
+		74A944AF1A6C581A00CE84F5 /* ContentIDToFilePathTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentIDToFilePathTransformer.swift; sourceTree = "<group>"; };
 		74B94C37198B34B80037AB83 /* ItemToTagStringsTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemToTagStringsTransformer.swift; sourceTree = "<group>"; };
 		74D0811219650CDD004ACF9F /* Caturlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caturlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D0811619650CDD004ACF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +72,7 @@
 		74D0812C19650CDD004ACF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74D0812D19650CDD004ACF9F /* CaturlogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaturlogTests.swift; sourceTree = "<group>"; };
 		74D0813919650D43004ACF9F /* Caturlog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Caturlog.xcdatamodel; sourceTree = SOURCE_ROOT; };
+		74EA0D7819EE2D4D0015A5D9 /* help-small.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "help-small.gif"; sourceTree = "<group>"; };
 		74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentIDToNSImageTransformer.swift; sourceTree = "<group>"; };
 		74EE31B8197F4D2300FEB62B /* CaturlogWindowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaturlogWindowViewModel.swift; sourceTree = "<group>"; };
 		74EE31BD1985EA1C00FEB62B /* Tagger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tagger.swift; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 				74EE31BD1985EA1C00FEB62B /* Tagger.swift */,
 				74F6BE8C19737C15008AF8E5 /* NSData+CommonDigest.swift */,
 				74EE31B2197CBE1500FEB62B /* ContentIDToNSImageTransformer.swift */,
+				74A944AF1A6C581A00CE84F5 /* ContentIDToFilePathTransformer.swift */,
 				74B94C37198B34B80037AB83 /* ItemToTagStringsTransformer.swift */,
 			);
 			name = Model;
@@ -173,6 +180,7 @@
 		74EE31B6197CBECB00FEB62B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				7457A85C1A68D08D0057D27B /* GIFView.swift */,
 				7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */,
 				742968A0197A17220037FBA3 /* OmnibarViewController.swift */,
 				7424E2D21993350A00CB8EBE /* TagViewController.swift */,
@@ -187,6 +195,7 @@
 				742968A6197C13FA0037FBA3 /* CaturlogWindow.xib */,
 				74D0812019650CDD004ACF9F /* MainMenu.xib */,
 				74D0811E19650CDD004ACF9F /* Images.xcassets */,
+				74EA0D7819EE2D4D0015A5D9 /* help-small.gif */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -280,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74D0811F19650CDD004ACF9F /* Images.xcassets in Resources */,
+				74EA0D7919EE2D4D0015A5D9 /* help-small.gif in Resources */,
 				74D0812219650CDD004ACF9F /* MainMenu.xib in Resources */,
 				742968A7197C13FA0037FBA3 /* CaturlogWindow.xib in Resources */,
 			);
@@ -311,7 +321,9 @@
 				742968A1197A17220037FBA3 /* OmnibarViewController.swift in Sources */,
 				74EE31B9197F4D2300FEB62B /* CaturlogWindowViewModel.swift in Sources */,
 				74F6BE87196CF44E008AF8E5 /* CaturlogServices.swift in Sources */,
+				74A944B01A6C581A00CE84F5 /* ContentIDToFilePathTransformer.swift in Sources */,
 				74D0813A19650D43004ACF9F /* Caturlog.xcdatamodel in Sources */,
+				7457A85D1A68D08D0057D27B /* GIFView.swift in Sources */,
 				7429689E1978D4A50037FBA3 /* CaturlogWindowController.swift in Sources */,
 				7424E2D31993350A00CB8EBE /* TagViewController.swift in Sources */,
 				74F6BE931974D6BC008AF8E5 /* Filer.swift in Sources */,
@@ -454,11 +466,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = Caturlog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = Caturlog/CaturlogBridgingHeader.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};

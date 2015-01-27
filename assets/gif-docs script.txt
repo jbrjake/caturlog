@@ -1,0 +1,53 @@
+Caturlog logo
+<fades out>
+
+<fades in>
+Paste the link to a GIF, JPG, or PNG above.
+<fades out>
+
+<url is typed, floats up>
+
+<fades in>
+It'll download to your computer.
+<fades out>
+
+<animation of bits floating down and forming an image at reduced size>
+
+<fades in>
+It'll get listed on the left.
+<fades out>
+
+<the image shoots to the left>
+
+<fades in>
+...and it'll be shown right here.
+<fades out>
+
+<the image shoots back and fills up the image view>
+
+<fades in>
+Tag images below.
+<fades out>
+
+<types 'helpful, intro, quickstart, caturlog' and it floats down>
+
+<fades in>
+Search above to find tagged images.
+<image disappears>
+<fades out>
+
+<tags 'helpful, quickstart' float up, then image reappears with a bounce> 
+
+<fades in>
+Right-click to share original links with friends.
+<fades out>
+
+<image url shoots off to the upper right, dragging the image behind it>
+
+<fades in>
+Start collecting!
+
+<fades in>
+Caturlog logo
+
+<fades out Start Collecting>

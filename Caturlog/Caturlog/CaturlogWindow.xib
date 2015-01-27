@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6249" systemVersion="14A379a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C99d" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6249"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CaturlogWindowController" customModule="Caturlog" customModuleProvider="target">
             <connections>
-                <outlet property="imageView" destination="vBf-eO-inq" id="XQZ-JG-rRw"/>
+                <outlet property="imageView" destination="vBf-eO-inq" id="hup-9F-9OM"/>
                 <outlet property="itemList" destination="HC5-Ow-Gqe" id="XQj-XG-5B3"/>
                 <outlet property="omnibarController" destination="Ahe-tD-rZo" id="YjQ-4m-mkh"/>
                 <outlet property="spinner" destination="HCK-tU-DSE" id="NKw-AT-liC"/>
@@ -27,11 +27,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="501" height="344"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="light" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="SmV-GI-Maw">
+                    <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="behindWindow" material="light" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="SmV-GI-Maw">
                         <rect key="frame" x="0.0" y="0.0" width="501" height="344"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq" customClass="CaturlogImageView" customModule="Caturlog" customModuleProvider="target">
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" id="zda-M5-lyt"/>
+                            <imageView wantsLayer="YES" canDrawConcurrently="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBf-eO-inq" customClass="CaturlogImageView">
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="zda-M5-lyt"/>
                                 <connections>
                                     <outlet property="menu" destination="Lwx-vH-6mB" id="heg-mN-Ajm"/>
                                 </connections>
@@ -85,7 +85,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="82" id="Af1-tm-QOd"/>
                         </constraints>
-                        <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="center" placeholderString="Add image tags" allowsEditingTextAttributes="YES" id="fdw-pu-OyE">
+                        <tokenFieldCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="center" allowsEditingTextAttributes="YES" id="fdw-pu-OyE">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

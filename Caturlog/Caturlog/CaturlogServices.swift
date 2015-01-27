@@ -31,6 +31,8 @@ protocol FileServiceProtocol {
     func storeAsItem(url: NSURL, completion:(Item?) -> ())    
     // Take a content hash and return a stored file's data if it exists
     func getFile(contentID: String) -> NSData?
+    // Take a content hash and return a URL for the stored file if it exists
+    func getFilePath(contentID: String) -> NSURL?
     // Remove a file
     func deleteItem(contentID: String)
 }
