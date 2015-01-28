@@ -68,7 +68,7 @@ class CaturlogWindowController: NSWindowController {
             )
         }
         
-        imageView.bind("gifPath",
+        imageView.bind("imagePath",
             toObject: viewModel!.itemEntityController,
             withKeyPath: "selection.self",
             options: [
@@ -81,7 +81,7 @@ class CaturlogWindowController: NSWindowController {
             let options = [kCGImageSourceShouldCacheImmediately as String: true]
             if let path = NSBundle.mainBundle().pathForResource("help-small", ofType: "gif") {
                 if let pathURL = NSURL(fileURLWithPath: path) {
-                    self.imageView.gifPath = pathURL
+                    self.imageView.imagePath = pathURL
                 }
             }
         }

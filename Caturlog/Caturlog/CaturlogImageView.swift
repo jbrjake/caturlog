@@ -12,7 +12,7 @@ import AppKit
 class CaturlogImageView: GIFView {
 
     override func drawRect(dirtyRect: NSRect) {
-        if let size = gifSize {
+        if let size = imageSize {
             let aspectSize = aspectFit(size, boundingSize: dirtyRect.size)
             let aspectFrame = center(aspectSize, inFrame: dirtyRect)
             if let convertedFrame = self.superview?.convertRect(aspectFrame, fromView: self) {
