@@ -43,7 +43,6 @@ class CaturlogImageView: NSImageView {
             }
             
             let frameCount = CGImageSourceGetCount(imageData)
-            println("frame count is \(frameCount)")
             frames = Array<CGImageRef>()
             var totalDuration: CFTimeInterval = 0
             for i in 0...frameCount-1 {
@@ -62,7 +61,8 @@ class CaturlogImageView: NSImageView {
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.layer?.addAnimation(animation, forKey: "contents")
-                return
+                self.layoutSubtreeIfNeeded()
+                return  
             })
             
             dispatch_semaphore_signal(self.displaySemaphore)
