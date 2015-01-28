@@ -74,14 +74,16 @@ Version 1.0 Milestones: Minimum Viable Product
 * ~~I want the image view to have slightly rounded corners~~
 * ~~Icon~~
 * ~~Auto-refresh tableview when image downloads complete~~
-* ~Delete url from omnibar when image downloads complete~
-* ~Progress indicator for download so the user knows something is happening~
+* ~~Delete url from omnibar when image downloads complete~~
+* ~~Progress indicator for download so the user knows something is happening~~
 * ~~timeouts for downloads~~
 * ~~Validate URLs are to supported file formats (let's say .gif, .jpg, and .png)~~
 * ~~When the arrangedObjects of the item entity list change (for example, when a tag is added or removed) the topmost item should be selected. Right now, that happens when tags are added, but not when they're deleted.~~
 * ~~focus on text field at launch~~
-* help text for when the app is empty
 * ~~fix bug with links showing "Optional()"~~
+* ~~help text for when the app is empty~~
+* ~~resize image view when gif changes instead of only when frame is redrawn for resizing~~
+* faster display help for when the app is empty
 
 ### Version 0.6: Basic Single User Syncing ###
 
