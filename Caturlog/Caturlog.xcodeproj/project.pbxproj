@@ -180,11 +180,11 @@
 		74EE31B6197CBECB00FEB62B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				7457A85C1A68D08D0057D27B /* GIFView.swift */,
 				7429689D1978D4A50037FBA3 /* CaturlogWindowController.swift */,
 				742968A0197A17220037FBA3 /* OmnibarViewController.swift */,
 				7424E2D21993350A00CB8EBE /* TagViewController.swift */,
 				745F382119D51312000855FC /* CaturlogImageView.swift */,
+				7457A85C1A68D08D0057D27B /* GIFView.swift */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";

@@ -179,7 +179,6 @@ class Filer: FileServiceProtocol {
         let localURL = self.appSupportURL()
             .URLByAppendingPathComponent("items")
             .URLByAppendingPathComponent(contentID)
-            .URLByAppendingPathExtension("gif")        
         return localURL        
     }
     

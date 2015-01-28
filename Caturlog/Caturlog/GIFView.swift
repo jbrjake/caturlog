@@ -74,25 +74,35 @@ class GIFView : NSImageView {
     // and from YFGIFImageView.m in Yang Fei's UIImageView-PlayGIF project: 
     // https://github.com/yfme/UIImageView-PlayGIF
     func durationOfFrame(atIndex: UInt) -> CFTimeInterval {
-        println("getting duration of frame \(atIndex)")
         if let gif = gifData {
             let dictRef = CGImageSourceCopyPropertiesAtIndex(gif, atIndex, [:]) as NSDictionary
-            let gifDict = dictRef[kCGImagePropertyGIFDictionary as String] as NSDictionary
-            var unclampedDelayTime = gifDict[kCGImagePropertyGIFUnclampedDelayTime as String] as CFTimeInterval?
-            var clampedDelayTime = gifDict[kCGImagePropertyGIFDelayTime as String] as CFTimeInterval?
             
-            var delay: CFTimeInterval = 1/24.0 as CFTimeInterval
-            if (unclampedDelayTime != nil) {
-                delay = unclampedDelayTime!
+            if let gifDict = dictRef[kCGImagePropertyGIFDictionary as String] as? NSDictionary {
+                var unclampedDelayTime :CFTimeInterval? = nil
+                var clampedDelayTime :CFTimeInterval? = nil
+                if(gifDict[kCGImagePropertyGIFUnclampedDelayTime as String] != nil) {                
+                    unclampedDelayTime = gifDict[kCGImagePropertyGIFUnclampedDelayTime as String] as CFTimeInterval?
+                }
+                if(gifDict[kCGImagePropertyGIFDelayTime as String] != nil) {
+                    clampedDelayTime = gifDict[kCGImagePropertyGIFDelayTime as String] as CFTimeInterval?
+                }
+                
+                var delay: CFTimeInterval = 1/24.0 as CFTimeInterval
+                if (unclampedDelayTime != nil) {
+                    delay = unclampedDelayTime!
+                }
+                else if (clampedDelayTime != nil) {
+                    delay = clampedDelayTime!
+                }
+                
+                if (delay < 0.011) {
+                    delay = 0.100
+                }
+                return delay
             }
-            else if (clampedDelayTime != nil) {
-                delay = clampedDelayTime!
+            else {
+                return 1 as CFTimeInterval
             }
-            
-            if (delay < 0.011) {
-                delay = 0.100
-            }
-            return delay
         }
         else {
             return 1 as CFTimeInterval
