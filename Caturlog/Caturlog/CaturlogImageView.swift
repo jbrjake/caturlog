@@ -29,7 +29,6 @@ class CaturlogImageView: NSImageView {
         self.layer?.masksToBounds = true
         self.layer?.cornerRadius = 5.0
         self.layer?.contentsGravity = kCAGravityResizeAspect
-        self.layer?.backgroundColor = NSColor.redColor().CGColor
         if let imageBits: NSData = NSData(contentsOfURL: imagePath) {
             dispatch_semaphore_wait(displaySemaphore, DISPATCH_TIME_FOREVER)
             let options = [kCGImageSourceShouldCacheImmediately as String: true]
