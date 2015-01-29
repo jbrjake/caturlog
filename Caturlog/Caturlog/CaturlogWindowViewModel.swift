@@ -149,6 +149,7 @@ class CaturlogWindowViewModel {
             var services = appDel.caturlogServices
             services.filer.deleteItem(item.contentID)
         }
+        itemEntityController.fetch(nil)
     }
 
     func urlsForSelectedItem() -> (Array<String>) {

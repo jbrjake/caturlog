@@ -25,7 +25,7 @@ class ItemToFilePathTransformer: NSValueTransformer {
             return filer.getFilePath(item.contentID)
         }
         else {
-            return ""
+            return NSBundle.mainBundle().pathForResource("help", ofType: "gif")
         }
     }
 }

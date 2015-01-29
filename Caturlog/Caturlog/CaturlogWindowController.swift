@@ -135,6 +135,15 @@ extension CaturlogWindowController: NSMenuDelegate {
     func clickedDeleteItem() {
         self.viewModel?.deleteSelectedItem()
         self.tagViewController.oldTokens = Array<String>()
+        if(viewModel?.itemEntityController.arrangedObjects.count == 0) {
+            let options = [kCGImageSourceShouldCacheImmediately as String: true]
+            if let path = NSBundle.mainBundle().pathForResource("help", ofType: "gif") {
+                if let pathURL = NSURL(fileURLWithPath: path) {
+                    self.imageView.imagePath = pathURL
+                }
+            }
+        }
+
     }
     
     func clickedCopyLinkFrom(sender: AnyObject) {
