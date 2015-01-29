@@ -79,7 +79,7 @@ class CaturlogWindowController: NSWindowController {
 
         if(viewModel?.itemEntityController.arrangedObjects.count == 0) {
             let options = [kCGImageSourceShouldCacheImmediately as String: true]
-            if let path = NSBundle.mainBundle().pathForResource("help-small", ofType: "gif") {
+            if let path = NSBundle.mainBundle().pathForResource("help", ofType: "gif") {
                 if let pathURL = NSURL(fileURLWithPath: path) {
                     self.imageView.imagePath = pathURL
                 }
