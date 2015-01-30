@@ -25,48 +25,53 @@ class CaturlogImageView: NSImageView {
     var displaySemaphore : dispatch_semaphore_t = dispatch_semaphore_create(1)
     
     func displayImage() {
-        self.wantsLayer = true
-        self.layer?.masksToBounds = true
-        self.layer?.cornerRadius = 5.0
-        self.layer?.contentsGravity = kCAGravityResizeAspect
-        if let imageBits: NSData = NSData(contentsOfURL: imagePath) {
-            dispatch_semaphore_wait(displaySemaphore, DISPATCH_TIME_FOREVER)
-            let options = [kCGImageSourceShouldCacheImmediately as String: true]
-            imageData = CGImageSourceCreateWithData(imageBits, options)
-            if let props = CGImageSourceCopyPropertiesAtIndex(imageData?, 0, [:]) as NSDictionary? {
-                let width = props[kCGImagePropertyPixelWidth as String] as NSNumber
-                let height = props[kCGImagePropertyPixelHeight as String] as NSNumber
-                let cgWidth = CGFloat(width)
-                let cgHeight = CGFloat(height)
-                imageSize = CGSize(width: cgWidth, height: cgHeight)
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), { () -> Void in
+            self.wantsLayer = true
+            self.layer?.masksToBounds = true
+            self.layer?.cornerRadius = 5.0
+            self.layer?.contentsGravity = kCAGravityResizeAspect
+            if let imageBits: NSData = NSData(contentsOfURL: self.imagePath) {
+                dispatch_semaphore_wait(self.displaySemaphore, DISPATCH_TIME_FOREVER)
+                let options = [kCGImageSourceShouldCacheImmediately as String: true]
+                self.imageData = CGImageSourceCreateWithData(imageBits, options)
+                if let props = CGImageSourceCopyPropertiesAtIndex(self.imageData?, 0, [:]) as NSDictionary? {
+                    let width = props[kCGImagePropertyPixelWidth as String] as NSNumber
+                    let height = props[kCGImagePropertyPixelHeight as String] as NSNumber
+                    let cgWidth = CGFloat(width)
+                    let cgHeight = CGFloat(height)
+                    self.imageSize = CGSize(width: cgWidth, height: cgHeight)
+                }
+                
+                let frameCount = CGImageSourceGetCount(self.imageData)
+                self.frames = Array<CGImageRef>()
+                var totalDuration: CFTimeInterval = 0
+                for i in 0...frameCount-1 {
+                    let frameDuration = self.durationOfFrame(i)
+                    totalDuration += frameDuration
+                    let frame = CGImageSourceCreateImageAtIndex(self.imageData, i, [:])
+                    self.frames?.append(frame)
+                }
+                                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.layer?.removeAnimationForKey("contents")
+                    let animation = CAKeyframeAnimation(keyPath: "contents")
+                    animation.calculationMode = kCAAnimationDiscrete
+                    animation.values = self.frames?
+                    self.frames = nil
+                    animation.duration = totalDuration
+                    animation.repeatCount = Float.infinity
+                    println("adding animation")
+                    self.layer?.addAnimation(animation, forKey: "contents")
+                    println("added animation")
+                    self.layoutSubtreeIfNeeded()
+                    return  
+                })
+                
+                println("releasing semaphore")
+                dispatch_semaphore_signal(self.displaySemaphore)
             }
-            
-            let frameCount = CGImageSourceGetCount(imageData)
-            frames = Array<CGImageRef>()
-            var totalDuration: CFTimeInterval = 0
-            for i in 0...frameCount-1 {
-                let frameDuration = durationOfFrame(i)
-                totalDuration += frameDuration
-                let frame = CGImageSourceCreateImageAtIndex(imageData, i, [:])
-                frames?.append(frame)
-            }
-            
-            let animation = CAKeyframeAnimation(keyPath: "contents")
-            animation.calculationMode = kCAAnimationDiscrete
-            animation.values = self.frames?
-            self.frames = nil
-            animation.duration = totalDuration
-            animation.repeatCount = Float.infinity
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.layer?.addAnimation(animation, forKey: "contents")
-                self.layoutSubtreeIfNeeded()
-                return  
-            })
-            
-            dispatch_semaphore_signal(self.displaySemaphore)
-        }
-        
+        })
+        println("returning from display image")
     }
     
     // Adapted from http://stackoverflow.com/a/17824564
